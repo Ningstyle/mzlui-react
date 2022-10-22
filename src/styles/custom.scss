@@ -1,0 +1,124 @@
+#root,body{
+  padding:0;
+  border:0;
+  margin:0;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,apple color emoji,segoe ui emoji,Segoe UI Symbol,noto color emoji;
+  background: #fff;
+  transition: background 1s cubic-bezier(.075,.82,.165,1);
+  .layoutBox{
+    width: 100%;
+    height:100vh;
+    overflow-y: auto;
+    .MenuBoxInner{
+      width: 100%;
+      height: 64px;
+      padding: 0 40px;
+      background: #fff;
+      box-shadow: 0 2px 8px #f0f1f2;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .RouterViewInnerBox{
+      width: 100%;
+      height: calc(100vh - 84px);
+      display: flex;
+      margin-top: 20px;
+      .leftMenuBox{
+        width: 317px;
+        height: 100%;
+        overflow-y: auto;
+        border-right: 1px solid rgba(0,0,0,.06);
+        .groupItemBox{
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+          p{
+            width: 100%;
+            line-height: 40px;
+            margin:0;
+            padding:5px 0 5px 40px;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(0,0,0,.06);
+            font-size: 14px;
+            color:#00000073
+          }
+          .menuItem{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin-top:15px;
+            li{
+              width: 100%;
+              line-height: 40px;
+              margin:0;
+              padding-left:40px;
+              box-sizing: border-box;
+              cursor: pointer;
+              font-size: 14px;
+              color:#000000d9;
+              list-style: none;
+              margin:4px 0;
+              border-left: 3px solid #fff;
+              transition: all .2s ease-in;
+              &:hover{
+                color:#1890ff
+              }
+            }
+            li.active{
+              background: #e6f7ff;
+              color:#1890ff;
+              border-left: 3px solid #1890ff;
+            }
+          }
+          
+        }
+      }
+      .contentBox{
+        width: calc(100% - 317px);
+        height:100%;
+        overflow-y: auto;
+        padding:0 40px 20px 40px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+.packagesTitle,.packagesSubTitle{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: #000000d9;
+  font-weight: 500;
+  font-size: 30px;
+  font-family: Avenir,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,apple color emoji,segoe ui emoji,Segoe UI Symbol,noto color emoji,sans-serif;
+  line-height: 38px;
+  span{
+    margin-left:12px;
+  }
+}
+.packagesSubTitle{
+  color: #000000d9;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  margin-top:20px;
+  display: flex;
+  align-items: baseline;
+  span{
+    margin-left:12px;
+    font-size: 16px;
+    line-height: 32px;
+    color: #1f1f1fd9;
+  }
+}
+.packagesDesc,.packagesSubDesc{
+  color: #000000d9;
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 30px;
+}
+.packagesSubDesc{
+  margin:0 0 5px 0;
+  margin-bottom: 0px;
+}

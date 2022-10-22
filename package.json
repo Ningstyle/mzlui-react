@@ -1,0 +1,75 @@
+{
+  "name": "mzlui-rt",
+  "author": "style'me",
+  "private": false,
+  "version": "0.0.4",
+  "type": "module",
+  "main": "./dist/mzl-ui-rt.umd.js",
+  "module": "./dist/mzl-ui-rt.es.js",
+  "typings": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/mzl-ui-rt.es.js",
+      "require": "./dist/mzl-ui-rt.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "description": "mzl-ui-rt",
+  "keywords": [
+    "react"
+  ],
+  "files": [
+    "dist/*"
+  ],
+  "license": "MIT",
+  "homepage": "https://mzlui.codeym.com/",
+  "bugs": {
+    "url": "https://mzlui.codeym.com/",
+    "email": "1046674804@qq.com"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-typescript": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "@vitejs/plugin-react": "^2.0.0",
+    "babel-eslint": "^10.1.0",
+    "classnames": "^2.3.1",
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "highlight.js": "^11.6.0",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.3",
+    "react-router-dom": "^6.3.0",
+    "sass": "^1.54.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "vite": "^3.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@types/node": "^18.6.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "babel-loader": "^8.2.5",
+    "cross-env": "^7.0.3",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.4"
+  }
+}
