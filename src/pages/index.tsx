@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import RouterPages from '../router/pages/page';
 import Menu from '../components/menu';
@@ -47,23 +47,23 @@ export default function Index() {
         <div className="leftMenuBox">
           {menuData && menuData.length
             ? menuData.map((item: any, index: number) => (
-                <div key={index} className="groupItemBox">
-                  <p>{item.group}</p>
-                  <div className="menuItem">
-                    {item.children.length
-                      ? item.children.map((v: any, i: number) => (
-                          <li
-                            key={i}
-                            className={menuIndex === index + i ? 'active' : ''}
-                            onClick={() => handlerClick(item, v, index + i)}
-                          >
-                            {v.name}
-                          </li>
-                        ))
-                      : null}
-                  </div>
+              <div key={index} className="groupItemBox">
+                <p>{item.group}</p>
+                <div className="menuItem">
+                  {item.children.length
+                    ? item.children.map((v: any, i: number) => (
+                      <li
+                        key={i}
+                        className={menuIndex === index + i ? 'active' : ''}
+                        onClick={() => handlerClick(item, v, index + i)}
+                      >
+                        {v.name}
+                      </li>
+                    ))
+                    : null}
                 </div>
-              ))
+              </div>
+            ))
             : null}
         </div>
         <div className="contentBox">

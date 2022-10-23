@@ -1,10 +1,11 @@
 // 路由配置
+import React from 'react';
 import IndexPage from '../../pages/index';
 import HomePage from '../../pages/home';
 import LayoutPage from '../../pages/layout';
 import ButtonPage from '../../pages/packages/button';
 import Nofound from '../../pages/404';
-import InderInner from '../../pages/packages/index';
+import Dedicate from '../../pages/packages/dedicate';
 import InputPage from '../../pages/packages/input';
 
 const BaseRouter: any = [
@@ -18,7 +19,7 @@ const BaseRouter: any = [
     children: [
       {
         path: '/index',
-        element: <InderInner />,
+        element: <Dedicate />,
         name: '贡献指南',
         group: '快速上手',
         router: '/docs/index',

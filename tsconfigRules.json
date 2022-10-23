@@ -22,7 +22,12 @@
     "packages/**/*.ts",
     "src/**/*.tsx",
     "packages/**/*.tsx",
-    "vite.config.ts"
+    "vite.config.ts",
+    "build/**/*.ts",
+    "src/**/*",
+    "images.d.ts",
+    "images.d.ts",
+    "/**/*"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
