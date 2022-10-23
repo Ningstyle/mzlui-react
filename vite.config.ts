@@ -9,8 +9,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData:
-          '@import "./src/styles/index.scss";@import "./src/styles/variable.scss";@import "./src/styles/custom.scss";@import "./src/styles/theme.scss";', // 添加公共样式
+        additionalData: '@import "./src/styles/app.scss";', // 添加公共样式
       },
     },
   },

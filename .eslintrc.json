@@ -71,7 +71,8 @@
         "singleQuote": true,
         "parser": "flow"
       }
-    ]
+    ],
+    "react/button-has-type": 1
   },
   "settings": {
     "import/ignore": ["node_modules"]
