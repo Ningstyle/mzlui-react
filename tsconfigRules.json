@@ -25,9 +25,7 @@
     "vite.config.ts",
     "build/**/*.ts",
     "src/**/*",
-    "images.d.ts",
-    "images.d.ts",
-    "/**/*"
+    "react-app-env.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

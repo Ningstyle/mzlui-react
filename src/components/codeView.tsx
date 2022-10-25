@@ -12,7 +12,7 @@ export default function CodeView(props: codeVoewProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [code, setCode] = useState('');
   const [openCode, setOpenCode] = useState(showCode || false);
-  const filePath = `../demo/${path}.tsx?raw`;
+  const filePath = `/src/demo/${path}.tsx?raw`;
   useEffect(() => {
     const s = import(/* @vite-ignore */ filePath);
     s.then((res) => {

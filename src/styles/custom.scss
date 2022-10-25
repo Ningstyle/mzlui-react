@@ -21,7 +21,97 @@ body {
       box-sizing: border-box;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+
+      .menuinnerBox {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .leftMenuLogo {
+          display: flex;
+          align-items: center;
+
+          .logo {
+            width: 50px;
+            height: 39px;
+            background: url('/src/assets/logo-c.png') no-repeat;
+            background-size: contain;
+          }
+
+          .version {
+            margin-left: 10px;
+            font-size: 14px;
+            color: $heading-color;
+            font-weight: 700;
+          }
+        }
+
+        .menuitemBox {
+          display: flex;
+          gap: 110px;
+
+          li {
+            list-style: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: $heading-color;
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+            transition: all .15s ease-in;
+
+            &:hover {
+              color: $primary-color;
+            }
+          }
+
+          li.active {
+            color: $primary-color;
+            transition: all .15s ease-in;
+          }
+
+          li.active:after {
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            z-index: 0;
+            width: 100%;
+            height: 2px;
+            transform: translateX(-50%);
+            background: $primary-color;
+            transition: all .15s ease-in;
+          }
+        }
+
+        .linsArea1 {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .github {
+            width: 25px;
+            height: 30px;
+            background: url('/src/assets/github1.png') no-repeat;
+            background-size: contain;
+            display: inline-block;
+            cursor: pointer;
+          }
+
+          .npm {
+            width: 23px;
+            height: 30px;
+            background: url('/src/assets/npm1.png') no-repeat;
+            background-size: contain;
+            display: inline-block;
+            cursor: pointer;
+          }
+        }
+      }
     }
 
     .RouterViewInnerBox {
@@ -151,7 +241,7 @@ body {
 }
 
 .customDemoStyle {
-  padding: .6em 1em;
+  padding: 1em;
   border: 1px solid $border-color-base;
   border-bottom: 0;
   box-sizing: border-box;
@@ -248,6 +338,17 @@ body {
     padding-left: 4px;
     list-style-type: circle;
     line-height: 24px;
+
+    code {
+      margin: 0 4px;
+      padding: 0.2em 0.4em;
+      font-size: .9em;
+      background: #f2f4f5;
+      border: 1px solid rgba(0, 0, 0, .06);
+      border-radius: 3px;
+      color: #000000d9;
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+    }
   }
 
   .line-li::marker {
@@ -295,50 +396,315 @@ body {
   background: #fff;
 }
 
-
-
 // 主页
 .mzl-ui-react-home-inner {
   width: 100%;
-  height: auto;
-  overflow: hidden;
+  height: 100vh;
+  overflow: auto;
 
-  .imgLogo {
-    margin: 80px auto 0;
-    display: block;
-    width: 12vw;
-    position: relative;
+  .homeBoxinner {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #e9f3fc url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjAwMHB4IiBoZWlnaHQ9IjcwMHB4IiB2aWV3Qm94PSIwIDAgMjAwMCA3MDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5SZWN0YW5nbGUgMTQ8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz4KICAgICAgICA8cmFkaWFsR3JhZGllbnQgY3g9IjMyLjI4MzY3MDYlIiBjeT0iNDIuMTM0OTg4JSIgZng9IjMyLjI4MzY3MDYlIiBmeT0iNDIuMTM0OTg4JSIgcj0iNDYuNTEzMDMzJSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwLjMyMjgzNywwLjQyMTM1MCksc2NhbGUoMC4zNTAwMDAsMS4wMDAwMDApLHJvdGF0ZSg5MC4wMDAwMDApLHNjYWxlKDEuMDAwMDAwLDIuMTExMjE2KSx0cmFuc2xhdGUoLTAuMzIyODM3LC0wLjQyMTM1MCkiIGlkPSJyYWRpYWxHcmFkaWVudC0xIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzMwNThFNSIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMDAwMEMyIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgICAgIDxwYXRoIGQ9Ik0wLDAgTDIwMDAsMCBMMjAwMCw1MTcuMzkwODEzIEMxOTQ3Ljk3NTM1LDUyNC45NjU3ODUgMTg5My4wMzM4Nyw1MjQuOTY1Nzg1IDE4MzUuMTc1NTYsNTE3LjM5MDgxMyBDMTcyMy40NDY4OCw1MDIuNzYyOTgzIDE2MjEuODMxMDYsNDQ2LjQwNjI4IDE0OTUsNDQ2LjQwNjI4IEMxMjU3LjE3NTc2LDQ0Ni40MDYyOCAxMTQyLjgwNjgxLDYxMC4yMzM4MSA5NjkuNzc3MzE5LDY0NC40ODgwMSBDNjg5LjM2NzU4OCw3MDAgNjE3LjE4Mzc1OSw1ODIuNzI5MDA3IDQwNSw1ODIuNzI5MDA3IEMyODQuNDYzMDA2LDU4Mi43MjkwMDcgMTQ5LjQ2MzAwNiw2MjEuODE5MzM4IDAsNzAwIEwwLDAgWiIgaWQ9InBhdGgtMiI+PC9wYXRoPgogICAgPC9kZWZzPgogICAgPGcgaWQ9IumhtemdoiIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkFydGJvYXJkLTIiPgogICAgICAgICAgICA8ZyBpZD0iUmVjdGFuZ2xlLTE0Ij4KICAgICAgICAgICAgICAgIDxtYXNrIGlkPSJtYXNrLTMiIGZpbGw9IndoaXRlIj4KICAgICAgICAgICAgICAgICAgICA8dXNlIHhsaW5rOmhyZWY9IiNwYXRoLTIiPjwvdXNlPgogICAgICAgICAgICAgICAgPC9tYXNrPgogICAgICAgICAgICAgICAgPHVzZSBpZD0iTWFzayIgZmlsbD0idXJsKCNyYWRpYWxHcmFkaWVudC0xKSIgZmlsbC1ydWxlPSJub256ZXJvIiB4bGluazpocmVmPSIjcGF0aC0yIj48L3VzZT4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik01LDcwNi45NjU3NTIgQzE2MC41ODE1MjUsNTg2LjEzNDEyMiAzNTkuNDIyOTgzLDUyNS43MTgzMDYgNjAxLjUyNDM3Miw1MjUuNzE4MzA2IEM4ODguMzAyMjQ4LDUyNS43MTgzMDYgOTQ1LjUyOTI3OSw2NjEuMTgxMDA0IDEzMDcuMDAzNiw2NDguODU5MTUzIEMxNDQ3LjczMTY0LDY0NC4wNjIwNDkgMTY3NC44ODMzLDUyNS43MTgzMDYgMTg0MS42MTY2NCw1MjUuNzE4MzA2IEMxOTE1LjA4ODE4LDUyNS43MTgzMDYgMTk2OS41NDkzLDUzNi4xNDE4NTUgMjAwNSw1NTYuOTg4OTUyIEwyMDA1LDc3MiBMNSw3NzIgTDUsNzA2Ljk2NTc1MiBaIiBmaWxsPSIjMzA1OEU1IiBmaWxsLXJ1bGU9Im5vbnplcm8iIG9wYWNpdHk9IjAuODAyOTU3NTg5IiBtYXNrPSJ1cmwoI21hc2stMykiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+) top no-repeat;
+    padding-bottom: 80px;
 
-    img {
+    .homeHeader {
       width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .homeHaderInner {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logoArea {
+          display: flex;
+
+          .logoImg {
+            width: 50px;
+            height: 40px;
+            background: url('/src/assets/logo-w.png') no-repeat;
+            background-size: contain;
+          }
+
+          .nameSpan {
+            font-size: 24px;
+            color: #fff;
+            font-weight: 700;
+            font-style: italic;
+            margin-left: 4px;
+          }
+        }
+
+        .menuArea {
+          height: 74px;
+          display: flex;
+          align-items: center;
+          gap: 110px;
+
+          li {
+            list-style: none;
+            font-size: 16px;
+            color: #fff;
+            position: relative;
+            height: 70px;
+            line-height: 70px;
+            cursor: pointer;
+            opacity: .8;
+            transition: all .15s ease-in;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+
+          li.active {
+            opacity: 1;
+          }
+
+          li.active:after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            z-index: 0;
+            width: 100%;
+            height: 2px;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, #00B2BD, #2CEB85);
+          }
+        }
+
+        .linsArea {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          .github {
+            width: 25px;
+            height: 30px;
+            background: url('/src/assets/github.png') no-repeat;
+            background-size: contain;
+            display: inline-block;
+            cursor: pointer;
+          }
+
+          .npm {
+            width: 23px;
+            height: 30px;
+            background: url('/src/assets/npm.png') no-repeat;
+            background-size: contain;
+            display: inline-block;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .imgLogo {
+      margin: 80px auto 0;
       display: block;
+      width: 12vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        display: block;
+        width: 150px;
+        background: url('/src/assets/logo-w.png') no-repeat;
+        height: 105px;
+        background-size: contain;
+      }
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 2vw;
+      color: #fff;
+      margin: 46px 0 0;
+      font-family: Open Sans, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif;
+      font-weight: 700;
+    }
+
+    .tiBox {
+      text-align: center;
+      font-size: 1vw;
+      color: #fff
+    }
+
+    .contentBoxInnerHome {
+      width: 70%;
+      height: auto;
+      overflow: hidden;
+      margin: 0 auto;
+
+      .homeBtnGroup {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4.5vh;
+        height: 100px
+      }
+
+      .compentsdescBoxInner {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin-top: 280px;
+
+        .compentsdescBoxItemInner {
+          width: 100%;
+          height: 37.5vh;
+          display: inline-flex;
+          gap: 1.6vw;
+          flex-direction: inherit;
+          align-items: center;
+          flex-wrap: wrap;
+          padding: 5px;
+
+          .itemInner {
+            width: 12.55vw;
+            height: 100%;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            background: #fff;
+            overflow: hidden;
+            -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+            -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+            box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+            cursor: pointer;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: all .2s ease-in;
+            background-size: contain;
+            background-position: center 285px;
+
+            p {
+              text-align: center;
+              font-weight: 700;
+              font-size: 20px;
+              color: $heading-color;
+            }
+
+            .itemdescContent {
+              text-align: center;
+              color: $text-color;
+              font-size: $font-size-base;
+              transition: all .2s ease-in;
+            }
+
+            .itemIcon {
+              width: 85%;
+              height: 21vh;
+              margin: 0 auto;
+            }
+
+            .descicon1 {
+              background: url('/src/assets/tiji.png') no-repeat;
+              background-size: contain;
+              background-position: center center;
+            }
+
+            .descicon2 {
+              background: url('/src/assets/kuaisu.png') no-repeat;
+              background-size: contain;
+              background-position: center center;
+            }
+
+            .descicon3 {
+              background: url('/src/assets/tuozhan.png') no-repeat;
+              background-size: contain;
+              background-position: center center;
+            }
+
+            .descicon4 {
+              background: url('/src/assets/zhichi.png') no-repeat;
+              background-size: contain;
+              background-position: center center;
+            }
+
+            .descicon5 {
+              background: url('/src/assets/xuanran.png') no-repeat;
+              background-size: contain;
+              background-position: center center;
+            }
+
+            .itemDesc {
+              width: 100%;
+              height: 12.5vh;
+              padding: 0 20px 0 20px;
+              box-sizing: border-box;
+            }
+
+            &:hover {
+              background: url('/src/assets/border1.svg') no-repeat;
+              background-size: contain;
+              background-position: center bottom;
+
+              p {
+                opacity: 0;
+              }
+
+              .itemdescContent {
+                color: #fff;
+              }
+            }
+          }
+
+        }
+      }
     }
   }
 
-  h3 {
-    text-align: center;
-    font-size: 2vw;
+  .footerInner {
+    height: 50px;
+    font-size: 14px;
+    color: #9aa9e1;
+    color: rgba(255, 255, 255, 0.6);
+    background: #0000C2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+.updatelogInner {
+  .verisonInfo {
+    font-size: 18px;
     color: $heading-color;
-    margin: 16px 0 0;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    .version {
+      font-size: 20px;
+    }
+
+    .time {
+      margin-left: 40px;
+    }
   }
 
-  .tiBox {
-    text-align: center;
-    color: $text-color;
-    font-size: .9vw;
-  }
+  .updateContent {
+    color: $heading-color;
 
-  .contentBoxInnerHome {
-    width: 70%;
-    height: auto;
-    overflow: hidden;
-    margin: 0 auto;
+    p {
+      margin-bottom: 5px;
+    }
 
-    .homeBtnGroup {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 4.5vh;
+    .linedeiv {
+      li {
+        line-height: 24px;
+        font-size: 14px;
+      }
     }
   }
 }
