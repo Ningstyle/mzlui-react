@@ -19,7 +19,7 @@ export default function Index() {
           <div className="homeHaderInner">
             <div className="logoArea">
               <span className="logoImg" />
-              <span className="nameSpan">mzl-ui-react</span>
+              <span className="nameSpan">React</span>
             </div>
             <div className="menuArea">
               {

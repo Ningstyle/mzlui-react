@@ -1,4 +1,4 @@
-.button-inner {
+.mzl_btn {
   line-height: 1.5715;
   position: relative;
   display: inline-block;
@@ -7,7 +7,7 @@
   text-align: center;
   background-image: none;
   border: 1px solid transparent;
-  box-shadow: 0 2px #00000004;
+  box-shadow: 0 2px $btn-shadow-base;
   cursor: pointer;
   transition: all .3s cubic-bezier(.645, .045, .355, 1);
   -webkit-user-select: none;
@@ -15,11 +15,111 @@
   -ms-user-select: none;
   user-select: none;
   touch-action: manipulation;
-  height: 32px;
-  padding: 4px 15px;
-  font-size: 14px;
+  height: 34px;
+  padding: 5px 15px;
+  font-size: $font-size-base;
   border-radius: 2px;
   color: $text-color;
-  border-color: #d9d9d9;
+  border-color: rgba(0, 0, 0, 0);
   background: #fff;
+
+  &:hover {
+    color: $primary-color;
+    border-color: $primary-color;
+    opacity: .8;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
+
+.mzl_btn_default {
+  background-color: #fff;
+  color: $text-color;
+  border-color: $btn-border-color;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.mzl_btn_primary {
+  background-color: $primary-color;
+  color: #fff;
+  border-color: $primary-color;
+
+  &:hover {
+    color: #fff
+  }
+}
+
+.mzl_btn_success {
+  background-color: $success-color;
+  color: #fff;
+  border-color: $success-color;
+
+  &:hover {
+    color: #fff;
+    border-color: $success-color;
+  }
+}
+
+.mzl_btn_warning {
+  background-color: $warning-color;
+  color: #fff;
+  border-color: $warning-color;
+
+  &:hover {
+    color: #fff;
+    border-color: $warning-color;
+  }
+}
+
+.mzl_btn_error {
+  background-color: $error-color;
+  color: #fff;
+  border-color: $error-color;
+
+  &:hover {
+    color: #fff;
+    border-color: $error-color;
+  }
+}
+
+.mzl_btn_info {
+  background-color: $info-color;
+  color: #fff;
+  border-color: $info-color;
+
+  &:hover {
+    color: #fff;
+    border-color: $info-color;
+  }
+}
+
+.mzl_btn_link {
+  background-color: rgba(0, 0, 0, 0);
+  ;
+  color: $primary-color;
+  border-color: rgba(0, 0, 0, 0);
+  ;
+
+  &:hover {
+    color: $primary-color;
+    border-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.mzl_btn_text {
+  background-color: rgba(0, 0, 0, 0);
+  ;
+  color: $text-color;
+  border-color: rgba(0, 0, 0, 0);
+  ;
+
+  &:hover {
+    color: $text-color;
+    border-color: rgba(0, 0, 0, 0);
+  }
 }
