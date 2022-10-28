@@ -7,8 +7,6 @@ import { Button } from '../../../packages';
 
 export default function InputPage() {
   return (
-    <div>
-      <Button>input</Button>
-    </div>
+    <Button>input</Button>
   );
 }

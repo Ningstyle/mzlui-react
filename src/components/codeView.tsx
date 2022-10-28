@@ -13,12 +13,20 @@ export default function CodeView(props: codeVoewProps) {
   const [code, setCode] = useState('');
   const [openCode, setOpenCode] = useState(showCode || false);
   const filePath = `/src/demo/${path}.tsx?raw`;
+  const filePath1 = `/src/demo/${path}.tsx`;
+  const isDev = import.meta.env.MODE === "development";
   useEffect(() => {
-    const s = import(/* @vite-ignore */ filePath);
-    s.then((res) => {
-      setCode(res.default);
-    });
-  }, [filePath]);
+    async function getcontent() {
+      if (isDev) {
+        const res = (await import(/* @vite-ignore */ filePath)).default
+        setCode(res);
+      } else {
+        const res1 = await fetch(filePath1).then((res) => res.text())
+        setCode(res1)
+      }
+    }
+    getcontent()
+  }, [filePath, filePath1]);
   useEffect(() => {
     // 配置 highlight.js
     hljs.configure({
