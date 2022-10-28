@@ -51,6 +51,16 @@ export default function UpdateLog() {
         },
       ],
     },
+    {
+      version: '0.0.6',
+      time: '2022-10-28',
+      log: [
+        {
+          title: '优化',
+          content: ['优化可视化文档部署问题。'],
+        },
+      ],
+    },
   ])
   return (
     <div>

@@ -7,8 +7,6 @@ import { Button } from '../../../packages';
 
 export default function Textarea() {
   return (
-    <div>
-      <Button>textarea</Button>
-    </div>
+    <Button>textarea</Button>
   );
 }
