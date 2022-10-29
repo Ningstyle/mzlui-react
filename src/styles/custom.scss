@@ -349,6 +349,10 @@ body {
       color: #000000d9;
       font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
     }
+
+    a {
+      color: $link-color
+    }
   }
 
   .line-li::marker {
