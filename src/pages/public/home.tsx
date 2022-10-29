@@ -7,11 +7,34 @@ export default function Index() {
   const [menulist] = useState([
     { name: "首页", path: "/" },
     { name: "组件", path: "/docs/index" },
-    { name: "更新日志", path: "/" },
-    { name: "问题反馈", path: "/" },
+    { name: "更新日志", path: "/docs/updateLog" },
+    { name: "问题反馈", path: "https://github.com/Ningstyle/mzlui-react/issues" },
   ])
   const [menuIndex, setMenuIndex] = useState(0)
   sessionStorage.removeItem('menuIndex')
+  sessionStorage.removeItem('mIndex')
+  const menuClick = (index: number, path: string) => {
+    const arr = {
+      0: 0,
+      1: 1,
+      2: 2,
+    }
+    const arr1 = {
+      0: '',
+      1: '0-0',
+      2: '0-2',
+    }
+    if (index !== 3) {
+      setMenuIndex(index);
+      navigate(path)
+      sessionStorage.setItem('menuIndex', arr1[index])
+      sessionStorage.setItem('mIndex', arr[index])
+    } else {
+      window.open(path)
+    }
+
+
+  }
   return (
     <div className="mzl-ui-react-home-inner">
       <div className="homeBoxinner">
@@ -24,7 +47,7 @@ export default function Index() {
             <div className="menuArea">
               {
                 menulist.map((item, index) => (
-                  <li key={index} className={menuIndex === index ? 'active' : ''} onClick={() => { setMenuIndex(index); navigate(item.path) }}>{item.name}</li>
+                  <li key={index} className={menuIndex === index ? 'active' : ''} onClick={() => menuClick(index, item.path)}>{item.name}</li>
                 ))
               }
             </div>
