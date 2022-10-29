@@ -61,6 +61,16 @@ export default function UpdateLog() {
         },
       ],
     },
+    {
+      version: '0.0.7',
+      time: '2022-10-29',
+      log: [
+        {
+          title: '新增',
+          content: ['新增执行push到dev分支自动构建并部署到dev环境。'],
+        },
+      ],
+    },
   ])
   return (
     <div>
