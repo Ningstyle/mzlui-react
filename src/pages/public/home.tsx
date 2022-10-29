@@ -41,7 +41,7 @@ export default function Index() {
         <p className="tiBox">完美支持React18+TS+Vite，更小的体积，更快的响应，更强的拓展性，让我们一起向未来，拥抱这精彩的code世界！ </p>
         <div className="contentBoxInnerHome">
           <div className="homeBtnGroup">
-            <Button type="success" onClick={() => navigate('/docs/index')} style={{ width: '100px' }}>快速开始1</Button>
+            <Button type="success" onClick={() => navigate('/docs/index')} style={{ width: '100px' }}>快速开始</Button>
             <Button onClick={() => window.open('https://github.com/Ningstyle/mzlui-react')} style={{ width: '100px' }}>Github</Button>
           </div>
           <div className="compentsdescBoxInner">
