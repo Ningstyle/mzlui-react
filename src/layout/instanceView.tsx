@@ -32,7 +32,7 @@ export type InstanceViewProps = {
 function InstanceView(props: InstanceViewProps) {
   const { subtitle, subnotes, subdesc, demo, isSubTitle, isDemo, isCode, path, showView, showCopy, showCode } = props;
   return (
-    <div>
+    <div className="instanceView_inner">
       {
         isSubTitle ? <SubTitle
           subtitle={subtitle}

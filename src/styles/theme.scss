@@ -8,11 +8,13 @@ body {
   padding: 0;
   height: 100vh;
 }
+
 hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
+
 h1,
 h2,
 h3,
@@ -24,15 +26,18 @@ h6 {
   color: #000000d9;
   font-weight: 500;
 }
+
 .mzl-ui-doc {
   font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Helvetica Neue, Arial, Noto Sans, sans-serif, apple color emoji,
     segoe ui emoji, Segoe UI Symbol, noto color emoji, sans-serif;
 }
+
 pre {
   margin: 0;
 }
-pre > code {
+
+pre>code {
   font-family: Lucida Console, Consolas, Monaco, Andale Mono, Ubuntu Mono,
     monospace;
   line-height: 1.7;
@@ -49,21 +54,25 @@ pre > code {
   -ms-hyphens: none;
   hyphens: none;
   background: 0 0;
-  font-size: 15px;
+  font-size: 14px;
   border: 1px solid #0000000f;
 }
+
 pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: 1em;
 }
+
 code.hljs {
   padding: 3px 5px;
 }
+
 .hljs {
   color: #999;
   background: #fff;
 }
+
 .hljs-addition,
 .hljs-meta,
 .hljs-string,
@@ -72,10 +81,12 @@ code.hljs {
 .hljs-template-variable {
   color: #f81d22;
 }
+
 .hljs-comment,
 .hljs-quote {
   color: #636363;
 }
+
 .hljs-bullet,
 .hljs-link,
 .hljs-literal,
@@ -83,10 +94,12 @@ code.hljs {
 .hljs-regexp {
   color: #31a354;
 }
+
 .hljs-deletion,
 .hljs-variable {
   color: #88f;
 }
+
 .hljs-built_in,
 .hljs-doctag,
 .hljs-keyword,
@@ -100,23 +113,31 @@ code.hljs {
 .hljs-type {
   color: #008dff;
 }
-.hljs-name{
-  color:#f81d22
+
+.hljs-name {
+  color: #f81d22
 }
-.hljs-string{
-  color:#0b8235
+
+.hljs-string {
+  color: #0b8235
 }
-.hljs-params{
+
+.hljs-params {}
+
+.hljs-tag {
+  color: #999;
 }
-.hljs-tag{
-  color:#999;
+
+.class_,
+.hljs-params,
+.language-xml {
+  color: rgba(0, 0, 0, 0.8509803922)
 }
-.class_,.hljs-params,.language-xml{
-  color:rgba(0, 0, 0, 0.8509803922)
-}
+
 .hljs-emphasis {
   font-style: italic;
 }
+
 .hljs-attribute {
   color: #e6550d;
 }

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from '../../../packages';
+import { Space, Button } from '../../../packages';
 
-export default function Demo1() {
+export default function Demo() {
   return (
-    <>
-      <Button title="测试222222" />
-      <Button title="输入框222222222" />
-    </>
-  );
+    <Space>
+      <Button round>圆角按钮</Button>
+      <Button type="primary" round>圆角按钮</Button>
+    </Space>
+  )
 }

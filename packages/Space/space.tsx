@@ -18,7 +18,7 @@ function Space(props: SpaceProps): JSX.Element {
   const spaceStyle = {
     ...style,
     'flexFlow': direction === 'vertical' ? 'column wrap' : 'wrap',
-    'gap': gap || '10px 10px',
+    'gap': gap,
   }
   return (
     <div className={spaceClass} style={style || spaceStyle}>{children}</div>

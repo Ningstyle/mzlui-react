@@ -71,10 +71,24 @@ export default function UpdateLog() {
         },
       ],
     },
+    {
+      version: '0.0.8',
+      time: '2022-10-30',
+      log: [
+        {
+          title: '完善',
+          content: ['完善Button组件。'],
+        },
+        {
+          title: '优化',
+          content: ['优化动态路由方法。', '优化页面渲染速度。', '优化页面切换滚动条偏移问题。'],
+        },
+      ],
+    },
   ])
   return (
     <div>
-      <Title title="更新日志" desc="记录mzl-ui=react组件库的更新日志及重大版本更新节点。" />
+      <Title title="更新日志" desc="记录mzl-ui-react组件库的更新日志及重大版本更新节点。" />
       {
         updateLogList.reverse().map((item: any, index: number) => (
           <div className="updatelogInner" key={index}>

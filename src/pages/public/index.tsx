@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import RouterPages from '../../router/pages/page';
 import Menu from '../../components/menu';
@@ -8,6 +8,7 @@ import '../../styles/custom.scss'
 export default function Index() {
   const navigate = useNavigate();
   const location = useLocation();
+  const contentRef = useRef<HTMLDivElement>(null);
   const [routerPage] = useState<any>(RouterPages[1].children || []);
   const [menuList] = useState<any>([...routerPage, ...routerPage[1].children]);
   const [menuData, setMenuData] = useState<any>([]);
@@ -43,6 +44,7 @@ export default function Index() {
   };
   useEffect(() => {
     setMenuIndex(sessionStorage.getItem('menuIndex') ? sessionStorage.getItem('menuIndex') : '0-0')
+    contentRef.current.scrollTop = 0;
   }, [location.pathname])
 
   return (
@@ -73,7 +75,7 @@ export default function Index() {
             ))
             : null}
         </div>
-        <div className="contentBox">
+        <div className="contentBox" ref={contentRef}>
           <Routes>
             {routerPage.map((item: any, index: number) => (
               <Route path={item.path} element={item.element} key={index} />

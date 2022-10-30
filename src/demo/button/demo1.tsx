@@ -1,17 +1,17 @@
 import React from 'react';
 import { Space, Button } from '../../../packages';
 
-export default function Demo1() {
+export default function Demo() {
   return (
     <Space>
-      <Button>Default Button</Button>
-      <Button type="primary">Primary Button</Button>
-      <Button type="success">Success Button</Button>
-      <Button type="warning">Warning Button</Button>
-      <Button type="error">Error Button</Button>
-      <Button type="info">Info Button</Button>
-      <Button type="link">Link Button</Button>
-      <Button type="text">Text Button</Button>
+      <Button>默认按钮</Button>
+      <Button type="primary" icon="m-icon-copy">主要按钮</Button>
+      <Button type="success">成功按钮</Button>
+      <Button type="warning">警告按钮</Button>
+      <Button type="error">失败按钮</Button>
+      <Button type="info">信息按钮</Button>
+      <Button type="link">链接按钮</Button>
+      <Button type="text">文本按钮</Button>
     </Space>
   )
 }
