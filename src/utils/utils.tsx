@@ -1,7 +1,13 @@
 import React, { lazy, Suspense } from 'react';
+
+const isDev = import.meta.env.MODE === "development";
 // 动态导入组件
 export const lazyLoad = (moduleName: string) => {
-  const Module = lazy(() => import(/* @vite-ignore */`/src/pages/packages/${moduleName}.tsx`));
+  // const Module = lazy(() => import(/* @vite-ignore */`/src/pages/packages/${moduleName}.tsx`));
+  const Module = lazy(async () => {
+    const com = await import(/* @vite-ignore */`../pages/packages/${moduleName}.tsx`);
+    return { default: com.default || com };
+  })
   return <Suspense><Module /></Suspense>;
 };
 // 获取packages下所有文件
@@ -12,7 +18,12 @@ const getAllFiles = () => {
     // 截取f中的文件名
     const name = f.split('/').pop().split('.')[0];
     async function getcontent() {
-      return (await import(/* @vite-ignore */ `${f}?raw`)).default
+      if (isDev) {
+        const s = (await import(/* @vite-ignore */ `${f}?raw`)).default
+        return s
+      }
+      const s = await fetch(f).then((res) => res.text())
+      return s
     }
     files.push({ name, files: getcontent() });
   }

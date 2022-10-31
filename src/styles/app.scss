@@ -1,3 +1,5 @@
+// 默认样式清除文件
+@import "./reset.scss";
 // 全局样式定义文件
 @import "./global.scss";
 // 代码风格主题定义文件
@@ -6,5 +8,5 @@
 @import "/src/fonts/iconfont.css";
 // 自定义样式文件
 // @import "./custom.scss";
-// 默认样式清除文件
-@import "./reset.scss";
+// 全局变量类名
+@import "./variable.scss";

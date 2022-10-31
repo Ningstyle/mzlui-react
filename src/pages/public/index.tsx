@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import RouterPages from '../../router/pages/page';
 import Menu from '../../components/menu';
 import '../../styles/custom.scss'
@@ -7,7 +7,9 @@ import '../../styles/custom.scss'
 // 二级路由
 export default function Index() {
   const navigate = useNavigate();
-  const [routerPage, setRouterPage] = useState<any>(RouterPages[1].children || []);
+  const location = useLocation();
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [routerPage] = useState<any>(RouterPages[1].children || []);
   const [menuList] = useState<any>([...routerPage, ...routerPage[1].children]);
   const [menuData, setMenuData] = useState<any>([]);
   const [menuIndex, setMenuIndex] = useState<any>(
@@ -32,21 +34,23 @@ export default function Index() {
       });
       setTimeout(() => {
         setMenuData(arr);
-      }, 200)
-    }, 350)
+      }, 150)
+    }, 150)
   }, [menuList]);
-  const menuClick = () => {
-    console.log(1111);
-  };
   const handlerClick = (item: object, v: any, index: any) => {
     setMenuIndex(index);
     navigate(v.router);
     sessionStorage.setItem('menuIndex', index);
   };
+  useEffect(() => {
+    setMenuIndex(sessionStorage.getItem('menuIndex') ? sessionStorage.getItem('menuIndex') : '0-0')
+    contentRef.current.scrollTop = 0;
+  }, [location.pathname])
+
   return (
     <div className="layoutBox">
       <div className="menuBox">
-        <Menu menuClick={menuClick} />
+        <Menu />
       </div>
       <div className="RouterViewInnerBox">
         <div className="leftMenuBox">
@@ -71,7 +75,7 @@ export default function Index() {
             ))
             : null}
         </div>
-        <div className="contentBox">
+        <div className="contentBox" ref={contentRef}>
           <Routes>
             {routerPage.map((item: any, index: number) => (
               <Route path={item.path} element={item.element} key={index} />
