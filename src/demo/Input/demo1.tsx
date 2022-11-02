@@ -16,7 +16,7 @@ export default function Demo1() {
     }
     return (
         <div style={input_w}>
-            <Input clearable className='input-w' prefix={settingIcon} suffix={searchIcon} onchange={onchange}/>
+            <Input clearable prefix={settingIcon} suffix={searchIcon} onchange={onchange}/>
         </div>
 
     )

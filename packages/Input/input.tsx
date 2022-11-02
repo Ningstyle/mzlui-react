@@ -3,21 +3,26 @@ import './style.scss';
 import classNames from 'classnames';
 
 export type InputProps = {
+    type?: string;
     className?: string;
     placeholder?: string;
     disabled?: boolean;
     readOnly?: boolean;
     clearable?: boolean;
+    showpassword?: boolean;
     maxlength?: number;
     minlength?: number;
     prefix?: React.ReactNode | string
     suffix?: React.ReactNode | string,
     onchange?: (value: string, event: any) => void
 };
-function Input(props: InputProps): JSX.Element {
+// function Input(props: InputProps): JSX.Element
+const Input: React.FC = (props: InputProps) => {
     const [value, setValue] = useState("")
     const [showclear, setShowclear] = useState(false)
+    const [passwordVisible, setpasswordVisible] = useState(true)
     const {
+        type,
         placeholder,
         className,
         disabled,
@@ -27,6 +32,7 @@ function Input(props: InputProps): JSX.Element {
         minlength,
         prefix,
         suffix,
+        showpassword,
         onchange } = props;
     const InputClass = classNames({
         'mzl-input': true,
@@ -80,15 +86,32 @@ function Input(props: InputProps): JSX.Element {
     const suffixIcon = (
         <span className="mzl-input_suffix">{suffix}</span>
     )
-    let IconFix: string | React.ReactNode = ''
-
-    if (clearable && showclear) {
-        IconFix = clearIcon
-    } else if (suffixIcon) {
-        IconFix = suffixIcon
-    } else {
-        IconFix = ""
+    const viewIcon = (
+        <span className="mzl-input_suffix" onClick={() => changepasswordVisible(false)}>
+            <i className="m-icon-browse" />
+        </span>
+    )
+    const cantviewIcon = (
+        <span className="mzl-input_suffix" onClick={() => changepasswordVisible(true)}>
+            <i className="m-icon-hide" />
+        </span>
+    )
+    const changepasswordVisible=(state:boolean):void=>{
+        setpasswordVisible(state)
     }
+    let IconFix: string | React.ReactNode = ''
+    if (showpassword) {
+        IconFix = viewIcon
+    } else {
+        if (clearable && showclear) {
+            IconFix = clearIcon
+        } else if (suffixIcon) {
+            IconFix = suffixIcon
+        } else {
+            IconFix = ""
+        }
+    }
+
     return (
         <span
             className={InputClass}
@@ -102,7 +125,7 @@ function Input(props: InputProps): JSX.Element {
                 maxLength={maxlength}
                 minLength={minlength}
                 className="mzl-input_inner"
-                type="text"
+                type={showpassword ? (passwordVisible ? 'text' : "password") : type}
                 onChange={change}
                 onInput={onInput}
                 onKeyDown={onPressEnter}
@@ -111,16 +134,18 @@ function Input(props: InputProps): JSX.Element {
                 readOnly={readOnly}
                 disabled={disabled}
             />
-            {IconFix}
+            {showpassword?(passwordVisible?viewIcon:cantviewIcon):IconFix}
         </span>
     );
 }
 Input.defaultProps = {
+    type: 'text',
     className: '',
     placeholder: '请输入',
     disabled: false,
     readOnly: false,
     clearable: false,
+    showpassword: false,
     maxlength: 100000,
     minlength: 0,
     prefix: '',
