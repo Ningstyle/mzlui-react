@@ -55,6 +55,7 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
     "react-router-dom": "^6.3.0",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.54.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier-scss": "^0.0.1",
