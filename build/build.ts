@@ -11,4 +11,10 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    chunkSizeWarningLimit: 4500,
+    rollupOptions: {
+      external: ['react-transition-group'],
+    },
+  },
 });
