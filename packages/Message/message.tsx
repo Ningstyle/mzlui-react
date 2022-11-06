@@ -73,7 +73,7 @@ const Message = {
     ReactDOM.createRoot(Ele as HTMLElement).render(
       <MessageEle open content={content} duration={duration} type="info" />,
     );
-    // 置入到body节点下
+    // 置入到指定节点下
     const container = document.querySelector('.mzl_message-container');
     if (container) {
       container.appendChild(Ele);
@@ -86,7 +86,7 @@ const Message = {
     ReactDOM.createRoot(Ele as HTMLElement).render(
       <MessageEle open content={content} duration={duration} type="success" />,
     );
-    // 置入到body节点下
+    // 置入到指定节点下
     const container = document.querySelector('.mzl_message-container');
     if (container) {
       container.appendChild(Ele);
@@ -99,7 +99,7 @@ const Message = {
     ReactDOM.createRoot(Ele as HTMLElement).render(
       <MessageEle open content={content} duration={duration} type="warning" />,
     );
-    // 置入到body节点下
+    // 置入到指定节点下
     const container = document.querySelector('.mzl_message-container');
     if (container) {
       container.appendChild(Ele);
@@ -112,7 +112,7 @@ const Message = {
     ReactDOM.createRoot(Ele as HTMLElement).render(
       <MessageEle open content={content} duration={duration} type="error" />,
     );
-    // 置入到body节点下
+    // 置入到指定节点下
     const container = document.querySelector('.mzl_message-container');
     if (container) {
       container.appendChild(Ele);
@@ -125,7 +125,7 @@ const Message = {
     ReactDOM.createRoot(Ele as HTMLElement).render(
       <MessageEle open content={content} duration={duration} type="loading" />,
     );
-    // 置入到body节点下
+    // 置入到指定节点下
     const container = document.querySelector('.mzl_message-container');
     if (container) {
       container.appendChild(Ele);
