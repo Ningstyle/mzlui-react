@@ -66,7 +66,7 @@ export default function Demo() {
 -  *src/demo/* 下创建对应组件 *demo* 文件，用来传递给 *InstanceView* 组件渲染。
 -  *src/pages/packages/* 下组件文档文件首行必须包含组件注释信息，用来自动生成路由配置。具体参考 */src/pages/packages/button.tsx* 文件。
 -  *InstanceView* 组件所需参数及说明请阅读 */src/layout/instanceView.tsx* 文件。
--  *API* 参数说明组件正在完善，待完善后提供。
+-  *API* 集成请使用 *Table* 组件完成，具体请参考 *Button* 组件的实现方式。
 
 ### Issue 规范
 

@@ -8,7 +8,7 @@ import InstanceView from '../../layout/instanceView';
 import Demo1 from '../../demo/icon/demo1';
 import Demo2 from '../../demo/icon/demo2';
 
-export default function Textarea() {
+export default function IconPage() {
   return (
     <>
       <Title title="Icon" notes="图标" desc="语义化的矢量图形，提供了 190 多个常用的 icon 图标" />

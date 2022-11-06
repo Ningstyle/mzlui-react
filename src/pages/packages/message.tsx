@@ -10,7 +10,7 @@ import Demo2 from '../../demo/message/demo2';
 import Demo3 from '../../demo/message/demo3';
 import Demo4 from '../../demo/message/demo4';
 
-export default function Textarea() {
+export default function MessagePage() {
   return (
     <>
       <Title title="Message" notes="全局提示" desc="全局展示操作反馈信息。" />
