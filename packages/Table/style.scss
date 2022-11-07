@@ -1,0 +1,117 @@
+.mzl_table_inner {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+
+  .mzl_table_content {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-collapse: collapse;
+
+    .mzl_table_thead {
+      text-align: left;
+
+      .mzl_table_thead_th {
+        padding: 14px;
+        box-sizing: border-box;
+        font-variant: tabular-nums;
+        line-height: 1.5715;
+        list-style: none;
+        font-feature-settings: "tnum";
+        position: relative;
+        font-size: 14px;
+        color: $heading-color;
+        border-bottom: 1px solid $border-color-base;
+        overflow-wrap: break-word;
+      }
+
+      .mzl_table_thead_th_size_middle {
+        padding: 10px;
+      }
+
+      .mzl_table_thead_th_size_small {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+
+      .mzl_table_thead_th_boder {
+        border: 1px solid $border-color-base;
+      }
+    }
+
+    .mzl_table_tbody {
+      height: auto;
+      text-align: left;
+
+      .mzl_table_tbody_tr {
+        width: 100%;
+        transition: all .2s ease-in;
+
+        &:hover {
+          background-color: $base-hover-background;
+        }
+
+        .mzl_table_tbody_td {
+          padding: 14px;
+          box-sizing: border-box;
+          font-variant: tabular-nums;
+          line-height: 1.5715;
+          list-style: none;
+          font-feature-settings: "tnum";
+          position: relative;
+          font-size: 14px;
+          color: $heading-color;
+          border-bottom: 1px solid $border-color-base;
+          overflow-wrap: break-word;
+        }
+
+        .mzl_table_tbody_td_size_middle {
+          padding: 10px;
+        }
+
+        .mzl_table_tbody_td_size_small {
+          padding: 7px 10px;
+          font-size: 12px;
+        }
+
+        .mzl_table_tbody_td_ellipsis {
+          box-sizing: border-box;
+
+          div {
+            // display: inline-block;
+            word-break: keep-all; // 不换行
+            white-space: nowrap; // 不换行
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .mzl_table_tbody_td_boder {
+          border: 1px solid $border-color-base;
+        }
+      }
+
+    }
+
+    .noTableData {
+      border: 1px solid $border-color-base;
+      border-top: none;
+      text-align: center;
+      position: relative;
+      height: 170px;
+
+      td {
+        width: 100%;
+        position: absolute;
+        margin: 32px 0;
+
+        p {
+          color: rgba(0, 0, 0, .25);
+        }
+      }
+
+
+    }
+  }
+}

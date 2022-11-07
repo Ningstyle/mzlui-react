@@ -35,7 +35,7 @@ export default function Index() {
       setTimeout(() => {
         setMenuData(arr);
       }, 150)
-    }, 150)
+    }, 250)
   }, [menuList]);
   const handlerClick = (item: object, v: any, index: any) => {
     setMenuIndex(index);

@@ -11,6 +11,7 @@ import Demo3 from '../../demo/button/demo3';
 import Demo4 from '../../demo/button/demo4';
 import Demo5 from '../../demo/button/demo5';
 import Demo6 from '../../demo/button/demo6';
+import Api from '../../demo/button/api';
 
 export default function ButtonPage() {
   return (
@@ -58,6 +59,7 @@ export default function ButtonPage() {
         subdesc="添加 disabled 属性即可让按钮处于不可用状态。"
         path="button/demo6"
       />
+      <Api />
     </>
   );
 }

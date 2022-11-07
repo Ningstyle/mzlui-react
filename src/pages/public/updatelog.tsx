@@ -85,6 +85,20 @@ export default function UpdateLog() {
         },
       ],
     },
+    {
+      version: '0.0.9',
+      time: '2022-11-06',
+      log: [
+        {
+          title: '新增',
+          content: ['新增Message全局提示组件。', '新增Icon图标展示。', '新增基础Table组件'],
+        },
+        {
+          title: '优化',
+          content: ['优化组件动画效果。使用react-transition-group完成基本动画'],
+        },
+      ],
+    },
   ])
   return (
     <div>

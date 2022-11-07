@@ -203,6 +203,16 @@ body {
   }
 }
 
+.packagesSubNodes {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: $heading-color;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, apple color emoji, segoe ui emoji, Segoe UI Symbol, noto color emoji, sans-serif;
+  line-height: 26px;
+}
+
 .packagesSubTitle {
   color: $heading-color;
   font-weight: 500;
@@ -717,4 +727,70 @@ body {
 
 .instanceView_inner {
   width: 80%;
+}
+
+// icon
+.iconList_inner_box {
+  width: 82%;
+  height: auto;
+  overflow: hidden;
+
+  li {
+    list-style: none;
+    width: 14%;
+    height: 140px;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: all .15s ease;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    color: $text-color;
+
+    i {
+      display: block;
+      font-size: 34px;
+      margin-top: 20px;
+    }
+
+    span {
+      display: block;
+      margin-top: 1vh;
+      display: inline-block;
+      font-size: 18px;
+      margin-bottom: 1vh;
+    }
+
+    &:hover {
+      background-color: $primary-color;
+
+      i,
+      span {
+        color: #fff
+      }
+    }
+  }
+}
+
+// message
+.mzl_message-container {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 0px;
+  color: #000000d9;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum";
+  pointer-events: none;
+  z-index: 1111;
 }

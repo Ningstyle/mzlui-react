@@ -5,7 +5,7 @@
 import React from 'react';
 import { Button } from '../../../packages';
 
-export default function Textarea() {
+export default function TextareaPage() {
   return (
     <Button>textarea</Button>
   );

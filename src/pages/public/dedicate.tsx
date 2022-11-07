@@ -32,8 +32,8 @@ export default function Dedicate() {
       <li className="line-li"><code>src/demo/</code> 下创建对应组件 <code>demo</code> 文件，用来传递给 <code>InstanceView</code> 组件渲染</li>
       <li className="line-li"><code>src/pages/packages/</code> 下组件文档文件首行必须包含组件注释信息，用来自动生成路由配置。具体参考 <code>/src/pages/packages/button.tsx</code> 文件。</li>
       <li className="line-li"><code>InstanceView</code> 组件所需参数及说明请阅读 <code>/src/layout/instanceView.tsx</code> 文件。</li>
-      <li className="line-li">本地代码在推送执行 <code>git push origin dev</code> 后会自动构建并部署到开发环境。 开发环境地址：<a href="https://react.codeym.com/" target="_back">https://react.codeym.com</a></li>
-      <li className="line-li"><code>API</code> 参数说明组件正在完善，待完善后提供。</li>
+      {/* <li className="line-li">本地代码在推送执行 <code>git push origin dev</code> 后会自动构建并部署到开发环境。 开发环境地址：<a href="https://react.codeym.com/" target="_back">https://react.codeym.com</a></li> */}
+      <li className="line-li"><code>API</code> 集成请使用 <code>Table</code> 组件完成，具体请参考 <code>Button</code> 组件的实现方式。</li>
     </div>
     <div className="line2">
       <p className="line2Title">Issue 规范</p>

@@ -25,7 +25,7 @@ function Button(props: ButtonProps): JSX.Element {
     [`mzl_btn_disabled mzl_btn_disabled_${type}`]: disabled,
     [className || '']: !!className,
   });
-  const handleBtnClick = () => {
+  const handleBtnClick = (): void => {
     if (onClick && !loading) {
       onClick();
     }

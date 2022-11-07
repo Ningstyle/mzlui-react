@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import hljs from 'highlight.js';
+import { Message } from '../../packages';
 
 export type codeVoewProps = {
   path: string;
@@ -61,9 +62,9 @@ export default function CodeView(props: codeVoewProps) {
     inputRef.current.select();
     if (document.execCommand("copy")) {
       document.execCommand("copy");
-      alert('代码复制成功')
+      Message.success('复制成功');
     } else {
-      alert('代码复制成功')
+      Message.success('复制成功');
     }
   }
   return (
