@@ -15,9 +15,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["jest"]
   },
   "include": [
+    "__test__/**/*.ts",
     "src/**/*.ts",
     "packages/**/*.ts",
     "src/**/*.tsx",
@@ -25,7 +27,8 @@
     "vite.config.ts",
     "build/**/*.ts",
     "src/**/*",
-    "react-app-env.d.ts"
+    "react-app-env.d.ts",
+    "tsconfig.node.json"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
