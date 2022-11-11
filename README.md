@@ -55,7 +55,7 @@ export default function Demo() {
 
   ```javascript
   git add .
-  git commit -m"add component:button"   //示例
+  git commit -m "add component:button"   //示例
   git pull --rebase origin dev
   git push origin dev
   ```
@@ -110,4 +110,3 @@ export default function Demo() {
 -  避免过多的 *html* 代码累赘，秉承数据驱动视图思想，简化使用繁琐度，提供更强的拓展性。
 -  其他请参考 eslint [standard](https://github.com/standard/standard/blob/master/RULES.md#javascript-standard-style)
 <br/>
-
