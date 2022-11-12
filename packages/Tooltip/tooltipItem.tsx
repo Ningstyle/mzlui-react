@@ -52,4 +52,4 @@ function TooltipEl(props: TooltipEleProps): JSX.Element {
     </CSSTransition>
   )
 }
-export default TooltipEl
+export default React.memo(TooltipEl)
