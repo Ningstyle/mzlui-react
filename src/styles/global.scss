@@ -6,9 +6,9 @@ $error-color: #f5222d; // 错误色
 $info-color: #909399; //信息色
 
 // 字体大小
-$font-size-base:        1rem; // 主字号
-$font-size-lg:          $font-size-base * 1.25 !default;
-$font-size-sm:          $font-size-base * .875 !default;
+$font-size-base: 1rem; // 主字号
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * .875 !default;
 
 $heading-color: rgba(0, 0, 0, 0.8); // 标题色
 $text-color: rgba(0, 0, 0, 0.65); // 主文本色
@@ -22,30 +22,31 @@ $base-background: #f5f5f5e7; //默认背景色
 $base-hover-background: #f7f7f7af; //默认背景色
 
 // Spacing 间距
-$padding-lg:  1.5rem; // 容器
-$padding-md:  1rem; // 用于小容器和按钮
-$padding-sm:  0.75rem; // 用于表单控件中的每项间距
-$padding-xs:  0.5rem; // 小间距
+$padding-lg: 1.5rem; // 容器
+$padding-md: 1rem; // 用于小容器和按钮
+$padding-sm: 0.75rem; // 用于表单控件中的每项间距
+$padding-xs: 0.5rem; // 小间距
 $padding-xss: 0.25rem; // 最小间距
 
 // 行高
 $line-height-base: 1.5 !default;
-$line-height-lg:   2 !default;
-$line-height-sm:   1.25 !default;
+$line-height-lg: 2 !default;
+$line-height-sm: 1.25 !default;
 
 // 边框 和 border radius
-$border-radius-base:   2px; // 组件/浮层圆角
-$border-radius-lg:    .3rem !default;
-$border-radius-sm:    .2rem !default;
-$border-width:         1px !default;
-$border-color-base:  rgba(0, 0, 0, 0.06); // 边框色
-$border-style-base:    solid;
+$border-radius-base: 2px; // 组件/浮层圆角
+$border-radius-lg: .3rem !default;
+$border-radius-sm: .2rem !default;
+$border-width: 1px !default;
+$border-color-base: rgba(0, 0, 0, 0.06); // 边框色
+$border-style-base: solid;
 
 // 按钮
 $btn-shadow-base: #00000004; // 按钮阴影
 $btn-border-color: #d9d9d9; // 按钮边框色
 $disabled-text-color: #00000040; // 失效色
 $disabled-background-color: #f5f5f5; // 失效背景色
+$button-base-font-size: 14px; // 按钮字号
 
 //输入框
 $input-text-color: #606266; //输入框文字颜色
@@ -55,23 +56,19 @@ $input-color-outline-shadow: #1890ff33; //输入框外界线阴影
 
 // Alert
 $alert-success-border-color: lighten($success-color, 30%);
-$alert-info-border-color:    lighten($info-color, 20%);
+$alert-info-border-color: lighten($info-color, 20%);
 $alert-warning-border-color: lighten($warning-color, 20%);
-$alert-error-border-color:   lighten($error-color, 12%);
-$alert-success-bg-color:     lighten($success-color, 52%);
-$alert-info-bg-color:        lighten($info-color, 36%);
-$alert-warning-bg-color:     lighten($warning-color, 42%);
-$alert-error-bg-color:       lighten($error-color, 45%);
+$alert-error-border-color: lighten($error-color, 12%);
+$alert-success-bg-color: lighten($success-color, 52%);
+$alert-info-bg-color: lighten($info-color, 36%);
+$alert-warning-bg-color: lighten($warning-color, 42%);
+$alert-error-bg-color: lighten($error-color, 45%);
 $alert-text-color: $text-color;
 $alert-no-icon-padding-vertical: $padding-xs;
-$alert-icon-top: 0.25rem + calc($font-size-base * $line-height-base / 2) -
-calc($font-size-base / 2);
+$alert-icon-top: 0.25rem + calc($font-size-base * $line-height-base / 2) - calc($font-size-base / 2);
 $alert-with-description-icon-size: 1.5rem;
 $alert-with-description-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-no-icon-padding-vertical: $padding-md - 0.0625rem;
-$alert-with-description-padding: $alert-with-description-padding-vertical 15px
-  $alert-with-description-no-icon-padding-vertical
-  $alert-with-description-icon-size * 2 +
-  $alert-with-description-padding-vertical;
+$alert-with-description-padding: $alert-with-description-padding-vertical 15px $alert-with-description-no-icon-padding-vertical $alert-with-description-icon-size * 2 + $alert-with-description-padding-vertical;
 $alert-with-description-no-icon-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-icon-top: $alert-with-description-padding-vertical;

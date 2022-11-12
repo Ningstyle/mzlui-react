@@ -2,7 +2,7 @@
   "name": "mzlui-rt",
   "author": "style'me",
   "private": false,
-  "version": "0.0.9",
+  "version": "0.1.0",
   "type": "module",
   "main": "./dist/mzl-ui-rt.umd.js",
   "module": "./dist/mzl-ui-rt.es.js",
