@@ -40,7 +40,7 @@ const BaseRouter: any = [
     ],
   },
   {
-    path: '*',
+    path: '/:pathMatch(.*)',
     element: <Nofound />,
   },
 ];
