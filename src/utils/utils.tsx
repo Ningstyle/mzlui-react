@@ -16,7 +16,7 @@ const getAllFiles = () => {
   const allFiles = import.meta.glob(/* @vite-ignore */ `/src/pages/packages/*.tsx`);
   for (const f in allFiles) {
     // 截取f中的文件名
-    const name = f.split('/').pop().split('.')[0];
+    const name = (f as any).split('/').pop().split('.')[0];
     async function getcontent() {
       if (isDev) {
         const s = (await import(/* @vite-ignore */ `${f}?raw`)).default

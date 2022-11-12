@@ -76,7 +76,9 @@
     "no-restricted-syntax": 0,
     "guard-for-in": 0,
     "no-inner-declarations": 0,
-    "prefer-destructuring": ["error", { "object": true, "array": false }]
+    "prefer-destructuring": ["error", { "object": true, "array": false }],
+    "import/no-named-as-default": 0,
+    "jsx-a11y/mouse-events-have-key-events": 0
   },
   "settings": {
     "import/ignore": ["node_modules"]

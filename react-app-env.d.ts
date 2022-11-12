@@ -20,3 +20,16 @@ declare module '*.module.sass' {
   const classes: { readonly [key: string]: string };
   export default classes;
 }
+
+interface ImportMetaEnv {
+  readonly BASE_URL: string;
+  readonly MODE: string;
+  readonly DEV: boolean;
+  readonly PROD: boolean;
+  readonly SSR: boolean;
+  readonly GLOB: boolean;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}
