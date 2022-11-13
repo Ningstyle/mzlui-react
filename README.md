@@ -13,14 +13,14 @@
 ***
 ### 快速使用
 ```
-npm install  mzlui-rt
-cnpm install  mzlui-rt
-yarn add mzlui-rt
+npm install  licht-ui
+cnpm install  licht-ui
+yarn add licht-ui
 ```
 ### 引入使用
 ```
 import React from 'react';
-import { Space, Button } from 'mzlui-rt';
+import { Space, Button } from 'licht-ui';
 
 export default function Demo() {
   return (
