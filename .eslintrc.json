@@ -46,7 +46,7 @@
     "no-underscore-dangle": 0, // 悬空下划线
     "import/prefer-default-export": 0,
     "no-debugger": 0,
-    "max-len": [1, 120],
+    "max-len": [1, 280],
     "react/react-in-jsx-scope": 0,
     "react/jsx-props-no-spreading": 0,
     "react/destructuring-assignment": 0,
@@ -78,7 +78,9 @@
     "no-inner-declarations": 0,
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "import/no-named-as-default": 0,
-    "jsx-a11y/mouse-events-have-key-events": 0
+    "jsx-a11y/mouse-events-have-key-events": 0,
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": "warn"
   },
   "settings": {
     "import/ignore": ["node_modules"]

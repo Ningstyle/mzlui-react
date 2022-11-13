@@ -1,6 +1,5 @@
 import React, { CSSProperties, useRef } from 'react';
 import './style.scss';
-import classNames from 'classnames';
 import ReactDOM from 'react-dom/client';
 import TooltipEl from './tooltipItem';
 
@@ -15,17 +14,16 @@ export type TooltipProps = {
   children: React.ReactNode;
   content: string | React.ReactNode;
   align?: 'top' | 'bottom' | 'left' | 'right';
+  color?: string;
+  onOpenChange?: (flag: boolean) => void;
+  zIndex?: number;
 };
 
 
 export default function Tooltip(props: TooltipProps): JSX.Element {
-  const { style, className, children, content, align } = props;
+  const { style, className, children, content, align, color, onOpenChange, zIndex } = props;
   const tooltipRef = useRef<HTMLDivElement>(null);
   const childrenRef = useRef<any>(null);
-  const toolTipClass = classNames({
-    'mzl_tooltip': true,
-    [className || '']: !!className,
-  });
   const toolTipStyle = {
     ...style,
   }
@@ -40,27 +38,33 @@ export default function Tooltip(props: TooltipProps): JSX.Element {
     const width = tooltipRef.current?.clientWidth;
     const height = tooltipRef.current?.clientHeight;
     root.render(
-      <TooltipEl left={(left as number)} top={(top as number)} width={(width as number)} height={(height as number)} content={content} cRef={childrenRef} />,
+      <TooltipEl left={(left as number)} top={(top as number)} width={(width as number)} height={(height as number)} content={content} align={align} cRef={childrenRef} color={color} zIndex={zIndex} />,
     );
     // 置入到指定节点下
     const container = document.querySelector('.mzl_position-container');
     if (container) {
       container.appendChild(Ele);
     }
-    setTimeout(() => {
+    let timer: any = null
+    clearTimeout(timer)
+    timer = setTimeout(() => {
       (childrenRef.current as any).handleOpen(true)
-    }, 80)
+      onOpenChange && onOpenChange(true)
+    }, 150)
   }
   const tooltipMouseOut = (): void => {
     (childrenRef.current as any).handleOpen(false)
-    setTimeout(() => {
+    let timer: any = null
+    clearTimeout(timer)
+    timer = setTimeout(() => {
       const container = document.querySelector('.mzl_position-container');
       container?.removeChild(document.querySelector('.mzl_position') as Node);
-    }, 160)
+      onOpenChange && onOpenChange(false)
+    }, 150)
   }
   return (
     <div
-      className={toolTipClass}
+      className="mzl_tooltip"
       style={style || toolTipStyle}
       ref={tooltipRef}
       onMouseOver={tooltipMouseOver}
@@ -74,4 +78,7 @@ Tooltip.defaultProps = {
   style: '',
   className: '',
   align: 'top',
+  color: '#000',
+  onOpenChange: () => { },
+  zIndex: 1011,
 };
