@@ -4,7 +4,7 @@ import InstanceView from '../../layout/instanceView';
 
 export default function Dedicate() {
   return <div className="dedicateInner">
-    <Title title="贡献指南" notes="" desc="首先非常感谢您能选择使用 mzl-ui-react。mzl-ui-react 是基于 React+Ts 开发，并集成vite构建。mzl-ui-react 旨在秉承数据驱动视图，力求更小的体积、更快的相应、更强的拓展性、更完美的支持、更友好的渲染。任何一个开源库都离不开大家的共同贡献和维护，如果您愿意参与贡献，请阅读以下内容。" />
+    <Title title="贡献指南" notes="" desc="首先非常感谢您能选择使用 licht-ui。licht-ui 是基于 React+Ts 开发，并集成vite构建。licht-ui 旨在秉承数据驱动视图，力求更小的体积、更快的相应、更强的拓展性、更完美的支持、更友好的渲染。任何一个开源库都离不开大家的共同贡献和维护，如果您愿意参与贡献，请阅读以下内容。" />
     <p className="line1">Github：<a href="https://github.com/Ningstyle/mzlui-react" target="_back">https://github.com/Ningstyle/mzlui-react</a> </p>
     <div className="line2">
       <p className="line2Title">问题反馈</p>
@@ -38,7 +38,7 @@ export default function Dedicate() {
     <div className="line2">
       <p className="line2Title">Issue 规范</p>
       <li className="line-li">在提交 <code>issue</code> 之前，请搜索相关内容是否已被提出。</li>
-      <li className="line-li">请说明 <code>mzl-ui-react</code> 和 <code>React</code> 或者 <code>TS</code> 的版本号，并提供操作系统和浏览器信息。推荐使用 <code>JSFiddle</code> 生成在线 <code>demo</code>，这能够更直观地重现问题。</li>
+      <li className="line-li">请说明 <code>licht-ui</code> 和 <code>React</code> 或者 <code>TS</code> 的版本号，并提供操作系统和浏览器信息。推荐使用 <code>JSFiddle</code> 生成在线 <code>demo</code>，这能够更直观地重现问题。</li>
     </div>
     <div className="line2">
       <p className="line2Title">Pull Request 规范</p>

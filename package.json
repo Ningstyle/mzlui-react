@@ -1,16 +1,16 @@
 {
-  "name": "mzlui-rt",
+  "name": "licht-ui",
   "author": "style'me",
   "private": false,
   "version": "0.1.1",
   "type": "module",
-  "main": "./dist/mzl-ui-rt.umd.js",
-  "module": "./dist/mzl-ui-rt.es.js",
+  "main": "./dist/licht-ui.umd.js",
+  "module": "./dist/licht-ui.es.js",
   "typings": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/mzl-ui-rt.es.js",
-      "require": "./dist/mzl-ui-rt.umd.js"
+      "import": "./dist/licht-ui.es.js",
+      "require": "./dist/licht-ui.umd.js"
     }
   },
   "scripts": {
@@ -20,9 +20,17 @@
     "preview": "vite preview",
     "test": "jest"
   },
-  "description": "mzl-ui-rt",
+  "description": "licht-ui",
   "keywords": [
-    "react"
+    "react",
+    "typescript",
+    "vite",
+    "react-ui",
+    "ui",
+    "components",
+    "licht",
+    "licht-ui",
+    "react18"
   ],
   "files": [
     "dist/*"
