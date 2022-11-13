@@ -127,6 +127,16 @@ export default function UpdateLog() {
         },
       ],
     },
+    {
+      version: '0.1.2',
+      time: '2022-11-13',
+      log: [
+        {
+          title: '修改',
+          content: ['项目名称正式修改为licht-ui'],
+        },
+      ],
+    },
   ])
   return (
     <div>
