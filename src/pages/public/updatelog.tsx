@@ -113,6 +113,20 @@ export default function UpdateLog() {
         },
       ],
     },
+    {
+      version: '0.1.1',
+      time: '2022-11-13',
+      log: [
+        {
+          title: '完善',
+          content: ['完善Tooltip组件', '完善.eslintrc.json'],
+        },
+        {
+          title: '优化',
+          content: ['优化Button组件Onclick事件可接受原生$event参数'],
+        },
+      ],
+    },
   ])
   return (
     <div>

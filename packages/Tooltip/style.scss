@@ -24,7 +24,7 @@
     border-radius: 2px;
     background: #000;
 
-    .tooltip_arrow {
+    .mzl_tooltip-arrow {
       width: 10px;
       height: 10px;
       position: absolute;
@@ -34,9 +34,30 @@
       pointer-events: none;
       background: #000;
       box-shadow: 3px 3px 7px #00000012;
+    }
+
+    .mzl_tooltip-arrow_top {
       left: 50%;
       transform: translateY(100%) translateX(-50%) rotate(45deg);
       top: 45%;
+    }
+
+    .mzl_tooltip-arrow_bottom {
+      left: 50%;
+      transform: translateY(100%) translateX(-50%) rotate(45deg);
+      top: -45%;
+    }
+
+    .mzl_tooltip-arrow_left {
+      left: calc(100% - 6px);
+      transform: translateY(-50%) rotate(45deg);
+      top: 50%;
+    }
+
+    .mzl_tooltip-arrow_right {
+      left: -4px;
+      transform: translateY(-50%) rotate(45deg);
+      top: 50%;
     }
   }
 }

@@ -3,16 +3,8 @@ import { Tooltip, Button } from '../../../packages';
 
 export default function Demo() {
   return (
-    <>
-      <Tooltip content="Tooltip will show on .">
-        <Button>文字提示</Button>
-      </Tooltip>
-      <Tooltip content="Tooltip will show on mouse enter.">
-        <Button>文字提示</Button>
-      </Tooltip>
-      <Tooltip content="Tooltip will show on mouse enter.">
-        <div>文字提示</div>
-      </Tooltip>
-    </>
+    <Tooltip content="简单的文字提示气泡框">
+      <Button>文字提示</Button>
+    </Tooltip>
   );
 }
