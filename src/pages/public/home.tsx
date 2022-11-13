@@ -53,7 +53,7 @@ export default function Index() {
             </div>
             <div className="linsArea">
               <span className="github" onClick={() => window.open('https://github.com/Ningstyle/mzlui-react')} />
-              <span className="npm" onClick={() => window.open('https://www.npmjs.com/package/mzlui-rt')} />
+              <span className="npm" onClick={() => window.open('https://www.npmjs.com/package/licht-ui')} />
             </div>
           </div>
         </div>
