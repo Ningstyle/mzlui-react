@@ -6,3 +6,4 @@ export { default as Alert } from './Alert';
 export { default as Table } from './Table';
 export { default as Divider } from './Divider';
 export { default as Tooltip } from './Tooltip';
+export { default as Backtop } from './BackTop';

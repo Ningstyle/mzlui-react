@@ -16,7 +16,7 @@ interface TooltipEleProps {
 function TooltipEl(props: TooltipEleProps): JSX.Element {
   const { content, left, top, width, height, cRef, align, color, zIndex } = props;
   const divRef = useRef<HTMLDivElement>(null);
-  const [showMessage, setShowMessage] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
   const [elWidth, setElWidth] = useState(0);
   const [style, setStyle] = useState({
     left: '',
@@ -58,7 +58,7 @@ function TooltipEl(props: TooltipEleProps): JSX.Element {
   }, [elWidth, align])
   useImperativeHandle(cRef, () => ({
     handleOpen: (flag: boolean) => {
-      setShowMessage(flag)
+      setShowTooltip(flag)
     },
   }));
   useEffect(() => {
@@ -68,7 +68,7 @@ function TooltipEl(props: TooltipEleProps): JSX.Element {
   })
   return (
     <CSSTransition
-      in={showMessage}
+      in={showTooltip}
       timeout={150}
       classNames="tooltip"
       unmountOnExit
