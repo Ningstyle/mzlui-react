@@ -99,6 +99,44 @@ export default function UpdateLog() {
         },
       ],
     },
+    {
+      version: '0.1.0',
+      time: '2022-11-12',
+      log: [
+        {
+          title: '新增',
+          content: ['新增Divider 分割线组件。', '新增Tooltip 文字提示组件。', '新增Alert 警告提示组件'],
+        },
+        {
+          title: '优化',
+          content: ['优化代码预览结构。', '优化组件文档结构。'],
+        },
+      ],
+    },
+    {
+      version: '0.1.1',
+      time: '2022-11-13',
+      log: [
+        {
+          title: '完善',
+          content: ['完善Tooltip组件', '完善.eslintrc.json'],
+        },
+        {
+          title: '优化',
+          content: ['优化Button组件Onclick事件可接受原生$event参数'],
+        },
+      ],
+    },
+    {
+      version: '0.1.2',
+      time: '2022-11-13',
+      log: [
+        {
+          title: '修改',
+          content: ['项目名称正式修改为licht-ui'],
+        },
+      ],
+    },
   ])
   return (
     <div>

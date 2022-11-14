@@ -1,0 +1,81 @@
+.mzl_tooltip {
+  width: inherit;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+  min-height: 30px;
+}
+
+.mzl_tooltip_position {
+  position: absolute;
+  z-index: 1011;
+  font-size: 12px;
+  line-height: 1.2;
+  min-width: 10px;
+  word-wrap: break-word;
+  color: #fff;
+
+  .mzl_tooltip_content {
+    padding: 8px 10px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background: #000;
+
+    .mzl_tooltip-arrow {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      inset: 0;
+      display: block;
+      border-radius: 2px;
+      pointer-events: none;
+      background: #000;
+      box-shadow: 3px 3px 7px #00000012;
+    }
+
+    .mzl_tooltip-arrow_top {
+      left: 50%;
+      transform: translateY(100%) translateX(-50%) rotate(45deg);
+      top: 45%;
+    }
+
+    .mzl_tooltip-arrow_bottom {
+      left: 50%;
+      transform: translateY(100%) translateX(-50%) rotate(45deg);
+      top: -45%;
+    }
+
+    .mzl_tooltip-arrow_left {
+      left: calc(100% - 6px);
+      transform: translateY(-50%) rotate(45deg);
+      top: 50%;
+    }
+
+    .mzl_tooltip-arrow_right {
+      left: -4px;
+      transform: translateY(-50%) rotate(45deg);
+      top: 50%;
+    }
+  }
+}
+
+.tooltip-enter {
+  opacity: 0;
+}
+
+.tooltip-enter-active {
+  opacity: 1;
+  transition: all 150ms ease-in-out;
+}
+
+.tooltip-exit {
+  opacity: 1;
+}
+
+.tooltip-exit-active {
+  opacity: 0;
+  transition: all 150ms ease-in-out;
+}

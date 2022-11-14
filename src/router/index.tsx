@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter, HashRouter } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import BaseRouter from './pages/page';
 // 一级路由
 export default function RouterBase() {
