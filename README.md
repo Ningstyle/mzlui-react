@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://codeym.com/assets/logo-c.png" width="100"/>
   <h1 style="border-bottom:0">
-    <p>mzl-ui-react组件库</p>
+    <p>licht-ui组件库</p>
     <p style="font-size:20px">一套适合开发者使用的轻量级UI组件库，完美支持React18+TS+Vite</p>
   </h1>
 </div>
@@ -9,18 +9,18 @@
 
 
 
-官网主页: [mzl-ui-react使用文档](https://react.codeym.com/)
+官网主页: [licht-ui使用文档](https://react.codeym.com/)
 ***
 ### 快速使用
 ```
-npm install  mzlui-rt
-cnpm install  mzlui-rt
-yarn add mzlui-rt
+npm install  licht-ui
+cnpm install  licht-ui
+yarn add licht-ui
 ```
 ### 引入使用
 ```
 import React from 'react';
-import { Space, Button } from 'mzlui-rt';
+import { Space, Button } from 'licht-ui';
 
 export default function Demo() {
   return (
@@ -39,7 +39,7 @@ export default function Demo() {
 
 ## Mzl UI 贡献指南
 
-首先非常感谢您能选择使用 *mzl-ui-react*，*mzl-ui-react* 是基于 *React+Ts* 开发，并集成vite构建；*mzl-ui-react* 旨在秉承数据驱动视图，力求更小的体积、更快的相应、更强的拓展性、更完美的支持、更友好的渲染。任何一个开源库都离不开大家的共同贡献和维护，如果您愿意参与贡献，请阅读以下内容。
+首先非常感谢您能选择使用 *licht-ui*，*licht-ui* 是基于 *React+Ts* 开发，并集成vite构建；*licht-ui* 旨在秉承数据驱动视图，力求更小的体积、更快的相应、更强的拓展性、更完美的支持、更友好的渲染。任何一个开源库都离不开大家的共同贡献和维护，如果您愿意参与贡献，请阅读以下内容。
 
 ### 问题反馈
 
@@ -71,7 +71,7 @@ export default function Demo() {
 ### Issue 规范
 
 -  在提交 *issue* 之前，请搜索相关内容是否已被提出。
--  请说明 *mzl-ui-react* 和 *React* 或者 *TS* 的版本号，并提供操作系统和浏览器信息。推荐使用 *JSFiddle* 生成在线 *demo*，这能够更直观地重现问题。
+-  请说明 *licht-ui* 和 *React* 或者 *TS* 的版本号，并提供操作系统和浏览器信息。推荐使用 *JSFiddle* 生成在线 *demo*，这能够更直观地重现问题。
 
 ### Pull Request 规范
 

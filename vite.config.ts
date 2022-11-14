@@ -16,8 +16,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolvePath('packages/index.ts'),
-      name: 'mzl-ui-rt',
-      fileName: (format) => `mzl-ui-rt.${format}.js`,
+      name: 'licht-ui',
+      fileName: (format) => `licht-ui.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],

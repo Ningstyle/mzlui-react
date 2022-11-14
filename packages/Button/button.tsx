@@ -12,7 +12,7 @@ export type ButtonProps = {
   icon?: string,
   loading?: boolean,
   disabled?: boolean,
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLElement>,
 };
 function Button(props: ButtonProps): JSX.Element {
   const { style, className, children, type, size, round, icon, loading, disabled, onClick } = props;
@@ -25,9 +25,9 @@ function Button(props: ButtonProps): JSX.Element {
     [`mzl_btn_disabled mzl_btn_disabled_${type}`]: disabled,
     [className || '']: !!className,
   });
-  const handleBtnClick = (): void => {
+  const handleBtnClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
     if (onClick && !loading) {
-      onClick();
+      onClick(e);
     }
   }
   return (

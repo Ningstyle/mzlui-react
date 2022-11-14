@@ -42,7 +42,7 @@ export default function Index() {
           <div className="homeHaderInner">
             <div className="logoArea">
               <span className="logoImg" />
-              <span className="nameSpan">React</span>
+              <span className="nameSpan">licht</span>
             </div>
             <div className="menuArea">
               {
@@ -53,7 +53,7 @@ export default function Index() {
             </div>
             <div className="linsArea">
               <span className="github" onClick={() => window.open('https://github.com/Ningstyle/mzlui-react')} />
-              <span className="npm" onClick={() => window.open('https://www.npmjs.com/package/mzlui-rt')} />
+              <span className="npm" onClick={() => window.open('https://www.npmjs.com/package/licht-ui')} />
             </div>
           </div>
         </div>

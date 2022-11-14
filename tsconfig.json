@@ -16,7 +16,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "types": ["jest"]
+    "types": ["vite/client", "jest"]
   },
   "include": ["src/**/*.ts", "packages/**/*.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -5,3 +5,4 @@ export { default as Message } from './Message';
 export { default as Alert } from './Alert';
 export { default as Table } from './Table';
 export { default as Divider } from './Divider';
+export { default as Tooltip } from './Tooltip';
