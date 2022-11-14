@@ -9,7 +9,7 @@ import Demo1 from '../../demo/confirm/demo1'
 import Demo2 from '../../demo/confirm/demo2'
 import Demo3 from '../../demo/confirm/demo3'
 import Demo4 from '../../demo/confirm/demo4'
-
+import Api from '../../demo/confirm/api';
 import { Confirm } from '../../../packages';
 
 export default function ConfirmPage() {
@@ -44,6 +44,7 @@ export default function ConfirmPage() {
         subdesc="Confirm 组件处理异步任务。Confirm.info成功回调返回Promise时可以使用.then做回调处理或者.catch做失败处理。"
         path="confirm/demo4"
       />
+      <Api />
     </>
   );
 }
