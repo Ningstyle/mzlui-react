@@ -11,6 +11,7 @@ import Demo2 from "../../demo/alert/demo2";
 import Demo3 from "../../demo/alert/demo3";
 import Demo4 from "../../demo/alert/demo4";
 import Demo5 from "../../demo/alert/demo5";
+import Api from '../../demo/alert/api';
 
 export default function AlertPage () {
   return (
@@ -51,6 +52,7 @@ export default function AlertPage () {
         subdesc="含有辅助性文字介绍的警告提示。"
         path="alert/demo5"
       />
+      <Api />
     </>
   )
 }
