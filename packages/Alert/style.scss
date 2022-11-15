@@ -1,0 +1,111 @@
+.alert {
+  position: relative;
+  color: $text-color;
+  white-space: normal;
+  line-height: $line-height-base;
+  margin: 0;
+  padding: 8px 15px 8px 37px;
+  word-wrap: break-word;
+  border-radius: $border-radius-base;
+
+  $this: &;
+
+  &-success {
+    border: $border-width $border-style-base $alert-success-border-color;
+    background-color: $alert-success-bg-color;
+
+    i {
+      color: $success-color;
+    }
+  }
+
+  &-info {
+    border: $border-width $border-style-base $alert-info-border-color;
+    background-color: $alert-info-bg-color;
+
+    i {
+      color: $info-color;
+    }
+  }
+
+  &-warning {
+    border: $border-width $border-style-base $alert-warning-border-color;
+    background-color: $alert-warning-bg-color;
+
+    i {
+      color: $warning-color;
+    }
+  }
+
+  &-error {
+    border: $border-width $border-style-base $alert-error-border-color;
+    background-color: $alert-error-bg-color;
+
+    i {
+      color: $error-color;
+    }
+  }
+
+  &-description {
+    display: none;
+    font-size: $font-size-base;
+    line-height: $font-size-base + 0.5rem;
+  }
+
+  &-no-icon {
+    padding: $alert-no-icon-padding-vertical 15px;
+    &-close-cion {
+      top: $alert-no-icon-padding-vertical + calc($font-size-base * $line-height-base / 2) - $font-size-base;
+    }
+  }
+
+  &-icon {
+    position: absolute;
+    top: $alert-icon-top;
+    left: 16px;
+  }
+
+  & &-closable {
+    padding-right: 30px;
+  }
+
+  &-close-icon {
+    position: absolute;
+    top: .25rem + calc($font-size-base * $line-height-base / 2) -  calc($font-size-base / 2);
+    right: $padding-md;
+    padding: 0;
+  }
+
+  &-with-description {
+    position: relative;
+    padding: $alert-with-description-padding;
+    color: $alert-text-color;
+    line-height: $line-height-base;
+    border-radius: $border-radius-base;
+
+    &#{$this}-no-icon {
+      padding: $alert-with-description-no-icon-padding-vertical 15px;
+    }
+
+    #{$this}-icon {
+      position: absolute;
+      top: $alert-with-description-icon-top;
+      left: $alert-with-description-icon-size;
+      font-size: $alert-with-description-icon-size;
+
+      i {
+        font-size: $alert-with-description-icon-size;
+      }
+    }
+
+    #{$this}-message {
+      display: block;
+      margin-bottom: 4px;
+      font-size: $font-size-lg;
+    }
+
+    #{$this}-description {
+      display: block;
+    }
+  }
+}

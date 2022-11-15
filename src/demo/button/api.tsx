@@ -86,7 +86,7 @@ export default function Api() {
     {
       arguments: 'onClick',
       description: '点击按钮时的回调',
-      type: <span style={{ color: "#c41d7f" }}>() => void</span>,
+      type: <span style={{ color: "#c41d7f" }}>{'(event) => void'}</span>,
       optional: '-',
       default: '-',
     },

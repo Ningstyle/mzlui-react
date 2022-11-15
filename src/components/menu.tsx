@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom'
+import { updateLog } from '../utils/log'
 
 export type MenuProps = {
   showMenu?: boolean;
 };
 function Menu(props: MenuProps): JSX.Element {
+  // 获取updateLog的最后一项
   const { showMenu } = props;
   const navigate = useNavigate()
   const location = useLocation()
@@ -39,8 +41,8 @@ function Menu(props: MenuProps): JSX.Element {
         <div className="MenuBoxInner">
           <div className="menuinnerBox">
             <div className="leftMenuLogo">
-              <div className="logo" />
-              <span className="version">1.0.0</span>
+              <div className="logo" onClick={() => navigate('/')} />
+              <span className="version">{updateLog[updateLog.length - 1].version}</span>
             </div>
             <div className="menuitemBox">
               {
@@ -51,7 +53,7 @@ function Menu(props: MenuProps): JSX.Element {
             </div>
             <div className="linsArea1">
               <span className="github" onClick={() => window.open('https://github.com/Ningstyle/mzlui-react')} />
-              <span className="npm" onClick={() => window.open('https://www.npmjs.com/package/mzlui-rt')} />
+              <span className="npm" onClick={() => window.open('https://www.npmjs.com/package/licht-ui')} />
             </div>
           </div>
         </div>

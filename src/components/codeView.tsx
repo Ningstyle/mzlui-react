@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import hljs from 'highlight.js';
-import { Message } from '../../packages';
+import { Message, Tooltip } from '../../packages';
 
 export type codeVoewProps = {
   path: string;
@@ -58,8 +58,8 @@ export default function CodeView(props: codeVoewProps) {
     }, 500);
   }, []);
   const copyCode = () => {
-    inputRef.current.value = code;
-    inputRef.current.select();
+    (inputRef.current as HTMLTextAreaElement).value = code;
+    (inputRef.current as HTMLTextAreaElement).select();
     if (document.execCommand("copy")) {
       document.execCommand("copy");
       Message.success('复制成功');
@@ -69,23 +69,30 @@ export default function CodeView(props: codeVoewProps) {
   }
   return (
     <>
+      {
+        showView ? <div className="viewCodeToggle" style={{ borderBottom: openCode ? 'none' : '1px solid #0000000f' }}>
+          <div onClick={() => setOpenCode(!openCode)} className="codeDivItem">
+            <Tooltip content={openCode ? '隐藏代码' : '查看代码'}>
+              <i className="m-icon-code" />
+            </Tooltip>
+          </div>
+          {
+            showCopy ? <div className="codeDivItem" onClick={copyCode}>
+              <Tooltip content="复制代码">
+                <i className="m-icon-copy" />
+              </Tooltip>
+            </div> : null
+          }
+          {/* <div className="codeDivItem">
+            <i className="m-icon-edit" />
+          </div> */}
+        </div> : null
+      }
       <div className="mzl-react-ui-codeview" style={{ height: openCode ? 'auto' : '0px' }}>
         <pre>
           <code>{code}</code>
         </pre>
-        {
-          showCopy ? <div className="copyCode" onClick={copyCode}>
-            <i className="m-icon-copy" />
-          </div> : null
-        }
-
       </div>
-      {
-        showView ? <div className="viewCodeToggle" onClick={() => setOpenCode(!openCode)} style={{ borderTop: openCode ? 'none' : '1px solid #0000000f' }}>
-          <span>{openCode ? '隐藏代码' : '显示代码'}</span><i className="m-icon-code" />
-        </div> : null
-      }
-
       <textarea id="inputCopy" ref={inputRef} />
     </>
   );

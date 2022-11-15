@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import RouterPages from '../../router/pages/page';
 import Menu from '../../components/menu';
 import '../../styles/custom.scss'
+import { Backtop } from '../../../packages';
 
 // 二级路由
 export default function Index() {
@@ -43,10 +44,10 @@ export default function Index() {
     sessionStorage.setItem('menuIndex', index);
   };
   useEffect(() => {
-    setMenuIndex(sessionStorage.getItem('menuIndex') ? sessionStorage.getItem('menuIndex') : '0-0')
-    contentRef.current.scrollTop = 0;
+    setMenuIndex(sessionStorage.getItem('menuIndex') ? sessionStorage.getItem('menuIndex') : '0-0');
+    (contentRef.current as HTMLDivElement).scrollTop = 0;
   }, [location.pathname])
-
+  console.log(location.pathname);
   return (
     <div className="layoutBox">
       <div className="menuBox">
@@ -76,6 +77,10 @@ export default function Index() {
             : null}
         </div>
         <div className="contentBox" ref={contentRef}>
+          {
+            location.pathname !== '/docs/react/backtop' ? <Backtop target=".contentBox" /> : null
+          }
+
           <Routes>
             {routerPage.map((item: any, index: number) => (
               <Route path={item.path} element={item.element} key={index} />

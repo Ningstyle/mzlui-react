@@ -8,15 +8,15 @@ export type DemoProps = {
 };
 export default function Demo(props: DemoProps): JSX.Element {
   const { style, className } = props;
-  const spaceClass = classNames({
+  const demoClass = classNames({
     'mzl_demo': true,
     [className || '']: !!className,
   });
-  const spaceStyle = {
+  const demoStyle = {
     ...style,
   }
   return (
-    <div className={spaceClass} style={style || spaceStyle}>demo</div>
+    <div className={demoClass} style={style || demoStyle}>demo</div>
   );
 }
 Demo.defaultProps = {
