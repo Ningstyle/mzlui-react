@@ -1,0 +1,112 @@
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+$font-weight-base: $font-weight-normal !default;
+$table-header-border-bottom: darken($light, 3);
+
+.mzl-pagination-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  .total-and-page {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.8rem;
+
+    .primary {
+      color: $primary-color;
+    }
+    .current {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .page-change-select {
+    min-width: 100px;
+    padding: 0 0.5rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    border: solid 1px $table-header-border-bottom;
+    display: inline-block;
+    vertical-align: middle;
+    background: $white;
+    font-size: 14px;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:visited {
+      border: solid 1px $primary-color;
+      outline: 0;
+    }
+  }
+
+  .mzl-pagination {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
+    vertical-align: middle;
+
+    .mzl-pagination-disabled,
+    .mzl-pagination-disabled:hover,
+    .mzl-pagination-disabled:focus {
+      cursor: not-allowed;
+    }
+
+    .mzl-pagination-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 2rem;
+      height: 2rem;
+      margin-right: 0.5rem;
+      list-style: none;
+      background-color: #fff;
+      border: 1px solid $table-header-border-bottom;
+      border-radius: 4px;
+      outline: 0;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .mzl-pagination-item-active {
+      font-weight: $font-weight-bold;
+      background: $white;
+      border-color: $primary-color;
+      color: $primary-color;
+
+      span {
+        border-color: $primary-color;
+        color: $primary-color;
+      }
+    }
+  }
+}
