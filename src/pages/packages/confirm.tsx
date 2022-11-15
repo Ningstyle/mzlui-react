@@ -24,14 +24,14 @@ export default function ConfirmPage() {
         path="confirm/demo1"
       />
       <InstanceView
-        subtitle="基本使用"
+        subtitle="自定义使用"
         subnotes=""
         demo={<Demo2 />}
         subdesc="Confirm 组件接受自定义内容，以及成功，取消，失败的回调处理操作。"
         path="confirm/demo2"
       />
       <InstanceView
-        subtitle="基本使用"
+        subtitle="函数调用"
         subnotes=""
         demo={<Demo3 />}
         subdesc="Confirm 组件支持通过Confirm.info()函数调用的方式弹出提示框，可通过参数实现自定义。"
