@@ -8,6 +8,7 @@
 }
 .confirm_container{
   position: absolute;
+  display: flex;
   top: 0;
   left: 0;
   width: 100vw;
@@ -19,22 +20,23 @@
   }
   .mzl-wrapper{
     position: absolute;
-    transition:.5s all ease-in;
     opacity: 0;
     box-sizing: border-box;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     padding: 20px;
-    width: 400px;
-    height: 150px;
+    width: 300px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     background-color: #fff;
     border-radius: 5px;
     &.transition{
+      transition:.1s all ease-in;
+      width: 400px;
+      height: 150px;
       opacity: 1;
-      transition:.5s all ease-in;
     }
     .mzl-header{
       height: 40px;
@@ -69,4 +71,21 @@
       }
     }
   }
+}
+.confirm-enter {
+  opacity: 0;
+}
+
+.confirm-enter-active {
+  opacity: 1;
+  transition: all 150ms ease-in-out;
+}
+
+.confirm-exit {
+  opacity: 1;
+}
+
+.confirm-exit-active {
+  opacity: 0;
+  transition: all 150ms ease-in-out;
 }

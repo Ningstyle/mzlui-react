@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useState } from 'react'
+import React, { ReactNode, useEffect, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom/client';
 import ReactD from 'react-dom';
 import Button from '../Button'
@@ -52,7 +52,7 @@ function Confirm(prop:ConfirmProps):JSX.Element{
       cancelCallback,
       errorCallback,
       children}=props
-  const [show,setShow]=useState(displayed)
+  const [show,setShow]=useState(false)
   const [disabled,setDisable]=useState(false)
   const closeHandler=async ()=>{
     setShow(false)
@@ -73,15 +73,18 @@ function Confirm(prop:ConfirmProps):JSX.Element{
     setShow(true)
   }
   const visable=useMemo(()=>{
-    return show?'flex':'none'
+    return show?'visible':'hidden'
   },[show])
+  useEffect(()=>{
+    displayed?showHandler():null
+  },[])
   return (
     <>
       <span onClick={showHandler}>
       {children}
       </span>
       {ReactD.createPortal((
-      <div style={{display:visable}} className={`confirm_container ${customClass}`}>
+      <div style={{visibility:visable}} className={`confirm_container ${customClass}`}>
         <div className={`mzl-wrapper ${show?'transition':''}`}>
           <div className="mzl-header">
             <h3>{title}</h3>
