@@ -1,6 +1,5 @@
 import React from 'react'
-import { Space, Button } from '../../../packages';
-import Confirm from '../../../packages/Confirm'
+import { Space, Button,Confirm } from '../../../packages';
 
 export default function Demo1() {
   return (

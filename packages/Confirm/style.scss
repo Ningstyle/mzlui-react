@@ -20,7 +20,6 @@
   }
   .mzl-wrapper{
     position: absolute;
-    transition:.1s all ease-in;
     opacity: 0;
     box-sizing: border-box;
     top: 50%;
@@ -34,6 +33,7 @@
     background-color: #fff;
     border-radius: 5px;
     &.transition{
+      transition:.1s all ease-in;
       width: 400px;
       height: 150px;
       opacity: 1;
@@ -71,4 +71,21 @@
       }
     }
   }
+}
+.confirm-enter {
+  opacity: 0;
+}
+
+.confirm-enter-active {
+  opacity: 1;
+  transition: all 150ms ease-in-out;
+}
+
+.confirm-exit {
+  opacity: 1;
+}
+
+.confirm-exit-active {
+  opacity: 0;
+  transition: all 150ms ease-in-out;
 }

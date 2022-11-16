@@ -10,7 +10,6 @@ import Demo2 from '../../demo/confirm/demo2'
 import Demo3 from '../../demo/confirm/demo3'
 import Demo4 from '../../demo/confirm/demo4'
 import Api from '../../demo/confirm/api';
-import { Confirm } from '../../../packages';
 
 export default function ConfirmPage() {
   return (
