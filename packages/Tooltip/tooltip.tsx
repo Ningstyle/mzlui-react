@@ -55,12 +55,15 @@ export default function Tooltip(props: TooltipProps): JSX.Element {
   const tooltipMouseOut = (): void => {
     (childrenRef.current as any).handleOpen(false)
     let timer: any = null
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      const container = document.querySelector('.mzl_position-container');
-      container?.removeChild(document.querySelector('.mzl_position') as Node);
-      onOpenChange && onOpenChange(false)
-    }, 150)
+    if (Ele) {
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        const container = document.querySelector('.mzl_position-container');
+        container?.removeChild(document.querySelector('.mzl_position') as Node);
+        onOpenChange && onOpenChange(false)
+      }, 150)
+    }
+
   }
   return (
     <div

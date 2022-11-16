@@ -47,7 +47,6 @@ export default function Index() {
     setMenuIndex(sessionStorage.getItem('menuIndex') ? sessionStorage.getItem('menuIndex') : '0-0');
     (contentRef.current as HTMLDivElement).scrollTop = 0;
   }, [location.pathname])
-  console.log(location.pathname);
   return (
     <div className="layoutBox">
       <div className="menuBox">

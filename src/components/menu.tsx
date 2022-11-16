@@ -39,11 +39,11 @@ function Menu(props: MenuProps): JSX.Element {
     <div>
       {showMenu ? (
         <div className="MenuBoxInner">
+          <div className="leftMenuLogo">
+            <div className="logo" onClick={() => navigate('/')} />
+            <span className="version">{updateLog[updateLog.length - 1].version}</span>
+          </div>
           <div className="menuinnerBox">
-            <div className="leftMenuLogo">
-              <div className="logo" onClick={() => navigate('/')} />
-              <span className="version">{updateLog[updateLog.length - 1].version}</span>
-            </div>
             <div className="menuitemBox">
               {
                 menulist.map((item: any, index: number) => (
