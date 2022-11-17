@@ -8,7 +8,8 @@ import Zhifubao from '../../assets/Zhifubao.jpg';
 
 function Contributors(): JSX.Element {
   const octokit = new Octokit({
-    auth: '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',
+    // auth: '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',
+    acceptstring: 'application/vnd.github.v3+json',
   })
   const [list, setList] = React.useState([]);
   const [page, setPage] = React.useState(1);
@@ -16,6 +17,7 @@ function Contributors(): JSX.Element {
     const result = await octokit.request('GET /repos/Ningstyle/mzlui-react/contributors', {
       page,
       per_page: 100,
+
     })
     return result
   }
