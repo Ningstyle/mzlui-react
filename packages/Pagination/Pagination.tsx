@@ -160,7 +160,12 @@ const Pagination: FC<PaginationProps> = ({
 };
 Pagination.displayName = 'Pagination';
 Pagination.defaultProps = {
+  pageSize: 10,
   pageSizeOptions: [10, 20, 50, 100, 200],
+  onPageChange: () => { },
+  onPageSizeChange: () => { },
+  style: {},
+  className: '',
   text: {
     nextPage: '下一页',
     prevPage: '上一页',
