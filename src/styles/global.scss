@@ -24,7 +24,7 @@ $base-hover-background: #f7f7f7af; //默认背景色
 // Spacing 间距
 $padding-lg: 1.5rem; // 容器
 $padding-md: 1rem; // 用于小容器和按钮
-$padding-md: 0.75rem; // 用于表单控件中的每项间距
+$padding-sm: 0.75rem; // 用于表单控件中的每项间距
 $padding-xs: 0.5rem; // 小间距
 $padding-xss: 0.25rem; // 最小间距
 
@@ -65,15 +65,14 @@ $alert-warning-bg-color: lighten($warning-color, 42%);
 $alert-error-bg-color: lighten($error-color, 45%);
 $alert-text-color: $text-color;
 $alert-no-icon-padding-vertical: $padding-xs;
-$alert-icon-top: 0.25rem + calc($font-size-base * $line-height-base / 2) -
-  calc($font-size-base / 2);
+$alert-icon-top: 0.25rem + calc($font-size-base * $line-height-base / 2) - calc($font-size-base / 2);
 $alert-with-description-icon-size: 1.5rem;
 $alert-with-description-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-no-icon-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-padding: $alert-with-description-padding-vertical 15px
-  $alert-with-description-no-icon-padding-vertical
-  $alert-with-description-icon-size * 2 +
-  $alert-with-description-padding-vertical;
+$alert-with-description-no-icon-padding-vertical
+$alert-with-description-icon-size * 2 +
+$alert-with-description-padding-vertical;
 $alert-with-description-no-icon-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-icon-top: $alert-with-description-padding-vertical;
 
