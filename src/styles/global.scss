@@ -8,7 +8,7 @@ $info-color: #909399; //信息色
 // 字体大小
 $font-size-base: 1rem; // 主字号
 $font-size-lg: $font-size-base * 1.25 !default;
-$font-size-sm: $font-size-base * .875 !default;
+$font-size-sm: $font-size-base * 0.875 !default;
 
 $heading-color: rgba(0, 0, 0, 0.8); // 标题色
 $text-color: rgba(0, 0, 0, 0.65); // 主文本色
@@ -24,7 +24,7 @@ $base-hover-background: #f7f7f7af; //默认背景色
 // Spacing 间距
 $padding-lg: 1.5rem; // 容器
 $padding-md: 1rem; // 用于小容器和按钮
-$padding-sm: 0.75rem; // 用于表单控件中的每项间距
+$padding-md: 0.75rem; // 用于表单控件中的每项间距
 $padding-xs: 0.5rem; // 小间距
 $padding-xss: 0.25rem; // 最小间距
 
@@ -35,8 +35,8 @@ $line-height-sm: 1.25 !default;
 
 // 边框 和 border radius
 $border-radius-base: 2px; // 组件/浮层圆角
-$border-radius-lg: .3rem !default;
-$border-radius-sm: .2rem !default;
+$border-radius-lg: 0.3rem !default;
+$border-radius-sm: 0.2rem !default;
 $border-width: 1px !default;
 $border-color-base: rgba(0, 0, 0, 0.06); // 边框色
 $border-style-base: solid;
@@ -65,10 +65,17 @@ $alert-warning-bg-color: lighten($warning-color, 42%);
 $alert-error-bg-color: lighten($error-color, 45%);
 $alert-text-color: $text-color;
 $alert-no-icon-padding-vertical: $padding-xs;
-$alert-icon-top: 0.25rem + calc($font-size-base * $line-height-base / 2) - calc($font-size-base / 2);
+$alert-icon-top: 0.25rem + calc($font-size-base * $line-height-base / 2) -
+  calc($font-size-base / 2);
 $alert-with-description-icon-size: 1.5rem;
 $alert-with-description-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-no-icon-padding-vertical: $padding-md - 0.0625rem;
-$alert-with-description-padding: $alert-with-description-padding-vertical 15px $alert-with-description-no-icon-padding-vertical $alert-with-description-icon-size * 2 + $alert-with-description-padding-vertical;
+$alert-with-description-padding: $alert-with-description-padding-vertical 15px
+  $alert-with-description-no-icon-padding-vertical
+  $alert-with-description-icon-size * 2 +
+  $alert-with-description-padding-vertical;
 $alert-with-description-no-icon-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-icon-top: $alert-with-description-padding-vertical;
+
+// Card
+$card-with-shodows: 0px 0px 10px #eee;

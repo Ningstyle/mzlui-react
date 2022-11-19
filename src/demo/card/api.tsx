@@ -10,6 +10,7 @@ export default function Api() {
     {
       title: "说明",
       field: "description",
+      width: 300,
     },
     {
       title: "类型",
@@ -84,8 +85,8 @@ export default function Api() {
       default: "none",
     },
     {
-      arguments: "onClick",
-      description: "点击按钮时的回调",
+      arguments: "actions",
+      description: "自定义操作组",
       type: <span style={{ color: "#c41d7f" }}>Array&lt;ReactNode&gt;</span>,
       optional: "-",
       default: "-",

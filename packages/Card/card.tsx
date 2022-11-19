@@ -1,10 +1,11 @@
 import React, { CSSProperties } from "react";
 import classNames from "classnames";
-import './style.scss';
+import "./style.scss";
 
 export type CardProps = {
   style?: CSSProperties;
   size?: "default" | "small";
+  cardType?: "outer" | "inner";
   className?: string;
   children?: React.ReactNode;
   cardTitle?: string;
@@ -19,6 +20,7 @@ function Card(props: CardProps): JSX.Element {
   const {
     style,
     size,
+    cardType,
     className,
     children,
     cardTitle,
@@ -30,22 +32,26 @@ function Card(props: CardProps): JSX.Element {
   } = props;
 
   const cardClass = classNames("mzl_card", {
-    [`mzl_card_${shadows}`]: true,
+    [`mzl_card_shadows_${shadows}`]: true,
     [`mzl_card_${size}`]: true,
+    mzl_card_inner:cardType === 'inner',
     mzl_card_border: bordered,
+    mzl_card_noContent:children === null,
     [className || ""]: !!className,
   });
   return (
     <div className={cardClass} style={style || undefined}>
       {cardTitle !== "" ? (
-        <header>
+        <header className="mzl_card_header">
           {cardTitle}
-          {extraContent}
+          <div className="mzl_card_link">{extraContent}</div>
         </header>
       ) : null}
-      {cover !== null ? <div>{cover}</div> : null}
-      {children}
-      {actions !== null ? <footer>{actions}</footer> : null}
+      {cover !== null ? <div className="mzl_card_cover">{cover}</div> : null}
+      <main className="mzl_card_main">{children}</main>
+      {actions !== null ? (
+        <footer className="mzl_card_footer">{actions}</footer>
+      ) : null}
     </div>
   );
 }
@@ -53,11 +59,12 @@ function Card(props: CardProps): JSX.Element {
 Card.defaultProps = {
   style: "",
   size: "default",
+  cardType:'outer',
   className: "",
   children: null,
-  cardTitle: "标题",
+  cardTitle: "",
   extraContent: null,
-  bordered: false,
+  bordered: true,
   cover: null,
   shadows: "none",
   actions: null,
