@@ -170,4 +170,18 @@ export const updateLog = [
       },
     ],
   },
+  {
+    version: '0.1.4',
+    time: '2022-11-16',
+    log: [
+      {
+        title: '新增',
+        content: ['新增贡献者列表'],
+      },
+      {
+        title: '优化',
+        content: ['优化文档首页展示。', '优化文档菜单模式'],
+      },
+    ],
+  },
 ];

@@ -7,6 +7,7 @@ import Nofound from '../../pages/public/404';
 import Dedicate from '../../pages/public/dedicate';
 import UpdateLog from '../../pages/public/updatelog';
 import PackagesRouter from './packages'
+import Contributors from '../../pages/public/contributors';
 
 const BaseRouter: any = [
   {
@@ -36,6 +37,13 @@ const BaseRouter: any = [
         name: '更新日志',
         group: '快速上手',
         router: '/docs/updateLog',
+      },
+      {
+        path: '/contributors',
+        element: <Contributors />,
+        name: '贡献者列表',
+        group: '快速上手',
+        router: '/docs/contributors',
       },
     ],
   },

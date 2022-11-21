@@ -13,8 +13,8 @@
 ***
 ### 快速使用
 ```
-npm install  licht-ui
-cnpm install  licht-ui
+npm install licht-ui
+cnpm install licht-ui
 yarn add licht-ui
 ```
 ### 引入使用

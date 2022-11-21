@@ -21,18 +21,12 @@ export default function IconPage() {
         subtitle="使用方法"
         subnotes=""
         demo={<Demo1 />}
-        showCopy={false}
-        showView={false}
-        showCode
         path="pagination/demo1"
       />
       <InstanceView
         subtitle="其他属性和方法"
         subnotes=""
         demo={<Demo2 />}
-        showCopy={false}
-        showView={false}
-        showCode
         path="pagination/demo2"
       />
       <Api />

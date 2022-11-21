@@ -1,7 +1,5 @@
 import React from 'react'
-import Button from '../../../packages/Button'
-import Confirm from '../../../packages/Confirm'
-import Message from '../../../packages/Message'
+import {Button,Confirm,Message} from '../../../packages'
 
 export default function Demo3() {
   function callback(){

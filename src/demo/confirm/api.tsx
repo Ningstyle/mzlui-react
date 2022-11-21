@@ -88,7 +88,7 @@ export default function Api() {
       description: '是否显示右上角的图标',
       type: <span style={{ color: "#c41d7f" }}>boolean</span>,
       optional: <span style={{ color: "#1890ff" }}>true | false </span>,
-      default: 'false',
+      default: 'true',
     },
     {
       arguments: 'confirmCallback',
@@ -114,13 +114,13 @@ export default function Api() {
     {
       arguments: 'customClass',
       description: '自定义组件类名',
-      type: <span style={{ color: "#c41d7f" }}>{`() => void`}</span>,
+      type: <span style={{ color: "#c41d7f" }} >string</span>,
       optional: '-',
       default: '-',
     },
   ]
   return (
-    <div style={{ width: '80%' }}>
+    <div style={{ width: '100%' }}>
       <p className="packagesSubTitle">API 说明</p>
       {/* <p className="packagesSubNodes">API 说明</p> */}
       <Table columns={columns} dataSource={dataSource} size="middle" border />

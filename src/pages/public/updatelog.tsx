@@ -3,11 +3,12 @@ import Title from '../../components/title';
 import { updateLog } from '../../utils/log'
 
 export default function UpdateLog() {
+  const log = JSON.parse(JSON.stringify(updateLog))
   return (
     <div>
       <Title title="更新日志" desc="记录mzl-ui-react组件库的更新日志及重大版本更新节点。" />
       {
-        updateLog.reverse().map((item: any, index: number) => (
+        log.reverse().map((item: any, index: number) => (
           <div className="updatelogInner" key={index}>
             <p className="verisonInfo">版本： <span className="version">v{item.version}</span> <span className="time">{item.time}</span></p>
             {

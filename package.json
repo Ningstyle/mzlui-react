@@ -2,7 +2,7 @@
   "name": "licht-ui",
   "author": "style'me",
   "private": false,
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "main": "./dist/licht-ui.umd.js",
   "module": "./dist/licht-ui.es.js",
