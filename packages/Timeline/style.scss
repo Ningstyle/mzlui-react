@@ -1,0 +1,179 @@
+.mzl_timeline {
+  box-sizing: border-box;
+  font-size: $font-size-sm;
+  font-variant: tabular-nums;
+  line-height: $line-height-base;
+  font-feature-settings: 'tnum';
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  // timeline item 样式
+  &_item {
+    position: relative;
+    margin: 0;
+    padding-bottom: 20px;
+    list-style: none;
+    font-size: $font-size-sm;
+    // 时间轴点样式
+    &_dot {
+      box-sizing: border-box;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background-color: #fff;
+      &_blue {
+        color: $primary-color;
+        border-color: $primary-color;
+      }
+      &_green {
+        color: $success-color;
+        border-color: $success-color;
+      }
+      &_red {
+        color: $error-color;
+        border-color: $error-color;
+      }
+      &_gray {
+        color: $info-color;
+        border-color: $info-color;
+      }
+    }
+    &_dot_custom {
+      position: absolute;
+      top: 5.5px;
+      left: 5px;
+      width: auto;
+      height: auto;
+      margin-top: 0;
+      padding: 3px 1px;
+      line-height: 1;
+      text-align: center;
+      border: 0;
+      border-radius: 0;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    // 文本样式
+    &_content {
+      position: relative;
+      top: -5px;
+      margin: 0 0 0 24px;
+      word-break: break-word;
+      & > p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    // 时间轴线样式
+    &_vertical_line {
+      position: absolute;
+      top: 10px;
+      left: 4px;
+      height: calc(100% - 10px);
+      border: 1px solid $info-color;
+      opacity: 0.2;
+    }
+    // label样式
+    &_label {
+      text-align: right;
+    }
+  }
+  // 时间轴最后一项的特殊样式
+  & :last-child {
+    & > .mzl_timeline_item_vertical_line {
+      display: none;
+    }
+  }
+
+  $this: &;
+  &_right {
+    #{$this}_item_dot,
+    #{$this}_item_vertical_line,
+    #{$this}_item_dot_custom {
+      left: 100%;
+    }
+    #{$this}_item_vertical_line {
+      margin-left: 4px;
+    }
+    #{$this}_item_content {
+      text-align: right;
+      margin-right: 24px;
+    }
+    #{$this}_item_dot_custom {
+      margin-left: 5px;
+    }
+    #{$this}_item_label {
+      position: absolute;
+      top: -5px;
+      right: 0;
+      width: calc(50% - 21px);
+      text-align: left;
+    }
+  }
+
+  &_middle {
+    #{$this}_item_dot,
+    #{$this}_item_vertical_line {
+      left: 50%;
+    }
+    #{$this}_item_dot {
+      margin-left: -4px;
+    }
+    #{$this}_item_dot_custom {
+      margin-left: 1px;
+    }
+    #{$this}_item_right {
+      #{$this}_item_content {
+        width: calc(50% - 21px);
+        text-align: right;
+        margin: 0;
+      }
+      #{$this}_item_label {
+        right: 0;
+        text-align: left;
+      }
+    }
+    #{$this}_item_left {
+      #{$this}_item_content {
+        left: calc(50%);
+        width: calc(50% - 12px);
+        text-align: left;
+      }
+    }
+  }
+
+  &_label {
+    #{$this}_item_label {
+      position: absolute;
+      top: -5px;
+      width: calc(50% - 21px);
+    }
+    #{$this}_item_dot,
+    #{$this}_item_vertical_line {
+      left: 50%;
+    }
+    #{$this}_item_dot {
+      margin-left: -4px;
+    }
+    #{$this}_item_dot_custom {
+      margin-left: 1px;
+    }
+    #{$this}_item_right {
+      #{$this}_item_content {
+        width: calc(50% - 21px);
+        text-align: right;
+        margin: 0;
+      }
+    }
+    #{$this}_item_left {
+      #{$this}_item_content {
+        left: calc(50%);
+        width: calc(50% - 12px);
+        text-align: left;
+      }
+    }
+  }
+}
