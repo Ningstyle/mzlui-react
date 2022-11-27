@@ -5,22 +5,20 @@ import './style.scss';
 import classNames from 'classnames';
 
 export type TableProps = {
-  style?: CSSProperties;
+  headStyle?: CSSProperties;
+  bodyStyle?: CSSProperties;
   className?: string;
   border?: boolean;
   columns: Array<any>;
   dataSource: Array<any>;
-  size?: 'default' | 'middle' | 'small';
+  size?: 'large' | 'middle' | 'small';
 };
 export default function Table(props: TableProps): JSX.Element {
-  const { style, className, border, columns, dataSource, size } = props;
-  const spaceClass = classNames({
+  const { headStyle, bodyStyle, className, border, columns, dataSource, size } = props;
+  const tableClass = classNames({
     'mzl_table_inner': true,
     [className || '']: !!className,
   });
-  const tableStyle = {
-    ...style,
-  }
   const theadTrClass = classNames({
     'mzl_table_thead_th': true,
     'mzl_table_thead_th_boder': border,
@@ -32,7 +30,7 @@ export default function Table(props: TableProps): JSX.Element {
     [`mzl_table_tbody_td_size_${size}`]: size,
   })
   return (
-    <div className={spaceClass} style={style || tableStyle}>
+    <div className={tableClass}>
       <table className="mzl_table_content">
         <thead className="mzl_table_thead">
           <tr className="mzl_table_thead_tr">
@@ -40,6 +38,7 @@ export default function Table(props: TableProps): JSX.Element {
               columns && columns.length ? columns.map((item: any, index: number) => {
                 const thStyle = {
                   ...item.style,
+                  ...headStyle,
                   textAlign: item.align ? item.align : '',
                 }
                 return (
@@ -56,6 +55,7 @@ export default function Table(props: TableProps): JSX.Element {
                 {
                   columns && columns.length ? columns.map((column: any, i: number) => {
                     const tdStyle = {
+                      ...bodyStyle,
                       width: column.width ? `${column.width}px` : '',
                       textAlign: column.align ? column.align : '',
                     }
@@ -88,8 +88,9 @@ export default function Table(props: TableProps): JSX.Element {
   );
 }
 Table.defaultProps = {
-  style: '',
+  headStyle: '',
+  bodyStyle: '',
   className: '',
   border: false,
-  size: 'default',
+  size: 'large',
 };
