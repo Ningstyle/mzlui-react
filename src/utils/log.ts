@@ -195,7 +195,7 @@ export const updateLog = [
           '新增Timeline时间轴组件',
           '新增Confirm 消息确认框组件',
           '新增Progress 进度条组件',
-          'Card 卡片组件',
+          '新增Card 卡片组件',
         ],
       },
       {
