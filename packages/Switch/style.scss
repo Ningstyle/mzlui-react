@@ -1,0 +1,167 @@
+.mzl-switch {
+  --switch-default-bgcolor: #ccc;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 44px;
+  height: 22px;
+  line-height: 20px;
+  padding: 0;
+  vertical-align: middle;
+  border-radius: 20px 20px;
+  border: 1px solid transparent;
+  background-color: $info-color;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  overflow: hidden;
+
+  &-loading {
+    .mzl-switch-inner-loading {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+
+      left: 2.2px;
+      top: 1.2px;
+      z-index: 999;
+      transform: rotate(360deg);
+      animation: loading 3s infinite linear;
+    }
+
+    &.mzl-switch-checked {
+      .mzl-switch-inner-loading {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        left: 22.5px;
+        z-index: 999;
+        transform: rotate(360deg);
+        animation: loading 3s infinite linear;
+      }
+    }
+    cursor: no-drop;
+    background-color: $info-color;
+    border-color: transparent;
+    &.mzl-switch:after {
+      background: #e1e0e0;
+      animation-name: none;
+      cursor: no-drop;
+    }
+
+    &.mzl-switch:hover:after {
+      transform: scale(1);
+      animation-name: none;
+    }
+  }
+  &::after {
+    content: '';
+    cursor: pointer;
+
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 2px;
+    top: 1px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    transform: scale(1);
+    transition: left 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+    animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+    animation-duration: 0.3s;
+    animation-name: switchOff;
+  }
+  &:hover::after {
+    transform: scale(1.1);
+    animation-name: switchOn;
+  }
+  &:focus {
+    box-shadow: 0 0 0 2px tint($primary-color, 80%);
+    outline: none;
+  }
+
+  &-checked {
+    cursor: no-drop;
+    background-color: $primary-color;
+    border-color: transparent;
+    .mzl-switch-inner-checked {
+      left: 6px;
+    }
+    .mzl-switch-inner-unchecked {
+      left: 44px;
+    }
+    &::after {
+      left: 22px;
+    }
+  }
+  &-disabled {
+    cursor: no-drop;
+    background-color: $info-color;
+    border-color: transparent;
+
+    &:after {
+      background: #9e9e9e;
+      animation-name: none;
+      cursor: no-drop;
+    }
+
+    &:hover:after {
+      transform: scale(1);
+      animation-name: none;
+    }
+  }
+  &-label {
+    display: inline-block;
+    line-height: 20px;
+    font-size: 14px;
+    padding-left: 10px;
+    vertical-align: middle;
+    white-space: normal;
+    pointer-events: none;
+    user-select: text;
+  }
+  &-inner {
+    &-checked,
+    &-unchecked {
+      color: #fff;
+      font-size: 12px;
+      position: absolute;
+      top: 0;
+      transform: left 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+    }
+    &-checked {
+      left: 6px - 20px;
+    }
+
+    &-unchecked {
+      left: 24px;
+    }
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes switchOn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes switchOff {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
