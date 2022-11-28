@@ -5,8 +5,8 @@
 import React from 'react';
 import Title from '../../components/title';
 import InstanceView from '../../layout/instanceView';
-import Demo1 from '../../demo/Image/demo1';
-import Api from '../../demo/Image/api';
+import Demo1 from '../../demo/image/demo1';
+import Api from '../../demo/image/api';
 export default function InputPage() {
   return (
     <div>
