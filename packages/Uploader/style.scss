@@ -1,0 +1,91 @@
+.mzl-uploader {
+  .hidden-input {
+    display: none;
+    cursor: pointer;
+  }
+  .list {
+    width: 100%;
+    margin: 0;
+    padding: 10px 4px;
+
+    .list-item {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      .mzl_tooltip {
+        min-height: auto;
+        width: 100%;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      p.list-item-up-error {
+        .file-name {
+          color: #ff4d4f;
+        }
+        .m-icon-close {
+          color: #ff4d4f;
+        }
+      }
+      .file-name {
+        display: inline-block;
+        max-width: 80%;
+        color: #1890ff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      p.list-item-up {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        transition: all 500ms;
+        padding-right: 6px;
+        height: 24px;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+        .list-item-up-left {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex: 1;
+          overflow: hidden;
+        }
+
+        .normal-close {
+          display: none;
+        }
+        &:hover .normal-close {
+          display: '';
+        }
+
+        .list-item-up-right {
+          width: 10px;
+          display: flex;
+          justify-content: center;
+          cursor: pointer;
+        }
+        .m-icon-attachment {
+          margin-right: 8px;
+        }
+      }
+      p.list-item-down {
+        height: 10px;
+        width: 100%;
+
+        .mzl_progress {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
