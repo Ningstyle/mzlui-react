@@ -13,3 +13,4 @@ export { default as Loading } from './Loading';
 export { default as Progress } from './Progress';
 export { default as Timeline } from './Timeline';
 export { default as Switch } from './Switch';
+export { default as Image } from './Image';
