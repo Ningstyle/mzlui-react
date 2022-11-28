@@ -8,7 +8,7 @@ import Title from '../../components/title';
 import InstanceView from '../../layout/instanceView';
 import Demo1 from '../../demo/uploader/demo1';
 import Demo2 from '../../demo/uploader/demo2';
-import Api from '../../demo/uploader/Api';
+import Api from '../../demo/uploader/api';
 import UploadFile from '../../demo/uploader/UploadFile';
 
 export default function AlertPage() {

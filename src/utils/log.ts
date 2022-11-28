@@ -191,11 +191,13 @@ export const updateLog = [
       {
         title: '新增',
         content: [
-          '新增Switch开关组件',
-          '新增Timeline时间轴组件',
-          '新增Confirm 消息确认框组件',
-          '新增Progress 进度条组件',
-          '新增Card 卡片组件',
+          '新增 Switch 开关组件',
+          '新增 Timeline 时间轴组件',
+          '新增 Confirm 消息确认框组件',
+          '新增 Progress 进度条组件',
+          '新增 Card 卡片组件',
+          '新增 Uploader 文件上传组件',
+          '新增 Image 组件',
         ],
       },
       {
