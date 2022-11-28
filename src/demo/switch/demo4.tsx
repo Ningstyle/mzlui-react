@@ -1,6 +1,13 @@
-import React from 'react';
-import { Switch } from '../../../packages';
+import React, { useState } from 'react';
+import { Button, Space, Switch } from '../../../packages';
 
 export default function Demo() {
-  return <Switch disabled />;
+  const [state, setState] = useState(true);
+  return (
+    <Space>
+      <Switch disabled={state} />
+      <Switch checked disabled={state} />
+      <Button onClick={() => setState(!state)}>切换状态</Button>
+    </Space>
+  );
 }

@@ -58,6 +58,6 @@ export default function Demo() {
   ]
   // headStyle={{ background: '#bae0ff' }}
   return (
-    <Table columns={columns} dataSource={dataSource} />
+    <Table columns={columns} dataSource={dataSource} border />
   );
 }

@@ -13,6 +13,7 @@
       text-align: left;
 
       .mzl_table_thead_th {
+        background: #fff;
         padding: 14px;
         box-sizing: border-box;
         font-variant: tabular-nums;
@@ -22,21 +23,25 @@
         position: relative;
         font-size: 14px;
         color: $heading-color;
-        border-bottom: 1px solid $border-color-base;
+        border-bottom: .5px solid $border-color-base;
         overflow-wrap: break-word;
       }
 
+      .mzl_table_thead_th_size_large {
+        padding: 14px 12px;
+      }
+
       .mzl_table_thead_th_size_middle {
-        padding: 10px;
+        padding: 11px 10px;
       }
 
       .mzl_table_thead_th_size_small {
-        padding: 8px 10px;
+        padding: 7px 10px;
         font-size: 13px;
       }
 
       .mzl_table_thead_th_boder {
-        border: 1px solid $border-color-base;
+        border: .5px solid $border-color-base;
       }
     }
 
@@ -47,13 +52,14 @@
       .mzl_table_tbody_tr {
         width: 100%;
         transition: all .2s ease-in;
+        background: #fff;
 
         &:hover {
-          background-color: $base-hover-background;
+          background: $base-hover-background  !important;
         }
 
         .mzl_table_tbody_td {
-          padding: 14px;
+          padding: 7px 12px;
           box-sizing: border-box;
           font-variant: tabular-nums;
           line-height: 1.5715;
@@ -62,16 +68,20 @@
           position: relative;
           font-size: 14px;
           color: $heading-color;
-          border-bottom: 1px solid $border-color-base;
+          border-bottom: .5px solid $border-color-base;
           overflow-wrap: break-word;
         }
 
+        .mzl_table_tbody_td_size_large {
+          padding: 9px 12px;
+        }
+
         .mzl_table_tbody_td_size_middle {
-          padding: 10px;
+          padding: 6px 10px;
         }
 
         .mzl_table_tbody_td_size_small {
-          padding: 7px 10px;
+          padding: 4px 10px;
           font-size: 12px;
         }
 
@@ -88,14 +98,14 @@
         }
 
         .mzl_table_tbody_td_boder {
-          border: 1px solid $border-color-base;
+          border: .5px solid $border-color-base;
         }
       }
 
     }
 
     .noTableData {
-      border: 1px solid $border-color-base;
+      border: .5px solid $border-color-base;
       border-top: none;
       text-align: center;
       position: relative;

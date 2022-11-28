@@ -16,6 +16,8 @@
   overflow: hidden;
 
   &-loading {
+    opacity: 0.7;
+
     .mzl-switch-inner-loading {
       position: absolute;
       width: 18px;
@@ -39,13 +41,14 @@
         animation: loading 3s infinite linear;
       }
     }
-    cursor: no-drop;
     background-color: $info-color;
     border-color: transparent;
-    &.mzl-switch:after {
-      background: #e1e0e0;
+    &.mzl-switch {
+      cursor: wait;
+    }
+    &.mzl-switch::after {
       animation-name: none;
-      cursor: no-drop;
+      cursor: wait;
     }
 
     &.mzl-switch:hover:after {
@@ -81,7 +84,7 @@
   }
 
   &-checked {
-    cursor: no-drop;
+    cursor: pointer;
     background-color: $primary-color;
     border-color: transparent;
     .mzl-switch-inner-checked {
@@ -96,11 +99,10 @@
   }
   &-disabled {
     cursor: no-drop;
-    background-color: $info-color;
+    opacity: 0.7;
     border-color: transparent;
 
     &:after {
-      background: #9e9e9e;
       animation-name: none;
       cursor: no-drop;
     }

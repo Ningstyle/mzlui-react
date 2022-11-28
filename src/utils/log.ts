@@ -184,4 +184,24 @@ export const updateLog = [
       },
     ],
   },
+  {
+    version: '0.1.5',
+    time: '2022-11-27',
+    log: [
+      {
+        title: '新增',
+        content: [
+          '新增Switch开关组件',
+          '新增Timeline时间轴组件',
+          '新增Confirm 消息确认框组件',
+          '新增Progress 进度条组件',
+          '新增Card 卡片组件',
+        ],
+      },
+      {
+        title: '优化',
+        content: ['优化table组件。'],
+      },
+    ],
+  },
 ];
