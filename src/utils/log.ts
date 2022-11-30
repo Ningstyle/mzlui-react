@@ -206,4 +206,14 @@ export const updateLog = [
       },
     ],
   },
+  {
+    version: '0.1.6',
+    time: '2022-11-30',
+    log: [
+      {
+        title: '新增',
+        content: ['新增 LoadingBar 加载进度条组件组件'],
+      },
+    ],
+  },
 ];

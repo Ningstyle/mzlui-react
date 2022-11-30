@@ -1,0 +1,40 @@
+.mzl_loadingBar-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .mzl_loadingBar_inner_box,
+  .mzl_loadingBar_inner {
+    width: 100%;
+    height: 100%;
+
+    .mzl_loadingBar {
+      width: 0%;
+      height: 2px;
+      display: block;
+      border-radius: 2px;
+      transition: width .2s linear;
+    }
+  }
+}
+
+.loadingBar-enter {
+  opacity: 0;
+}
+
+.loadingBar-enter-active {
+  opacity: 1;
+  transition: all 200ms ease-in-out;
+}
+
+.loadingBar-exit {
+  opacity: 1;
+}
+
+.loadingBar-exit-active {
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
