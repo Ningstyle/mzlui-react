@@ -7,6 +7,7 @@ import Title from '../../components/title';
 import InstanceView from '../../layout/instanceView';
 import Demo1 from '../../demo/image/demo1';
 import Api from '../../demo/image/api';
+
 export default function InputPage() {
   return (
     <div>
@@ -16,9 +17,9 @@ export default function InputPage() {
         subnotes=""
         demo={<Demo1 />}
         subdesc="可通过fit确定图片如何适应到容器框，同原生 object-fit。"
-        path="Image/demo1"
+        path="image/demo1"
       />
-      <Api/>
+      <Api />
     </div>
   );
 }
