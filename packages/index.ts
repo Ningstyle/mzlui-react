@@ -15,3 +15,4 @@ export { default as Timeline } from './Timeline';
 export { default as Switch } from './Switch';
 export { default as Image } from './Image';
 export { default as LoadingBar } from './LoadingBar';
+export { default as Empty } from './Empty';

@@ -1,23 +1,18 @@
 import React from 'react';
-import { Input } from '../../../packages';
+import { Input, Button } from '../../../packages';
 
 export default function Demo1() {
-    const input_w = {
-        width: '224px',
-    }
-    const settingIcon = (
-        <i className='m-icon-setting'></i>
-    )
-    const searchIcon = (
-        <i className='m-icon-search'></i>
-    )
-    const onchange=(value,event)=>{
-        console.log(value)
-    }
-    return (
-        <div style={input_w}>
-            <Input clearable prefix={settingIcon} suffix={searchIcon} onchange={onchange}/>
-        </div>
-
-    )
+	const [value, setValue] = React.useState('33333');
+	return (
+		<div style={{ width: '264px' }}>
+			<Button onClick={() => setValue('2222')}>点击</Button>
+			<Input
+				type="text"
+				prefix="m-icon-search"
+				placeholder="请输入你要搜索的内容"
+				onChange={(e) => console.log(e.target.value)}
+				clearable
+			/>
+		</div>
+	)
 }

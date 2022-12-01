@@ -6,7 +6,7 @@ export default function UpdateLog() {
   const log = JSON.parse(JSON.stringify(updateLog))
   return (
     <div>
-      <Title title="更新日志" desc="记录mzl-ui-react组件库的更新日志及重大版本更新节点。" />
+      <Title title="更新日志" desc="记录licht-ui组件库的更新日志及重大版本更新节点。" />
       {
         log.reverse().map((item: any, index: number) => (
           <div className="updatelogInner" key={index}>
