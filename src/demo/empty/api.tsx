@@ -18,12 +18,12 @@ export default function Api() {
     {
       title: '可选值',
       field: 'optional',
-      width: 450,
+      width: 150,
     },
     {
       title: '默认值',
       field: 'default',
-      width: 120,
+      width: 150,
     },
   ]
   const dataSource: any = [

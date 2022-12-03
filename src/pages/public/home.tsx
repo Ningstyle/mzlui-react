@@ -32,11 +32,9 @@ export default function Index() {
     } else {
       window.open(path)
     }
-
-
   }
   return (
-    <div className="mzl-ui-react-home-inner">
+    <div className="mzl-ui-react-home-inner" style={{ filter: 'grayscale(1)' }}>
       <div className="homeBoxinner">
         <div className="homeHeader">
           <div className="homeHaderInner">
