@@ -16,3 +16,4 @@ export { default as Switch } from './Switch';
 export { default as Image } from './Image';
 export { default as LoadingBar } from './LoadingBar';
 export { default as Empty } from './Empty';
+export { default as Tag } from './Tag';
