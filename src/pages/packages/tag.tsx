@@ -14,7 +14,7 @@ import Api from '../../demo/tag/api';
 export default function DemoPage() {
   return (
     <div>
-      <Title title="Timeline" notes="时间轴" desc="垂直展示的时间流信息" />
+      <Title title="Tag" notes="标签" desc="进行标记和分类的小标签" />
       <InstanceView
         subtitle="基本使用"
         subnotes=""
