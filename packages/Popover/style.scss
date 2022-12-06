@@ -1,0 +1,36 @@
+.mzl_demo_popover {
+    width: inherit;
+    display: inline-block;
+    position: relative;
+}
+.mzl_popover {
+    position: absolute;
+    width: fit-content;
+    min-width: 177px;
+    display: inline-block;
+    background-color: #fff;
+
+    .mzl_popover_arrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        // box-shadow: 3px 3px 7px red; // 只针对盒模型
+        filter: drop-shadow(0 6px 16px 0 rgb(0 0 0 / 8%), 0 3px 6px -4px rgb(0 0 0 / 12%), 0 9px 28px 8px rgb(0 0 0 / 5%));
+    }
+    
+    .mzl_popover_inner {
+        padding: 12px;
+        box-shadow: 0 6px 16px 0 rgb(0 0 0 / 8%), 0 3px 6px -4px rgb(0 0 0 / 12%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+        border-radius: 8px;
+
+        .mzl_popover_title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+    }
+}
+.mzl_popover_hidden {
+    display: none;
+    left: -333px;
+    top: -666px;
+}
