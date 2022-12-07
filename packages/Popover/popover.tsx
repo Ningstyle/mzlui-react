@@ -78,4 +78,4 @@ function Popover(props: PopoverProps): JSX.Element {
   );
 }
 
-export default React.memo(Popover);
+export default Popover;
