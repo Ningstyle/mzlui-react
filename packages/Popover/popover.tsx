@@ -10,6 +10,7 @@ export interface PopoverProps {
   content: string | ReactNode;
   title: string;
   placement?: 'left' | 'right' | 'top' | 'bottom';
+  defaultOpen?: boolean;
   visible?: boolean;
   onOpenChange?: (visible: boolean) => void;
 }
@@ -21,9 +22,10 @@ function Popover(props: PopoverProps): JSX.Element {
     title,
     placement = 'top',
     onOpenChange,
+    defaultOpen = false,
     visible = false,
   } = props;
-  const [isHidden, setIsHidden] = useState(!visible);
+  const [isHidden, setIsHidden] = useState(!visible && !defaultOpen);
   const popoverComponentRef = useRef<HTMLDivElement>(null);
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
@@ -68,7 +70,7 @@ function Popover(props: PopoverProps): JSX.Element {
     // el && (el.style.left = `${left}px`);
     if (visible) return;
     setPopoverVisible();
-    onPopoverChange();
+    isHidden && onPopoverChange();
   };
 
   const popoverMouseOut = (): void => {
