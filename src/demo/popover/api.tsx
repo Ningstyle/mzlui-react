@@ -57,6 +57,22 @@ function Api() {
       ),
       default: 'top',
     },
+    {
+      arguments: 'visible',
+      description: '用于手动控制浮层显隐',
+      type: <span style={{ color: '#c41d7f' }}>boolean</span>,
+      optional: <span style={{ color: '#1890ff' }}>true | false</span>,
+      default: 'false',
+    },
+    {
+      arguments: 'onOpenChange',
+      description: '显示隐藏的回调',
+      type: (
+        <span style={{ color: '#c41d7f' }}>(visible: boolean) =&gt; void</span>
+      ),
+      optional: <span style={{ color: '#1890ff' }}>-</span>,
+      default: '-',
+    },
   ];
   return (
     <div style={{ width: '80%' }}>

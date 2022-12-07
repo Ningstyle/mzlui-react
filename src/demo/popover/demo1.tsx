@@ -8,8 +8,11 @@ function Demo() {
       <p>Content</p>
     </div>
   );
+  const onOpenChange = (e) => {
+    console.log(e);
+  };
   return (
-    <Popover content={content} title="Title" align="top">
+    <Popover content={content} title="Title" onOpenChange={onOpenChange}>
       <Button>Hover me</Button>
     </Popover>
   );

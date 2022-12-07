@@ -19,7 +19,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
   const {
     content,
     title,
-    isHidden,
+    isHidden = true,
     top,
     left,
     clientHeight,

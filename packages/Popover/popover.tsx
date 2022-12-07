@@ -10,11 +10,20 @@ export interface PopoverProps {
   content: string | ReactNode;
   title: string;
   align?: 'left' | 'right' | 'top' | 'bottom';
+  visible?: boolean;
+  onOpenChange?: (visible: boolean) => void;
 }
 
 function Popover(props: PopoverProps): JSX.Element {
-  const { children, content, title, align } = props;
-  const [isHidden, setIsHidden] = useState(true);
+  const {
+    children,
+    content,
+    title,
+    align = 'top',
+    onOpenChange,
+    visible = false,
+  } = props;
+  const [isHidden, setIsHidden] = useState(!visible);
   const popoverComponentRef = useRef<HTMLDivElement>(null);
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
@@ -33,14 +42,13 @@ function Popover(props: PopoverProps): JSX.Element {
     componentTop = popoverComponentOffset?.top || 0;
     componentHeight = popoverComponentRef.current?.clientHeight || 0;
     componentWidth = popoverComponentRef.current?.clientWidth || 0;
+    if (!isHidden) {
+      setPopoverVisible();
+    }
   }, [isHidden]);
 
-  const popoverMouseOver = (): void => {
-    // 设置隐藏元素为显示，去掉className: hidden
-    // todo 这里获取到jsx元素？用ref获取到的是dom元素，jsx元素和dom元素的操作区别？
-    // el && (el.style.top = `${top - height - 10}px`);
-    // el && (el.style.left = `${left}px`);
-
+  // 弹出气泡卡片
+  const setPopoverVisible = (): void => {
     setIsHidden(false);
     setTop(componentTop);
     setLeft(componentLeft);
@@ -48,8 +56,25 @@ function Popover(props: PopoverProps): JSX.Element {
     setWidth(componentWidth);
   };
 
+  // 执行onOpenChange事件
+  const onPopoverChange = (): void => {
+    onOpenChange && onOpenChange(isHidden);
+  };
+
+  const popoverMouseOver = (): void => {
+    // 设置隐藏元素为显示，去掉className: hidden
+    // todo 这里获取到jsx元素？用ref获取到的是dom元素，jsx元素和dom元素的操作区别？
+    // el && (el.style.top = `${top - height - 10}px`);
+    // el && (el.style.left = `${left}px`);
+    if (visible) return;
+    setPopoverVisible();
+    onPopoverChange();
+  };
+
   const popoverMouseOut = (): void => {
+    if (visible) return;
     setIsHidden(true);
+    onPopoverChange();
   };
 
   return (
