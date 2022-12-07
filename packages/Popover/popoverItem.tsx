@@ -35,28 +35,28 @@ function PopoverItem(props: PopoverProps): JSX.Element {
       if (placement === 'top') {
         const popoverEl = popoverRef.current;
         const height = popoverEl?.clientHeight || 0;
-        setPopoverStyle({ top: `${top - height - 10}px`, left: `${left}px` });
-        setArrowStyle({ top: `${height}px`, left: `${20}px` });
+        setPopoverStyle({ top: `${top - height}px`, left: `${left}px` });
+        setArrowStyle({ top: `${height - 10}px`, left: `${20}px` });
       } else if (placement === 'bottom') {
         setPopoverStyle({
-          top: `${top + clientHeight + 10}px`,
+          top: `${top + clientHeight}px`,
           left: `${left}px`,
         });
-        setArrowStyle({ top: `${-8}px`, left: `${20}px` });
+        setArrowStyle({ top: `${-8 + 10}px`, left: `${20}px` });
       } else if (placement === 'left') {
         const popoverEl = popoverRef.current;
         const width = popoverEl?.clientWidth || 0;
         setPopoverStyle({
           top: `${top}px`,
-          left: `${left - width - 10}px`,
+          left: `${left - width}px`,
         });
-        setArrowStyle({ top: `${10}px`, left: `${width}px` });
+        setArrowStyle({ top: `${10}px`, left: `${width - 10}px` });
       } else if (placement === 'right') {
         setPopoverStyle({
           top: `${top}px`,
-          left: `${left + clientWidth + 10}px`,
+          left: `${left + clientWidth}px`,
         });
-        setArrowStyle({ top: `${10}px`, left: `${-8}px` });
+        setArrowStyle({ top: `${10}px`, left: `${-8 + 10}px` });
       }
     }
   }, [isHidden, placement, top, left, clientHeight, clientWidth]);
@@ -70,7 +70,12 @@ function PopoverItem(props: PopoverProps): JSX.Element {
       ref={popoverRef}
       style={popoverStyle}
     >
-      <div className="mzl_popover_content">
+      <div
+        className={classNames(
+          'mzl_popover_content',
+          `mzl_popover_content_${placement}`
+        )}
+      >
         <div
           className={classNames(
             'mzl_popover_arrow',

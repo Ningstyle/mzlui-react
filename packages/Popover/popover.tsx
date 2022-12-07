@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // todo react-dom/client 与react
 import Modal from './Modal';
 import PopoverItem from './popoverItem';
@@ -6,8 +6,8 @@ import './style.scss';
 
 // todo interface or type
 export interface PopoverProps {
-  children: ReactNode;
-  content: string | ReactNode;
+  children: React.ReactNode;
+  content: string | React.ReactNode;
   title: string;
   placement?: 'left' | 'right' | 'top' | 'bottom';
   defaultOpen?: boolean;
@@ -63,18 +63,29 @@ function Popover(props: PopoverProps): JSX.Element {
     onOpenChange && onOpenChange(isHidden);
   };
 
-  const popoverMouseOver = (): void => {
-    // 设置隐藏元素为显示，去掉className: hidden
-    // todo 这里获取到jsx元素？用ref获取到的是dom元素，jsx元素和dom元素的操作区别？
-    // el && (el.style.top = `${top - height - 10}px`);
-    // el && (el.style.left = `${left}px`);
-    if (visible) return;
+  const popoverMouseOver = (e: React.MouseEvent<HTMLDivElement>): void => {
+    if (
+      visible ||
+      ((e.relatedTarget as HTMLElement).parentNode as HTMLElement).className ===
+        'mzl_popover'
+    )
+      // 设置隐藏元素为显示，去掉className: hidden
+      // todo 这里获取到jsx元素？用ref获取到的是dom元素，jsx元素和dom元素的操作区别？
+      // el && (el.style.top = `${top - height - 10}px`);
+      // el && (el.style.left = `${left}px`);
+      return;
     setPopoverVisible();
     isHidden && onPopoverChange();
   };
 
-  const popoverMouseOut = (): void => {
-    if (visible) return;
+  const popoverMouseOut = (e: React.MouseEvent<HTMLDivElement>): void => {
+    if (
+      visible ||
+      ((e.relatedTarget as HTMLElement).parentNode as HTMLElement).className ===
+        'mzl_popover'
+    )
+      return;
+    // TODO 这里如果是外层visible控制的，则不需要执行任何操作
     setIsHidden(true);
     onPopoverChange();
   };

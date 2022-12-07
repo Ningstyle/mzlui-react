@@ -10,6 +10,18 @@
     display: inline-block;
     background-color: #fff;
 
+    .mzl_popover_content_left {
+        padding-right: 10px;
+    }
+    .mzl_popover_content_right {
+        padding-left: 10px;
+    }
+    .mzl_popover_content_top {
+        padding-bottom: 10px;
+    }
+    .mzl_popover_content_bottom {
+        padding-top: 10px;
+    }
     .mzl_popover_arrow {
         position: absolute;
         width: 0;
