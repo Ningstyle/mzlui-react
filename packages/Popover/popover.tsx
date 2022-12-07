@@ -9,7 +9,7 @@ export interface PopoverProps {
   children: ReactNode;
   content: string | ReactNode;
   title: string;
-  align?: 'left' | 'right' | 'top' | 'bottom';
+  placement?: 'left' | 'right' | 'top' | 'bottom';
   visible?: boolean;
   onOpenChange?: (visible: boolean) => void;
 }
@@ -19,7 +19,7 @@ function Popover(props: PopoverProps): JSX.Element {
     children,
     content,
     title,
-    align = 'top',
+    placement = 'top',
     onOpenChange,
     visible = false,
   } = props;
@@ -91,7 +91,7 @@ function Popover(props: PopoverProps): JSX.Element {
         <PopoverItem
           content={content}
           title={title}
-          align={align}
+          placement={placement}
           isHidden={isHidden}
           left={left}
           top={top}

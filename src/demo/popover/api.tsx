@@ -49,7 +49,7 @@ function Api() {
       default: '-',
     },
     {
-      arguments: 'align',
+      arguments: 'placement',
       description: '弹出位置',
       type: <span style={{ color: '#c41d7f' }}>string</span>,
       optional: (

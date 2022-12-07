@@ -11,7 +11,7 @@ export interface PopoverProps {
   clientHeight: number;
   clientWidth: number;
   isHidden: boolean;
-  align?: string;
+  placement?: string;
   color?: string;
 }
 
@@ -24,7 +24,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
     left,
     clientHeight,
     clientWidth,
-    align,
+    placement,
   } = props;
   const [popoverStyle, setPopoverStyle] = useState({ top: '0', left: '0' });
   const [arrowStyle, setArrowStyle] = useState({ top: '0', left: '0' });
@@ -32,18 +32,18 @@ function PopoverItem(props: PopoverProps): JSX.Element {
 
   useEffect(() => {
     if (!isHidden) {
-      if (align === 'top') {
+      if (placement === 'top') {
         const popoverEl = popoverRef.current;
         const height = popoverEl?.clientHeight || 0;
         setPopoverStyle({ top: `${top - height - 10}px`, left: `${left}px` });
         setArrowStyle({ top: `${height}px`, left: `${20}px` });
-      } else if (align === 'bottom') {
+      } else if (placement === 'bottom') {
         setPopoverStyle({
           top: `${top + clientHeight + 10}px`,
           left: `${left}px`,
         });
         setArrowStyle({ top: `${-8}px`, left: `${20}px` });
-      } else if (align === 'left') {
+      } else if (placement === 'left') {
         const popoverEl = popoverRef.current;
         const width = popoverEl?.clientWidth || 0;
         setPopoverStyle({
@@ -51,7 +51,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
           left: `${left - width - 10}px`,
         });
         setArrowStyle({ top: `${10}px`, left: `${width}px` });
-      } else if (align === 'right') {
+      } else if (placement === 'right') {
         setPopoverStyle({
           top: `${top}px`,
           left: `${left + clientWidth + 10}px`,
@@ -59,7 +59,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
         setArrowStyle({ top: `${10}px`, left: `${-8}px` });
       }
     }
-  }, [isHidden, align, top, left, clientHeight, clientWidth]);
+  }, [isHidden, placement, top, left, clientHeight, clientWidth]);
 
   return (
     <div
@@ -74,7 +74,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
         <div
           className={classNames(
             'mzl_popover_arrow',
-            `mzl_popover_arrow_${align}`
+            `mzl_popover_arrow_${placement}`
           )}
           style={arrowStyle}
         ></div>
