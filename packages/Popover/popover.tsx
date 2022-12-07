@@ -90,6 +90,10 @@ function Popover(props: PopoverProps): JSX.Element {
     onPopoverChange();
   };
 
+  const onChangeHidden = (e: boolean): void => {
+    setIsHidden(e);
+  };
+
   return (
     <>
       <div
@@ -110,6 +114,7 @@ function Popover(props: PopoverProps): JSX.Element {
           top={top}
           clientHeight={height}
           clientWidth={width}
+          changeHidden={(e: boolean) => onChangeHidden(e)}
         />
       </Modal>
     </>

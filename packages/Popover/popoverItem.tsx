@@ -13,6 +13,7 @@ export interface PopoverProps {
   isHidden: boolean;
   placement?: string;
   color?: string;
+  changeHidden: (e: boolean) => void;
 }
 
 function PopoverItem(props: PopoverProps): JSX.Element {
@@ -25,6 +26,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
     clientHeight,
     clientWidth,
     placement,
+    changeHidden,
   } = props;
   const [popoverStyle, setPopoverStyle] = useState({ top: '0', left: '0' });
   const [arrowStyle, setArrowStyle] = useState({ top: '0', left: '0' });
@@ -61,6 +63,14 @@ function PopoverItem(props: PopoverProps): JSX.Element {
     }
   }, [isHidden, placement, top, left, clientHeight, clientWidth]);
 
+  const popoverMouseLeave = (e: React.MouseEvent<HTMLDivElement>): void => {
+    if (
+      ((e.relatedTarget as HTMLElement).parentNode as HTMLElement).className ===
+      'mzl_demo_popover'
+    )
+      return;
+    changeHidden(true);
+  };
   return (
     <div
       className={classNames(
@@ -69,6 +79,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
       )}
       ref={popoverRef}
       style={popoverStyle}
+      onMouseLeave={(e) => popoverMouseLeave(e)}
     >
       <div
         className={classNames(
