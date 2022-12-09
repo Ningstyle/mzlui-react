@@ -53,6 +53,8 @@ $input-text-color: #606266; //输入框文字颜色
 $input-border-color: #dcdfe6; //输入框边框颜色
 $input-border-color-hover: #c0c4cc; //输入框默认hover上去时的边框的颜色
 $input-color-outline-shadow: #1890ff33; //输入框外界线阴影
+$input-color-error-shadow: 0 0 0 2px rgb(255 38 5 / 6%); //输入框错误时的阴影
+$input-color-warning-shadow: 0 0 0 2px rgb(255 215 5 / 10%); //输入框警告时时的阴影
 
 // Alert
 $alert-success-border-color: lighten($success-color, 30%);
@@ -69,10 +71,7 @@ $alert-icon-top: 0.25rem + calc($font-size-base * $line-height-base / 2) - calc(
 $alert-with-description-icon-size: 1.5rem;
 $alert-with-description-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-no-icon-padding-vertical: $padding-md - 0.0625rem;
-$alert-with-description-padding: $alert-with-description-padding-vertical 15px
-$alert-with-description-no-icon-padding-vertical
-$alert-with-description-icon-size * 2 +
-$alert-with-description-padding-vertical;
+$alert-with-description-padding: $alert-with-description-padding-vertical 15px $alert-with-description-no-icon-padding-vertical $alert-with-description-icon-size * 2 + $alert-with-description-padding-vertical;
 $alert-with-description-no-icon-padding-vertical: $padding-md - 0.0625rem;
 $alert-with-description-icon-top: $alert-with-description-padding-vertical;
 

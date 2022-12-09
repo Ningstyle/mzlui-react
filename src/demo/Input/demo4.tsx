@@ -5,9 +5,8 @@ export default function Demo() {
   return (
     <Input
       style={{ width: '264px' }}
-      placeholder="可清空的输入框"
-      value="测试内容"
-      clearable
+      type="password"
+      placeholder="请输入密码"
     />
   )
 }

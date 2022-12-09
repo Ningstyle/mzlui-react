@@ -1,5 +1,7 @@
 // @import '../../src/styles/global.scss';
-.mzl_input_inner {
+.mzl_input_inner,
+.mzl_input_inner_error,
+.mzl_input_inner_warning {
 	display: inline-flex;
 	width: 100%;
 	align-items: center;
@@ -38,7 +40,8 @@
 		margin-left: 4px;
 	}
 
-	.mzl_input_clearable {
+	.mzl_input_clearable,
+	.mzl_input_password {
 		cursor: pointer;
 	}
 }
@@ -50,4 +53,38 @@
 .mzl_input_inner:focus-within {
 	border: 1px solid $border-color-hover;
 	box-shadow: 0 0 0 1px $input-color-outline-shadow;
+}
+
+.mzl_input_inner_error {
+	border: 1px solid $error-color;
+
+	i {
+		color: $error-color;
+	}
+}
+
+.mzl_input_inner_error:hover {
+	border: 1px solid $error-color;
+}
+
+.mzl_input_inner_error:focus-within {
+	border: 1px solid $error-color;
+	box-shadow: $input-color-error-shadow;
+}
+
+.mzl_input_inner_warning {
+	border: 1px solid $warning-color;
+
+	i {
+		color: $warning-color;
+	}
+}
+
+.mzl_input_inner_warning:hover {
+	border: 1px solid $warning-color;
+}
+
+.mzl_input_inner_warning:focus-within {
+	border: 1px solid $warning-color;
+	box-shadow: $input-color-warning-shadow;
 }
