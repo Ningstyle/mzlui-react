@@ -2,14 +2,18 @@ import React, { ReactNode, useRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import './style.scss';
 
-// todo interface or type
-export interface PopoverProps {
-  content: string | ReactNode;
-  title: string;
+interface popOffsetProps {
   left: number;
   top: number;
   clientHeight: number;
   clientWidth: number;
+}
+// todo interface or type
+export interface PopoverProps {
+  content: string | ReactNode;
+  title: string;
+  visible: boolean | undefined;
+  popOffset: popOffsetProps;
   isHidden: boolean;
   placement?: string;
   color?: string;
@@ -20,11 +24,9 @@ function PopoverItem(props: PopoverProps): JSX.Element {
   const {
     content,
     title,
+    visible,
     isHidden = true,
-    top,
-    left,
-    clientHeight,
-    clientWidth,
+    popOffset: { top, left, clientHeight, clientWidth },
     placement,
     changeHidden,
   } = props;
@@ -65,8 +67,9 @@ function PopoverItem(props: PopoverProps): JSX.Element {
 
   const popoverMouseLeave = (e: React.MouseEvent<HTMLDivElement>): void => {
     if (
+      visible ||
       ((e.relatedTarget as HTMLElement).parentNode as HTMLElement).className ===
-      'mzl_demo_popover'
+        'mzl_demo_popover'
     )
       return;
     changeHidden(true);

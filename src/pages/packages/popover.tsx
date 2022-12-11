@@ -7,6 +7,7 @@ import Title from '../../components/title';
 import InstanceView from '../../layout/instanceView';
 import Demo1 from '../../demo/popover/demo1';
 import Demo2 from '../../demo/popover/demo2';
+import Demo3 from '../../demo/popover/demo3';
 import Api from '../../demo/popover/api';
 
 export default function PopOverPage() {
@@ -30,6 +31,13 @@ export default function PopOverPage() {
         demo={<Demo2 />}
         subdesc="可以通过设置align属性来控制弹出的位置。"
         path="popover/demo2"
+      />
+      <InstanceView
+        subtitle="从浮层内关闭"
+        subnotes=""
+        demo={<Demo3 />}
+        subdesc="使用visible属性控制浮层显示"
+        path="popover/demo3"
       />
       <Api />
     </>
