@@ -18,6 +18,7 @@ export interface PopoverProps {
   placement?: string;
   color?: string;
   changeHidden: (e: boolean) => void;
+  trigger: 'hover' | 'focus' | 'click';
 }
 
 function PopoverItem(props: PopoverProps): JSX.Element {
@@ -29,6 +30,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
     popOffset: { top, left, clientHeight, clientWidth },
     placement,
     changeHidden,
+    trigger,
   } = props;
   const [popoverStyle, setPopoverStyle] = useState({ top: '0', left: '0' });
   const [arrowStyle, setArrowStyle] = useState({ top: '0', left: '0' });
@@ -66,6 +68,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
   }, [isHidden, placement, top, left, clientHeight, clientWidth]);
 
   const popoverMouseLeave = (e: React.MouseEvent<HTMLDivElement>): void => {
+    if (trigger !== 'hover') return;
     if (
       visible ||
       ((e.relatedTarget as HTMLElement).parentNode as HTMLElement).className ===

@@ -72,6 +72,15 @@ function Api() {
       default: 'false',
     },
     {
+      arguments: 'trigger',
+      description: '触发行为',
+      type: <span style={{ color: '#c41d7f' }}>string</span>,
+      optional: (
+        <span style={{ color: '#1890ff' }}>'hover' | 'focus' | 'click'</span>
+      ),
+      default: 'hover',
+    },
+    {
       arguments: 'onOpenChange',
       description: '显示隐藏的回调',
       type: (

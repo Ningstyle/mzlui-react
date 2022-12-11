@@ -8,6 +8,7 @@ import InstanceView from '../../layout/instanceView';
 import Demo1 from '../../demo/popover/demo1';
 import Demo2 from '../../demo/popover/demo2';
 import Demo3 from '../../demo/popover/demo3';
+import Demo4 from '../../demo/popover/demo4';
 import Api from '../../demo/popover/api';
 
 export default function PopOverPage() {
@@ -38,6 +39,13 @@ export default function PopOverPage() {
         demo={<Demo3 />}
         subdesc="使用visible属性控制浮层显示"
         path="popover/demo3"
+      />
+      <InstanceView
+        subtitle="三种触发方式"
+        subnotes=""
+        demo={<Demo4 />}
+        subdesc="鼠标移入、聚集、点击"
+        path="popover/demo4"
       />
       <Api />
     </>
