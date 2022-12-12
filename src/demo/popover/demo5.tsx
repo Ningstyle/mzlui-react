@@ -8,21 +8,18 @@ function Demo() {
       <p>Content</p>
     </div>
   );
-  const onOpenChange = (e) => {
-    // console.log(e);
-  };
+
   return (
     <Popover
-      visible={false}
       content={content}
       title="Title"
-      onOpenChange={onOpenChange}
       getPopupContainer={(trigger: HTMLElement) =>
         trigger.parentNode as HTMLElement
       }
+      trigger="click"
       placement="bottom"
     >
-      <Button>Hover me</Button>
+      <Button>Click me</Button>
     </Popover>
   );
 }

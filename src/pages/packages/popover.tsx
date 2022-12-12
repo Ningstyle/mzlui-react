@@ -31,7 +31,7 @@ export default function PopOverPage() {
         subtitle="不同的弹出位置"
         subnotes=""
         demo={<Demo2 />}
-        subdesc="可以通过设置align属性来控制弹出的位置。"
+        subdesc="可以通过设置placement属性来控制弹出的位置。"
         path="popover/demo2"
       />
       <InstanceView

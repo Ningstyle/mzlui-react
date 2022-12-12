@@ -1,7 +1,7 @@
 import React from 'react';
 import { Popover, Button, Space } from '../../../packages';
 
-export default function Demo() {
+function Demo() {
   const content = (
     <div>
       <p>Content</p>
@@ -41,3 +41,4 @@ export default function Demo() {
     </Space>
   );
 }
+export default Demo;

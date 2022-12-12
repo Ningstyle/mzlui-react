@@ -25,18 +25,17 @@ class Modal extends Component<ModalProps, ModalState> {
   ): void {
     const { popupContainer, showModal } = this.props;
     const { modalRoot } = this.state;
-
-    if (showModal) {
-      if (popupContainer.tagName === 'BODY') {
-        modalRoot.style.position = 'absolute';
-        modalRoot.style.top = '0';
-        modalRoot.style.left = '0';
-        modalRoot.style.width = '100%';
-      }
-      popupContainer.appendChild(modalRoot);
-    } else {
+    if (!showModal) {
       popupContainer.removeChild(modalRoot);
+      return;
     }
+    if (popupContainer.tagName === 'BODY') {
+      modalRoot.style.position = 'absolute';
+      modalRoot.style.top = '0';
+      modalRoot.style.left = '0';
+      modalRoot.style.width = '100%';
+    }
+    popupContainer.appendChild(modalRoot);
   }
 
   render(): React.ReactNode {
