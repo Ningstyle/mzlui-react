@@ -2,29 +2,35 @@ import React, { ReactNode, useRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import './style.scss';
 
-// todo interface or type
-export interface PopoverProps {
-  content: string | ReactNode;
-  title: string;
+interface popOffsetProps {
   left: number;
   top: number;
   clientHeight: number;
   clientWidth: number;
+}
+// todo interface or type
+export interface PopoverProps {
+  content: string | ReactNode;
+  title: string;
+  visible: boolean | undefined;
+  popOffset: popOffsetProps;
   isHidden: boolean;
   placement?: string;
   color?: string;
+  changeHidden: (e: boolean) => void;
+  trigger: 'hover' | 'focus' | 'click';
 }
 
 function PopoverItem(props: PopoverProps): JSX.Element {
   const {
     content,
     title,
+    visible,
     isHidden = true,
-    top,
-    left,
-    clientHeight,
-    clientWidth,
+    popOffset: { top, left, clientHeight, clientWidth },
     placement,
+    changeHidden,
+    trigger,
   } = props;
   const [popoverStyle, setPopoverStyle] = useState({ top: '0', left: '0' });
   const [arrowStyle, setArrowStyle] = useState({ top: '0', left: '0' });
@@ -35,32 +41,42 @@ function PopoverItem(props: PopoverProps): JSX.Element {
       if (placement === 'top') {
         const popoverEl = popoverRef.current;
         const height = popoverEl?.clientHeight || 0;
-        setPopoverStyle({ top: `${top - height - 10}px`, left: `${left}px` });
-        setArrowStyle({ top: `${height}px`, left: `${20}px` });
+        setPopoverStyle({ top: `${top - height}px`, left: `${left}px` });
+        setArrowStyle({ top: `${height - 10}px`, left: `${20}px` });
       } else if (placement === 'bottom') {
         setPopoverStyle({
-          top: `${top + clientHeight + 10}px`,
+          top: `${top + clientHeight}px`,
           left: `${left}px`,
         });
-        setArrowStyle({ top: `${-8}px`, left: `${20}px` });
+        setArrowStyle({ top: `${-8 + 10}px`, left: `${20}px` });
       } else if (placement === 'left') {
         const popoverEl = popoverRef.current;
         const width = popoverEl?.clientWidth || 0;
         setPopoverStyle({
           top: `${top}px`,
-          left: `${left - width - 10}px`,
+          left: `${left - width}px`,
         });
-        setArrowStyle({ top: `${10}px`, left: `${width}px` });
+        setArrowStyle({ top: `${10}px`, left: `${width - 10}px` });
       } else if (placement === 'right') {
         setPopoverStyle({
           top: `${top}px`,
-          left: `${left + clientWidth + 10}px`,
+          left: `${left + clientWidth}px`,
         });
-        setArrowStyle({ top: `${10}px`, left: `${-8}px` });
+        setArrowStyle({ top: `${10}px`, left: `${-8 + 10}px` });
       }
     }
   }, [isHidden, placement, top, left, clientHeight, clientWidth]);
 
+  const popoverMouseLeave = (e: React.MouseEvent<HTMLDivElement>): void => {
+    if (trigger !== 'hover') return;
+    if (
+      visible ||
+      ((e.relatedTarget as HTMLElement).parentNode as HTMLElement).className ===
+        'mzl_demo_popover'
+    )
+      return;
+    changeHidden(true);
+  };
   return (
     <div
       className={classNames(
@@ -69,8 +85,14 @@ function PopoverItem(props: PopoverProps): JSX.Element {
       )}
       ref={popoverRef}
       style={popoverStyle}
+      onMouseLeave={(e) => popoverMouseLeave(e)}
     >
-      <div className="mzl_popover_content">
+      <div
+        className={classNames(
+          'mzl_popover_content',
+          `mzl_popover_content_${placement}`
+        )}
+      >
         <div
           className={classNames(
             'mzl_popover_arrow',

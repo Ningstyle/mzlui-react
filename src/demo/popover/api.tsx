@@ -58,11 +58,27 @@ function Api() {
       default: 'top',
     },
     {
+      arguments: 'defaultOpen',
+      description: '默认是否显隐',
+      type: <span style={{ color: '#c41d7f' }}>boolean</span>,
+      optional: <span style={{ color: '#1890ff' }}>true | false</span>,
+      default: 'false',
+    },
+    {
       arguments: 'visible',
       description: '用于手动控制浮层显隐',
       type: <span style={{ color: '#c41d7f' }}>boolean</span>,
       optional: <span style={{ color: '#1890ff' }}>true | false</span>,
       default: 'false',
+    },
+    {
+      arguments: 'trigger',
+      description: '触发行为',
+      type: <span style={{ color: '#c41d7f' }}>string</span>,
+      optional: (
+        <span style={{ color: '#1890ff' }}>'hover' | 'focus' | 'click'</span>
+      ),
+      default: 'hover',
     },
     {
       arguments: 'onOpenChange',
