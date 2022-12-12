@@ -19,6 +19,7 @@ export interface PopoverProps {
   color?: string;
   changeHidden: (e: boolean) => void;
   trigger: 'hover' | 'focus' | 'click';
+  containerDom: HTMLElement;
 }
 
 function PopoverItem(props: PopoverProps): JSX.Element {
@@ -31,20 +32,26 @@ function PopoverItem(props: PopoverProps): JSX.Element {
     placement,
     changeHidden,
     trigger,
+    containerDom,
   } = props;
-  const [popoverStyle, setPopoverStyle] = useState({ top: '0', left: '0' });
+  const [popoverStyle, setPopoverStyle] = useState({});
   const [arrowStyle, setArrowStyle] = useState({ top: '0', left: '0' });
   const popoverRef = useRef<HTMLDivElement>(null);
-
+  const containerIsBody = containerDom.tagName === 'BODY';
   useEffect(() => {
-    if (!isHidden) {
+    if (!isHidden && containerIsBody) {
       if (placement === 'top') {
         const popoverEl = popoverRef.current;
         const height = popoverEl?.clientHeight || 0;
-        setPopoverStyle({ top: `${top - height}px`, left: `${left}px` });
+        setPopoverStyle({
+          position: 'absolute',
+          top: `${top - height}px`,
+          left: `${left}px`,
+        });
         setArrowStyle({ top: `${height - 10}px`, left: `${20}px` });
       } else if (placement === 'bottom') {
         setPopoverStyle({
+          position: 'absolute',
           top: `${top + clientHeight}px`,
           left: `${left}px`,
         });
@@ -53,14 +60,50 @@ function PopoverItem(props: PopoverProps): JSX.Element {
         const popoverEl = popoverRef.current;
         const width = popoverEl?.clientWidth || 0;
         setPopoverStyle({
+          position: 'absolute',
           top: `${top}px`,
           left: `${left - width}px`,
         });
         setArrowStyle({ top: `${10}px`, left: `${width - 10}px` });
       } else if (placement === 'right') {
         setPopoverStyle({
+          position: 'absolute',
           top: `${top}px`,
           left: `${left + clientWidth}px`,
+        });
+        setArrowStyle({ top: `${10}px`, left: `${-8 + 10}px` });
+      }
+    } else if (!isHidden && !containerIsBody) {
+      if (placement === 'top') {
+        const popoverEl = popoverRef.current;
+        const height = popoverEl?.clientHeight || 0;
+        setPopoverStyle({
+          position: 'relative',
+          top: `${-height - clientHeight}px`,
+          left: `${0}px`,
+        });
+        setArrowStyle({ top: `${height - 10}px`, left: `${20}px` });
+      } else if (placement === 'bottom') {
+        setPopoverStyle({
+          position: 'relative',
+          top: `${0}px`,
+          left: `${0}px`,
+        });
+        setArrowStyle({ top: `${-8 + 10}px`, left: `${20}px` });
+      } else if (placement === 'left') {
+        const popoverEl = popoverRef.current;
+        const width = popoverEl?.clientWidth || 0;
+        setPopoverStyle({
+          position: 'relative',
+          top: `${-clientHeight}px`,
+          left: `${-width}px`,
+        });
+        setArrowStyle({ top: `${10}px`, left: `${width - 10}px` });
+      } else if (placement === 'right') {
+        setPopoverStyle({
+          position: 'relative',
+          top: `${-clientHeight}px`,
+          left: `${clientWidth}px`,
         });
         setArrowStyle({ top: `${10}px`, left: `${-8 + 10}px` });
       }

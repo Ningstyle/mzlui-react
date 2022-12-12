@@ -3,27 +3,46 @@ import ReactDom from 'react-dom';
 
 interface ModalProps {
   children: React.ReactNode;
+  popupContainer: HTMLElement;
+  showModal: boolean;
 }
-interface ModalState {}
-
-const modalRoot = document.createElement('div');
-modalRoot.style.position = 'absolute';
-modalRoot.style.top = '0';
-modalRoot.style.left = '0';
-modalRoot.style.width = '100%';
-document.querySelector('body')?.appendChild(modalRoot);
-// const modalRoot = document.querySelector('modal-root');
+interface ModalState {
+  modalRoot: HTMLDivElement;
+}
 
 class Modal extends Component<ModalProps, ModalState> {
-  el = document.createElement('div');
-  componentDidMount(): void {
-    modalRoot?.appendChild(this.el);
+  constructor(props: ModalProps) {
+    super(props);
+    this.state = {
+      modalRoot: document.createElement('div'),
+    };
   }
-  componentWillUnmount(): void {
-    modalRoot?.removeChild(this.el);
+
+  componentDidUpdate(
+    prevProps: Readonly<ModalProps>,
+    prevState: Readonly<ModalState>,
+    snapshot?: any
+  ): void {
+    const { popupContainer, showModal } = this.props;
+    const { modalRoot } = this.state;
+
+    if (showModal) {
+      if (popupContainer.tagName === 'BODY') {
+        modalRoot.style.position = 'absolute';
+        modalRoot.style.top = '0';
+        modalRoot.style.left = '0';
+        modalRoot.style.width = '100%';
+      }
+      popupContainer.appendChild(modalRoot);
+    } else {
+      popupContainer.removeChild(modalRoot);
+    }
   }
+
   render(): React.ReactNode {
-    return ReactDom.createPortal(this.props.children, this.el);
+    const { modalRoot } = this.state;
+    const { children } = this.props;
+    return ReactDom.createPortal(children, modalRoot);
   }
 }
 

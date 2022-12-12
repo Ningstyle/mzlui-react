@@ -14,6 +14,7 @@ export interface PopoverProps {
   visible?: boolean | undefined; // undefined表示未传递visible参数
   onOpenChange?: (visible: boolean) => void;
   trigger?: 'hover' | 'focus' | 'click';
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
 function Popover(props: PopoverProps): JSX.Element {
@@ -26,6 +27,7 @@ function Popover(props: PopoverProps): JSX.Element {
     defaultOpen,
     visible,
     trigger = 'hover',
+    getPopupContainer,
   } = props;
   const [isHidden, setIsHidden] = useState(true);
   const popoverComponentRef = useRef<HTMLDivElement>(null);
@@ -35,6 +37,11 @@ function Popover(props: PopoverProps): JSX.Element {
     clientHeight: 0,
     clientWidth: 0,
   });
+
+  const containerDom =
+    (getPopupContainer &&
+      getPopupContainer(popoverComponentRef?.current || document.body)) ||
+    document.body;
 
   let componentLeft: number,
     componentTop: number,
@@ -144,7 +151,7 @@ function Popover(props: PopoverProps): JSX.Element {
       >
         {children}
       </div>
-      <Modal>
+      <Modal popupContainer={containerDom} showModal={!isHidden}>
         <PopoverItem
           content={content}
           title={title}
@@ -154,6 +161,7 @@ function Popover(props: PopoverProps): JSX.Element {
           popOffset={popOffset}
           changeHidden={(e: boolean) => onChangeHidden(e)}
           trigger={trigger}
+          containerDom={containerDom}
         />
       </Modal>
     </>
