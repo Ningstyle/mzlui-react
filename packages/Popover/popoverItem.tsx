@@ -8,7 +8,6 @@ interface popOffsetProps {
   clientHeight: number;
   clientWidth: number;
 }
-// todo interface or type
 export interface PopoverProps {
   content: string | ReactNode;
   title: string;
@@ -19,6 +18,7 @@ export interface PopoverProps {
   color?: string;
   changeHidden: (e: boolean) => void;
   trigger: 'hover' | 'focus' | 'click';
+  containerDom: HTMLElement;
 }
 
 function PopoverItem(props: PopoverProps): JSX.Element {
@@ -31,39 +31,56 @@ function PopoverItem(props: PopoverProps): JSX.Element {
     placement,
     changeHidden,
     trigger,
+    containerDom,
   } = props;
-  const [popoverStyle, setPopoverStyle] = useState({ top: '0', left: '0' });
+  const [popoverStyle, setPopoverStyle] = useState({});
   const [arrowStyle, setArrowStyle] = useState({ top: '0', left: '0' });
   const popoverRef = useRef<HTMLDivElement>(null);
-
+  const containerIsBody = containerDom.tagName === 'BODY';
   useEffect(() => {
-    if (!isHidden) {
-      if (placement === 'top') {
-        const popoverEl = popoverRef.current;
-        const height = popoverEl?.clientHeight || 0;
-        setPopoverStyle({ top: `${top - height}px`, left: `${left}px` });
-        setArrowStyle({ top: `${height - 10}px`, left: `${20}px` });
-      } else if (placement === 'bottom') {
+    if (isHidden) return;
+    const popoverEl = popoverRef.current;
+    const height = popoverEl?.clientHeight || 0;
+    const width = popoverEl?.clientWidth || 0;
+    switch (placement) {
+      case 'top':
         setPopoverStyle({
-          top: `${top + clientHeight}px`,
-          left: `${left}px`,
+          position: containerIsBody ? 'absolute' : 'relative',
+          top: containerIsBody
+            ? `${top - height}px`
+            : `${-height - clientHeight}px`,
+          left: containerIsBody ? `${left}px` : `${0}px`,
+        });
+        setArrowStyle({ top: `${height - 10}px`, left: `${20}px` });
+        break;
+      case 'bottom':
+        setPopoverStyle({
+          position: containerIsBody ? 'absolute' : 'relative',
+          top: containerIsBody ? `${top + clientHeight}px` : `${0}px`,
+          left: containerIsBody ? `${left}px` : `${0}px`,
         });
         setArrowStyle({ top: `${-8 + 10}px`, left: `${20}px` });
-      } else if (placement === 'left') {
-        const popoverEl = popoverRef.current;
-        const width = popoverEl?.clientWidth || 0;
+        break;
+      case 'left':
         setPopoverStyle({
-          top: `${top}px`,
-          left: `${left - width}px`,
+          position: containerIsBody ? 'absolute' : 'relative',
+          top: containerIsBody ? `${top}px` : `${-clientHeight}px`,
+          left: containerIsBody ? `${left - width}px` : `${-width}px`,
         });
         setArrowStyle({ top: `${10}px`, left: `${width - 10}px` });
-      } else if (placement === 'right') {
+        break;
+      case 'right':
         setPopoverStyle({
-          top: `${top}px`,
-          left: `${left + clientWidth}px`,
+          position: containerIsBody ? 'absolute' : 'relative',
+          top: containerIsBody ? `${top}px` : `${-clientHeight}px`,
+          left: containerIsBody
+            ? `${left + clientWidth}px`
+            : `${clientWidth}px`,
         });
         setArrowStyle({ top: `${10}px`, left: `${-8 + 10}px` });
-      }
+        break;
+      default:
+        break;
     }
   }, [isHidden, placement, top, left, clientHeight, clientWidth]);
 

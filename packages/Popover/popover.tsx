@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-// todo react-dom/client 与react
 import Modal from './Modal';
 import PopoverItem from './popoverItem';
 import './style.scss';
-
-// todo interface or type
 export interface PopoverProps {
   children: React.ReactNode;
   content: string | React.ReactNode;
@@ -14,6 +11,7 @@ export interface PopoverProps {
   visible?: boolean | undefined; // undefined表示未传递visible参数
   onOpenChange?: (visible: boolean) => void;
   trigger?: 'hover' | 'focus' | 'click';
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
 function Popover(props: PopoverProps): JSX.Element {
@@ -26,6 +24,7 @@ function Popover(props: PopoverProps): JSX.Element {
     defaultOpen,
     visible,
     trigger = 'hover',
+    getPopupContainer,
   } = props;
   const [isHidden, setIsHidden] = useState(true);
   const popoverComponentRef = useRef<HTMLDivElement>(null);
@@ -35,6 +34,11 @@ function Popover(props: PopoverProps): JSX.Element {
     clientHeight: 0,
     clientWidth: 0,
   });
+
+  const containerDom =
+    (getPopupContainer &&
+      getPopupContainer(popoverComponentRef?.current || document.body)) ||
+    document.body;
 
   let componentLeft: number,
     componentTop: number,
@@ -88,10 +92,6 @@ function Popover(props: PopoverProps): JSX.Element {
   };
 
   const onHoverOpen = (e: React.MouseEvent<HTMLDivElement>): void => {
-    // 设置隐藏元素为显示，去掉className: hidden
-    // todo 这里获取到jsx元素？用ref获取到的是dom元素，jsx元素和dom元素的操作区别？
-    // el && (el.style.top = `${top - height - 10}px`);
-    // el && (el.style.left = `${left}px`);
     // if (visible || visible === undefined) {
     //   openPopover();
     // }
@@ -144,7 +144,7 @@ function Popover(props: PopoverProps): JSX.Element {
       >
         {children}
       </div>
-      <Modal>
+      <Modal popupContainer={containerDom} showModal={!isHidden}>
         <PopoverItem
           content={content}
           title={title}
@@ -154,6 +154,7 @@ function Popover(props: PopoverProps): JSX.Element {
           popOffset={popOffset}
           changeHidden={(e: boolean) => onChangeHidden(e)}
           trigger={trigger}
+          containerDom={containerDom}
         />
       </Modal>
     </>

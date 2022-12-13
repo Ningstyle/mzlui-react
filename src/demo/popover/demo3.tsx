@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button, Popover } from '../../../packages';
 
 function Demo() {
-  // click下才生效
   const [visible, setVisible] = useState(false);
   const hide = () => {
     setVisible(false);
@@ -11,7 +10,6 @@ function Demo() {
   const onOpenChange = (e) => {
     setVisible(e);
   };
-  // return null;
   return (
     <Popover
       visible={visible}

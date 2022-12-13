@@ -81,6 +81,17 @@ function Api() {
       default: 'hover',
     },
     {
+      arguments: 'getPopupContainer',
+      description: '浮层渲染父节点，默认渲染到 body 上',
+      type: (
+        <span style={{ color: '#c41d7f' }}>
+          (triggerNode: HTMLElement) =&gt; HTMLElement
+        </span>
+      ),
+      optional: <span style={{ color: '#1890ff' }}>-</span>,
+      default: '() => document.body',
+    },
+    {
       arguments: 'onOpenChange',
       description: '显示隐藏的回调',
       type: (
