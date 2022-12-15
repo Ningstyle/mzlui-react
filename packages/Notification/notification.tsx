@@ -12,12 +12,12 @@ interface config {
   duration?: number | null; // null 或 0时不关闭
   style?: {};
   placement?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
-  type?: 'info' | 'success' | 'warning' | 'error';
   bottom?: number; // 消息从底部弹出时，距离底部的位置，单位像素
   top?: number; // 消息从顶部弹出时，距离顶部的位置，单位像素
   closeIcon?: React.ReactNode; // 自定义关闭图标
   btn?: React.ReactNode; // 自定义关闭按钮
   icon?: React.ReactNode; // 自定义图标
+  type?: 'info' | 'success' | 'warning' | 'error';
 }
 export interface NotificationProps extends config {}
 
@@ -34,7 +34,7 @@ function Notification(props: NotificationProps): JSX.Element {
     className = '',
     style = {},
     placement = 'topLeft',
-    type = 'info',
+    type = '',
     bottom = 24,
     top = 24,
     closeIcon = <i className="m-icon-close" />,
@@ -86,10 +86,10 @@ function Notification(props: NotificationProps): JSX.Element {
         ...style,
       }}
     >
-      {icon && (
+      {icon && <span className="mzl_notification_icon">{icon}</span>}
+      {!icon && type && (
         <span className="mzl_notification_icon">
-          {/* <i className={classNames(`${icons[type]}`)} /> */}
-          {icon}
+          <i className={classNames(`${icons[type]}`)} />
         </span>
       )}
       <div className="mzl_notification_content" onClick={onClickNotification}>
@@ -109,22 +109,45 @@ function Notification(props: NotificationProps): JSX.Element {
   );
 }
 const notification = {
-  open: (args: config) => {
+  open: (config: NotificationProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);
     const root = document.querySelector('.mzl_notification_wrapper');
     return ReactDOM.createRoot(root as HTMLElement).render(
-      <Notification {...args} />
+      <Notification {...config} />
     );
   },
-  success: (args: config) => {
+  success: (config: NotificationProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);
     const root = document.querySelector('.mzl_notification_wrapper');
-    const r = ReactDOM.createRoot(root as HTMLElement).render(
-      <Notification {...args} />
+    return ReactDOM.createRoot(root as HTMLElement).render(
+      <Notification {...config} type="success" />
     );
-    return r;
+  },
+  info: (config: NotificationProps) => {
+    if (document.querySelector('.mzl_notification')) return;
+    document.body.appendChild(el);
+    const root = document.querySelector('.mzl_notification_wrapper');
+    return ReactDOM.createRoot(root as HTMLElement).render(
+      <Notification {...config} type="info" />
+    );
+  },
+  warning: (config: NotificationProps) => {
+    if (document.querySelector('.mzl_notification')) return;
+    document.body.appendChild(el);
+    const root = document.querySelector('.mzl_notification_wrapper');
+    return ReactDOM.createRoot(root as HTMLElement).render(
+      <Notification {...config} type="warning" />
+    );
+  },
+  error: (config: NotificationProps) => {
+    if (document.querySelector('.mzl_notification')) return;
+    document.body.appendChild(el);
+    const root = document.querySelector('.mzl_notification_wrapper');
+    return ReactDOM.createRoot(root as HTMLElement).render(
+      <Notification {...config} type="error" />
+    );
   },
 };
 

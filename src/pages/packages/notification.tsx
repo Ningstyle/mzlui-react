@@ -43,13 +43,13 @@ export default function NotificationPage() {
         subdesc="自定义通知框自动关闭的延时，默认 4.5s，取消自动关闭只要将duration设为 0或null 即可。"
         path="notification/demo3"
       />
-      {/* <InstanceView
+      <InstanceView
         subtitle="带有图标的通知提醒框"
         subnotes=""
         demo={<Demo4 />}
         subdesc="通知提醒框左侧有图标。"
         path="notification/demo4"
-      /> */}
+      />
       <InstanceView
         subtitle="自定义按钮"
         subnotes=""

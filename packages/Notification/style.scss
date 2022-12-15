@@ -12,7 +12,7 @@
         position: absolute;
         width: 384px;
         padding: 20px 24px;
-        background-color: white;
+        background-color: $empty-color;
         border-radius: 8px;
         box-shadow: 0 6px 16px 0 rgb(0 0 0 / 8%), 0 3px 6px -4px rgb(0 0 0 / 12%), 0 9px 28px 8px rgb(0 0 0 / 5%);
         display: flex;
@@ -22,7 +22,26 @@
         .mzl_notification_icon {
             margin-right: 12px;
             margin-top: -6px;
-            color: #1677ff;
+
+            i {
+                font-size: 28px;
+            }
+
+            .m-icon-prompt-filling {
+                color: $primary-color;
+            }
+
+            .m-icon-success-filling {
+                color: $success-color;
+            }
+
+            .m-icon-warning-filling {
+                color: $warning-color;
+            }
+
+            .m-icon-delete-filling {
+                color: $error-color;
+            }
         }
         
         .mzl_notification_content {
