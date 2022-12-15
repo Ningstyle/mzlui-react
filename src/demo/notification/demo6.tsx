@@ -13,6 +13,7 @@ function Demo() {
       onClose: () => {
         console.log('Notification Closed!');
       },
+      icon: <i className="m-icon-cry" style={{ fontSize: '28px' }}></i>,
     });
   };
   return (

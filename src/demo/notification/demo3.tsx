@@ -13,6 +13,7 @@ function Demo() {
       onClose: () => {
         console.log('Notification Closed!');
       },
+      duration: 0,
     });
   };
   return (

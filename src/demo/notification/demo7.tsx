@@ -13,6 +13,8 @@ function Demo() {
       onClose: () => {
         console.log('Notification Closed!');
       },
+      className: 'custom-class',
+      style: { width: '600px' },
     });
   };
   return (

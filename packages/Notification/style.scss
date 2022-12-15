@@ -23,7 +23,6 @@
             margin-right: 12px;
             margin-top: -6px;
             color: #1677ff;
-            font-size: 28px;
         }
         
         .mzl_notification_content {
@@ -39,13 +38,21 @@
                 }
     
                 .mzl_notification_close {
-                    font-size: 16px;
                     cursor: pointer;
+                    .m-icon-close {
+                        font-size: 16px;
+                    }
                 }
             }
         
             .mzl_notification_description {
                 font-size: 14px;
+            }
+
+            .mzl_notification_operation{
+                margin-top: 8px;
+                display: flex;
+                justify-content: end;
             }
         }
     }

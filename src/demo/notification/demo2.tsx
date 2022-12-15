@@ -10,6 +10,9 @@ function Demo() {
       onClick: () => {
         console.log('Notification Clicked!');
       },
+      onClose: () => {
+        console.log('Notification Closed!');
+      },
       placement,
     });
   };

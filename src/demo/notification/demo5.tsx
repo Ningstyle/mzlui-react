@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, notification } from '../../../packages';
+import { Button, notification, Space } from '../../../packages';
 
 function Demo() {
   const openNotification = () => {
@@ -13,6 +13,28 @@ function Demo() {
       onClose: () => {
         console.log('Notification Closed!');
       },
+      btn: (
+        <Space>
+          <Button
+            type="link"
+            size="small"
+            onClick={() => {
+              console.log('destroy');
+            }}
+          >
+            Destroy All
+          </Button>
+          <Button
+            type="primary"
+            size="small"
+            onClick={() => {
+              console.log('destroy');
+            }}
+          >
+            Confirm
+          </Button>
+        </Space>
+      ),
     });
   };
   return (
