@@ -18,3 +18,4 @@ export { default as LoadingBar } from './LoadingBar';
 export { default as Empty } from './Empty';
 export { default as Tag } from './Tag';
 export { default as Popover } from './Popover';
+export { default as notification } from './Notification';

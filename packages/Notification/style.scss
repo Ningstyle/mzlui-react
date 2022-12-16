@@ -1,0 +1,98 @@
+.mzl_notification {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.mzl_notification_wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    .mzl_demo_notification {
+        position: absolute;
+        width: 384px;
+        padding: 20px 24px;
+        background-color: $empty-color;
+        border-radius: 8px;
+        box-shadow: 0 6px 16px 0 rgb(0 0 0 / 8%), 0 3px 6px -4px rgb(0 0 0 / 12%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    
+        .mzl_notification_icon {
+            margin-right: 12px;
+            margin-top: -6px;
+
+            i {
+                font-size: 28px;
+            }
+
+            .m-icon-prompt-filling {
+                color: $primary-color;
+            }
+
+            .m-icon-success-filling {
+                color: $success-color;
+            }
+
+            .m-icon-warning-filling {
+                color: $warning-color;
+            }
+
+            .m-icon-delete-filling {
+                color: $error-color;
+            }
+        }
+        
+        .mzl_notification_content {
+            flex: 1;
+            .mzl_notification_title_wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+    
+                .mzl_notification_title {
+                    font-size: 16px;
+                }
+    
+                .mzl_notification_close {
+                    cursor: pointer;
+                    .m-icon-close {
+                        font-size: 16px;
+                    }
+                }
+            }
+        
+            .mzl_notification_description {
+                font-size: 14px;
+            }
+
+            .mzl_notification_operation{
+                margin-top: 8px;
+                display: flex;
+                justify-content: end;
+            }
+        }
+    }
+    
+    .mzl_demo_notification_topLeft {
+        top: 24px;
+        left: 24px;
+    }
+    
+    .mzl_demo_notification_topRight {
+        top: 24px;
+        right: 24px;
+    }
+    
+    .mzl_demo_notification_bottomLeft {
+        bottom: 24px;
+        left: 24px;
+    }
+    
+    .mzl_demo_notification_bottomRight {
+        bottom: 24px;
+        right: 24px;
+    }
+}
