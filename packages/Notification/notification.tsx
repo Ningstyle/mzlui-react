@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import classNames from 'classnames';
 import './style.scss';
-
 interface config {
   message: string | React.ReactNode;
   description: string | React.ReactNode;
@@ -20,6 +19,18 @@ interface config {
   type?: 'info' | 'success' | 'warning' | 'error';
 }
 export interface NotificationProps extends config {}
+type func = (config: NotificationProps) => void;
+interface apiProps {
+  open: func;
+  success: func;
+  info: func;
+  warning: func;
+  error: func;
+}
+type contextHolderProps = string;
+interface notificationProps extends apiProps {
+  useNotification: () => [apiProps, contextHolderProps];
+}
 
 const el = document.createElement('div');
 const wrapper = document.createElement('div');
@@ -45,6 +56,8 @@ function Notification(props: NotificationProps): JSX.Element {
     onClose,
   } = props;
 
+  const [timer, setTimer] = useState<number | null>(null);
+
   const icons = {
     info: 'm-icon-prompt-filling',
     success: 'm-icon-success-filling',
@@ -52,16 +65,19 @@ function Notification(props: NotificationProps): JSX.Element {
     error: 'm-icon-delete-filling',
   };
   useEffect(() => {
-    duration &&
-      setTimeout(() => {
+    if (duration) {
+      let t = setTimeout(() => {
         document.body.removeChild(el);
       }, duration * 1000);
+      setTimer(t);
+    }
   }, []);
 
   const onCloseNotification = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     document.body.removeChild(el);
+    timer && clearTimeout(timer);
     e.stopPropagation();
     onClose && onClose();
   };
@@ -108,7 +124,24 @@ function Notification(props: NotificationProps): JSX.Element {
     </div>
   );
 }
-const notification = {
+const notification: notificationProps = {
+  useNotification: () => {
+    let api: apiProps = {
+      open: () => {},
+      success: () => {},
+      info: () => {},
+      warning: () => {},
+      error: () => {},
+    };
+    Object.keys(notification)
+      .filter((item) => item !== 'useNotification')
+      .forEach(function (item) {
+        api[item as keyof apiProps] =
+          notification[item as keyof notificationProps];
+      });
+    const contextHolder = '';
+    return [api, contextHolder];
+  },
   open: (config: NotificationProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);

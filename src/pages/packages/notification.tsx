@@ -5,6 +5,7 @@
 import React from 'react';
 import Title from '../../components/title';
 import InstanceView from '../../layout/instanceView';
+import Demo0 from '../../demo/notification/demo0';
 import Demo1 from '../../demo/notification/demo1';
 import Demo2 from '../../demo/notification/demo2';
 import Demo3 from '../../demo/notification/demo3';
@@ -21,6 +22,13 @@ export default function NotificationPage() {
         title="Notification"
         notes="通知提醒框"
         desc="全局展示通知提醒信息。"
+      />
+      <InstanceView
+        subtitle="Hooks调用"
+        subnotes=""
+        demo={<Demo0 />}
+        subdesc=""
+        path="notification/demo0"
       />
       <InstanceView
         subtitle="基本使用"
