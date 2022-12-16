@@ -29,7 +29,8 @@ export default function Demo() {
     {
       title: '操作',
       field: '',
-      render: (text: any) => <Button onClick={() => { Message.info(`你点击的这个人叫${text.name}`) }}>操作</Button>,
+      align: 'center',
+      render: (text: any) => <Button size="small" type="link" onClick={() => { Message.info(`你点击的这个人叫${text.name}`) }}>操作</Button>,
     },
   ]
   const dataSource: any = [
@@ -55,7 +56,8 @@ export default function Demo() {
       add: '北京市朝阳区',
     },
   ]
+  // headStyle={{ background: '#bae0ff' }}
   return (
-    <Table columns={columns} dataSource={dataSource} size="middle" />
+    <Table columns={columns} dataSource={dataSource} />
   );
 }

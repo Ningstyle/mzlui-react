@@ -1,155 +1,123 @@
-import React, { useState } from 'react';
+import React, { CSSProperties } from 'react';
 import './style.scss';
 import classNames from 'classnames';
 
-export type InputProps = {
-    type?: string;
-    className?: string;
-    placeholder?: string;
-    disabled?: boolean;
-    readOnly?: boolean;
-    clearable?: boolean;
-    showpassword?: boolean;
-    maxlength?: number;
-    minlength?: number;
-    prefix?: React.ReactNode | string
-    suffix?: React.ReactNode | string,
-    onchange?: (value: string, event: any) => void
+export type inputProps = {
+  style?: CSSProperties;
+  className?: string;
+  prefix?: string | React.ReactNode;
+  suffix?: string | React.ReactNode;
+  clearable?: boolean;
+  clearableFn?: () => void;
+  focus?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  blur?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  value?: string | number;
+  type?: string;
+  showPassword?: boolean;
+  status?: 'error' | 'warning'
 };
-// function Input(props: InputProps): JSX.Element
-const Input: React.FC = (props: InputProps) => {
-    const [value, setValue] = useState("")
-    const [showclear, setShowclear] = useState(false)
-    const [passwordVisible, setpasswordVisible] = useState(true)
-    const {
-        type,
-        placeholder,
-        className,
-        disabled,
-        readOnly,
-        clearable,
-        maxlength,
-        minlength,
-        prefix,
-        suffix,
-        showpassword,
-        onchange } = props;
-    const InputClass = classNames({
-        'mzl-input': true,
-        [className || '']: !!className,
-        'mzl-input-affix': prefix,
-        'mzl-input-disabled': disabled
-    });
-
-    const changeclearState = (state: boolean): void => {
-        if (value) {
-            setShowclear(state)
-        }
-
+function Input(props: inputProps): JSX.Element {
+  const { style, className, prefix, suffix, clearable, clearableFn, focus, blur, onChange, placeholder, value, type, showPassword, status } = props;
+  const [inputValue, setInputValue] = React.useState(value || '');
+  const [pwdIcon, setPwdIcon] = React.useState('m-icon-hide');
+  const [pwdShow, setPwdShow] = React.useState(showPassword); //
+  const [inputType, setInputType] = React.useState(type);
+  const innerClass = classNames({
+    'mzl_input_inner': true,
+    [`mzl_input_inner_${status}`]: true,
+  })
+  const inputClass = classNames({
+    'mzl_input': true,
+    [className || '']: !!className,
+  });
+  const inputStyle = {
+    ...style,
+  }
+  React.useEffect(() => {
+    setInputValue(value as string);
+  }, [value])
+  const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    onChange && onChange(e);
+  }
+  const inputEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      setInputValue(e.target.value);
+      onChange && onChange(e);
     }
-    const clearText = (): void => {
-        setValue("")
-        setShowclear(false)
-    }
-    const onInput = ($event: any) => {
-        const inputvalue = $event.target.value
-        if (inputvalue) {
-            setShowclear(true)
-        } else {
-            setShowclear(false)
-        }
-        setValue(inputvalue)
-    }
-    const change = ($event: any) => {
-        if (typeof onchange === 'function') {
-            if (onchange) {
-                onchange($event.target.value, $event)
-            }
-        } else {
-            throw new Error("'onchange' is expected a function,but now it is not a function,Please check it!");
-
-        }
-    }
-    const onPressEnter = ($event: any) => {
-        if ($event.which === 13 || $event.keyCode === 13) {
-            change($event)
-        }
-    }
-    const clearIcon = (
-        <span className="mzl-input_suffix" onClick={clearText}>
-            <i className="m-icon-error" />
-        </span>
-    )
-    const prefixIcon = (
-        <span className="mzl-input_prefix">{prefix}</span>
-    )
-    const suffixIcon = (
-        <span className="mzl-input_suffix">{suffix}</span>
-    )
-    const viewIcon = (
-        <span className="mzl-input_suffix" onClick={() => changepasswordVisible(false)}>
-            <i className="m-icon-browse" />
-        </span>
-    )
-    const cantviewIcon = (
-        <span className="mzl-input_suffix" onClick={() => changepasswordVisible(true)}>
-            <i className="m-icon-hide" />
-        </span>
-    )
-    const changepasswordVisible=(state:boolean):void=>{
-        setpasswordVisible(state)
-    }
-    let IconFix: string | React.ReactNode = ''
-    if (showpassword) {
-        IconFix = viewIcon
+  }
+  const handlerClearClick = () => {
+    setInputValue('');
+    clearableFn && clearableFn();
+  }
+  const toggleIcon = () => {
+    setPwdShow(!pwdShow);
+    if (pwdShow) {
+      setInputType(type);
+      setPwdIcon('m-icon-hide');
     } else {
-        if (clearable && showclear) {
-            IconFix = clearIcon
-        } else if (suffixIcon) {
-            IconFix = suffixIcon
-        } else {
-            IconFix = ""
-        }
+      setInputType('text');
+      setPwdIcon('m-icon-browse');
+    }
+  }
+  React.useEffect(() => {
+    if (!showPassword) {
+      setInputType(type);
+      setPwdIcon('m-icon-hide');
+    } else {
+      setInputType('text');
+      setPwdIcon('m-icon-browse');
     }
 
-    return (
-        <span
-            className={InputClass}
-            onMouseOver={() => changeclearState(true)}
-            onMouseOut={() => changeclearState(false)}
-            onFocus={() => 0}
-            onBlur={() => 0}
-        >
-            {prefix ? prefixIcon : ''}
-            <input
-                maxLength={maxlength}
-                minLength={minlength}
-                className="mzl-input_inner"
-                type={showpassword ? (passwordVisible ? 'text' : "password") : type}
-                onChange={change}
-                onInput={onInput}
-                onKeyDown={onPressEnter}
-                value={value}
-                placeholder={placeholder}
-                readOnly={readOnly}
-                disabled={disabled}
-            />
-            {showpassword?(passwordVisible?viewIcon:cantviewIcon):IconFix}
-        </span>
-    );
+  }, [showPassword])
+  return (
+    <span className={innerClass} style={style || inputStyle}>
+      {
+        prefix && prefix !== '' && (typeof prefix) === 'string' ? <i className={[prefix, 'mzl_input_prefix'].join(' ')} /> : prefix && prefix !== '' && (typeof prefix) === 'object' ? <span className="mzl_input_prefix" >{prefix}</span> : null
+      }
+      <input
+        type={inputType}
+        placeholder={placeholder}
+        className={inputClass}
+        onChange={inputChange}
+        onKeyDown={inputEnter}
+        value={inputValue}
+        onFocus={(e) => focus && focus(e)}
+        onBlur={() => blur && blur()}
+      />
+      {
+        suffix && suffix !== '' && (typeof suffix) === 'string' && !clearable ? <i className={[suffix, 'mzl_input_suffix'].join(' ')} /> : suffix && suffix !== '' && (typeof suffix) === 'object' ? <span className="mzl_input_suffix" >{suffix}</span> : null
+      }
+      {
+        clearable && inputValue !== '' && type !== 'password' ? (
+          <i className="m-icon-error mzl_input_suffix mzl_input_clearable" onClick={handlerClearClick} />
+        ) : null
+      }
+      {
+        type === 'password' ? (
+          <i className={[pwdIcon, 'mzl_input_suffix', 'mzl_input_password'].join(' ')} onClick={toggleIcon} />
+        ) : null
+      }
+    </span>
+  );
 }
 Input.defaultProps = {
-    type: 'text',
-    className: '',
-    placeholder: '请输入',
-    disabled: false,
-    readOnly: false,
-    clearable: false,
-    showpassword: false,
-    maxlength: 100000,
-    minlength: 0,
-    prefix: '',
-    suffix: '',
-    onchange: () => { },
+  style: '',
+  className: '',
+  prefix: '',
+  suffix: '',
+  clearable: false,
+  clearableFn: () => { },
+  focus: () => { },
+  blur: () => { },
+  onChange: () => { },
+  placeholder: '',
+  value: '',
+  type: 'text',
+  showPassword: false,
+  status: '',
 };
-export default Input;
+export default React.memo(Input);

@@ -80,7 +80,8 @@
     "import/no-named-as-default": 0,
     "jsx-a11y/mouse-events-have-key-events": 0,
     "no-unused-expressions": "off",
-    "@typescript-eslint/no-unused-expressions": "warn"
+    "@typescript-eslint/no-unused-expressions": "warn",
+    "no-nested-ternary": "off"
   },
   "settings": {
     "import/ignore": ["node_modules"]

@@ -1,70 +1,90 @@
 // @import '../../src/styles/global.scss';
-.mzl-input {
-    width: 100%;
-    height: 36px;
-    box-sizing: border-box;
-    display: inline-block;
-    position: relative;
-    font-size: 14px;
-    border: 1px solid $input-border-color;
-    transition: all .3s;
+.mzl_input_inner,
+.mzl_input_inner_error,
+.mzl_input_inner_warning {
+	display: inline-flex;
+	width: 100%;
+	align-items: center;
+	transition: all .3s;
+	border: 1px solid $input-border-color;
+	padding: 0 10px;
+	box-sizing: border-box;
+	justify-content: center;
+	height: 36px;
+	color: $text-color;
+	overflow: hidden;
+
+	.mzl_input {
+		width: 100%;
+		height: 100%;
+		display: inline-block;
+		font-size: 14px;
+		transition: all .3s;
+		outline: none;
+		border: none;
+		padding: 0;
+		box-sizing: border-box;
+		line-height: 1.5714285714285714;
+		list-style: none;
+	}
+
+	.mzl_input::placeholder {
+		color: $disabled-color;
+	}
+
+	.mzl_input_prefix {
+		margin-right: 4px;
+	}
+
+	.mzl_input_suffix {
+		margin-left: 4px;
+	}
+
+	.mzl_input_clearable,
+	.mzl_input_password {
+		cursor: pointer;
+	}
 }
 
-.mzl-input:hover{
-    border:1px solid $border-color-hover;
+.mzl_input_inner:hover {
+	border: 1px solid $border-color-hover;
 }
-.mzl-input:focus-within{
-    border:1px solid $border-color-hover;
-    box-shadow: 0 0 0 2px $input-color-outline-shadow;
+
+.mzl_input_inner:focus-within {
+	border: 1px solid $border-color-hover;
+	box-shadow: 0 0 0 1px $input-color-outline-shadow;
 }
-.mzl-input.mzl-input-disabled {
-    color: $disabled-text-color;
-    background-color: $disabled-background-color;
-    border-color: $btn-border-color;
-    box-shadow: none;
-    cursor: not-allowed;
-    opacity: 1;
-    .mzl-input_suffix {
-        cursor: not-allowed;
-    }
-    .mzl-input_inner {
-        cursor: not-allowed;
-    }
+
+.mzl_input_inner_error {
+	border: 1px solid $error-color;
+
+	i {
+		color: $error-color;
+	}
 }
-.mzl-input-affix {
-    padding: 0 30px 0 16px;
-    border: 1px solid $input-border-color;
-    display: flex;
-    align-items: center;
-    .mzl-input_inner {
-        border: none;
-        padding: 0;
-        width: 100%;
-    }
-    .mzl-input_prefix {
-        margin-right: 4px;
-    }
+
+.mzl_input_inner_error:hover {
+	border: 1px solid $error-color;
 }
-.mzl-input_inner {
-    -webkit-appearance: none;
-    display: inline-block;
-    font-size: inherit;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border-radius: 4px;
-    padding: 0 16px;
-    color: $input-text-color;
-    border: none;
+
+.mzl_input_inner_error:focus-within {
+	border: 1px solid $error-color;
+	box-shadow: $input-color-error-shadow;
 }
-.mzl-input_inner.mzl-input-status-error{
-    background-color: $empty-color;
-    border-color: $error-color;
+
+.mzl_input_inner_warning {
+	border: 1px solid $warning-color;
+
+	i {
+		color: $warning-color;
+	}
 }
-.mzl-input_suffix {
-    position: absolute;
-    line-height: 36px;
-    right: 10px;
-    cursor: pointer;
+
+.mzl_input_inner_warning:hover {
+	border: 1px solid $warning-color;
+}
+
+.mzl_input_inner_warning:focus-within {
+	border: 1px solid $warning-color;
+	box-shadow: $input-color-warning-shadow;
 }

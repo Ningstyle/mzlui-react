@@ -184,4 +184,36 @@ export const updateLog = [
       },
     ],
   },
+  {
+    version: '0.1.5',
+    time: '2022-11-27',
+    log: [
+      {
+        title: '新增',
+        content: [
+          '新增 Switch 开关组件',
+          '新增 Timeline 时间轴组件',
+          '新增 Confirm 消息确认框组件',
+          '新增 Progress 进度条组件',
+          '新增 Card 卡片组件',
+          '新增 Uploader 文件上传组件',
+          '新增 Image 组件',
+        ],
+      },
+      {
+        title: '优化',
+        content: ['优化table组件。'],
+      },
+    ],
+  },
+  {
+    version: '0.1.6',
+    time: '2022-11-30',
+    log: [
+      {
+        title: '新增',
+        content: ['新增 LoadingBar 加载进度条组件组件'],
+      },
+    ],
+  },
 ];
