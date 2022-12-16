@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, notification, Space } from '../../../packages';
+import { Button, Notification, Space } from '../../../packages';
 
 function Demo() {
   const openNotification = (placement) => {
-    notification.open({
+    Notification.open({
       message: 'Notification Title',
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
