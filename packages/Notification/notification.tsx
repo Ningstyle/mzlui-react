@@ -19,7 +19,7 @@ interface config {
   type?: 'info' | 'success' | 'warning' | 'error';
   isGlobal?: boolean;
 }
-export interface NotificationProps extends config {}
+export interface NotificationItemProps extends config {}
 interface globalProps {
   duration?: number | null; // null 或 0时不关闭
   placement?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
@@ -27,7 +27,7 @@ interface globalProps {
   top?: number; // 消息从顶部弹出时，距离顶部的位置，单位像素
   closeIcon?: React.ReactNode; // 自定义关闭图标
 }
-type func = (config: NotificationProps) => void;
+type func = (config: NotificationItemProps) => void;
 interface apiProps {
   open: func;
   success: func;
@@ -36,7 +36,7 @@ interface apiProps {
   error: func;
 }
 type contextHolderProps = string;
-interface notificationProps extends apiProps {
+interface NotificationProps extends apiProps {
   config: func;
   useNotification: () => [apiProps, contextHolderProps];
 }
@@ -49,7 +49,7 @@ el.append(wrapper);
 
 var globalParams: globalProps = {};
 
-function Notification(props: NotificationProps): JSX.Element {
+function NotificationItem(props: NotificationItemProps): JSX.Element {
   const {
     message,
     description,
@@ -169,13 +169,13 @@ function Notification(props: NotificationProps): JSX.Element {
     </>
   );
 }
-const notification: notificationProps = {
+const Notification: NotificationProps = {
   config: (config: globalProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);
     const root = document.querySelector('.mzl_notification_wrapper');
     return ReactDOM.createRoot(root as HTMLElement).render(
-      <Notification {...config} isGlobal message="" description="" />
+      <NotificationItem {...config} isGlobal message="" description="" />
     );
   },
   useNotification: () => {
@@ -186,55 +186,55 @@ const notification: notificationProps = {
       warning: () => {},
       error: () => {},
     };
-    Object.keys(notification)
+    Object.keys(Notification)
       .filter((item) => item !== 'useNotification')
       .forEach(function (item) {
         api[item as keyof apiProps] =
-          notification[item as keyof notificationProps];
+          Notification[item as keyof NotificationProps];
       });
     const contextHolder = '';
     return [api, contextHolder];
   },
-  open: (config: NotificationProps) => {
+  open: (config: NotificationItemProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);
     const root = document.querySelector('.mzl_notification_wrapper');
     return ReactDOM.createRoot(root as HTMLElement).render(
-      <Notification {...config} />
+      <NotificationItem {...config} />
     );
   },
-  success: (config: NotificationProps) => {
+  success: (config: NotificationItemProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);
     const root = document.querySelector('.mzl_notification_wrapper');
     return ReactDOM.createRoot(root as HTMLElement).render(
-      <Notification {...config} type="success" />
+      <NotificationItem {...config} type="success" />
     );
   },
-  info: (config: NotificationProps) => {
+  info: (config: NotificationItemProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);
     const root = document.querySelector('.mzl_notification_wrapper');
     return ReactDOM.createRoot(root as HTMLElement).render(
-      <Notification {...config} type="info" />
+      <NotificationItem {...config} type="info" />
     );
   },
-  warning: (config: NotificationProps) => {
+  warning: (config: NotificationItemProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);
     const root = document.querySelector('.mzl_notification_wrapper');
     return ReactDOM.createRoot(root as HTMLElement).render(
-      <Notification {...config} type="warning" />
+      <NotificationItem {...config} type="warning" />
     );
   },
-  error: (config: NotificationProps) => {
+  error: (config: NotificationItemProps) => {
     if (document.querySelector('.mzl_notification')) return;
     document.body.appendChild(el);
     const root = document.querySelector('.mzl_notification_wrapper');
     return ReactDOM.createRoot(root as HTMLElement).render(
-      <Notification {...config} type="error" />
+      <NotificationItem {...config} type="error" />
     );
   },
 };
 
-export default notification;
+export default Notification;

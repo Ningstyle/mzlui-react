@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, notification } from '../../../packages';
+import { Button, Notification } from '../../../packages';
 
 function Demo() {
-  const [api, contextHolder] = notification.useNotification();
+  const [api, contextHolder] = Notification.useNotification();
   const openNotification = () => {
     api.info({
       message: 'Notification Title',

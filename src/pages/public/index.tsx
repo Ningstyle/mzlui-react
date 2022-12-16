@@ -3,7 +3,7 @@ import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import RouterPages from '../../router/pages/page';
 import Menu from '../../components/menu';
 import '../../styles/custom.scss';
-import { Backtop, notification } from '../../../packages';
+import { Backtop, Notification } from '../../../packages';
 
 // 二级路由
 export default function Index() {
@@ -54,7 +54,7 @@ export default function Index() {
 
   useEffect(() => {
     // 全局配置notification
-    // notification.config({
+    // Notification.config({
     //   bottom: 100,
     //   top: 300,
     //   duration: 4.5,
