@@ -12,7 +12,7 @@ import Demo3 from '../../demo/notification/demo3';
 import Demo4 from '../../demo/notification/demo4';
 import Demo5 from '../../demo/notification/demo5';
 import Demo6 from '../../demo/notification/demo6';
-import Demo7 from '../../demo/notification/Demo7';
+import Demo7 from '../../demo/notification/demo7';
 import Api from '../../demo/notification/api';
 
 export default function NotificationPage() {
