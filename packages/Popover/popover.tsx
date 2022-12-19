@@ -170,4 +170,4 @@ Popover.defaultProps = {
   getPopupContainer: () => {},
 };
 
-export default Popover;
+export default React.memo(Popover);

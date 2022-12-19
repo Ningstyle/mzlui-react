@@ -1,5 +1,6 @@
 import React, { ReactNode, useRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import './style.scss';
 
 interface PopOffsetProps {
@@ -95,35 +96,44 @@ function PopoverItem(props: PopoverProps): JSX.Element {
     changeHidden(true);
   };
   return (
-    <div
-      className={classNames(
-        'mzl_popover',
-        isHidden ? 'mzl_popover_hidden' : ''
-      )}
-      ref={popoverRef}
-      style={popoverStyle}
-      onMouseLeave={(e) => popoverMouseLeave(e)}
+    <CSSTransition
+      in={!isHidden}
+      timeout={300}
+      classNames="popover"
+      unmountOnExit
     >
       <div
         className={classNames(
-          'mzl_popover_content',
-          `mzl_popover_content_${placement}`
+          'mzl_popover',
+          isHidden ? 'mzl_popover_hidden' : ''
         )}
+        ref={popoverRef}
+        style={popoverStyle}
+        onMouseLeave={(e) => popoverMouseLeave(e)}
       >
         <div
           className={classNames(
-            'mzl_popover_arrow',
-            `mzl_popover_arrow_${placement}`
+            'mzl_popover_content',
+            `mzl_popover_content_${placement}`
           )}
-          style={arrowStyle}
-        />
-        <div className="mzl_popover_inner">
-          <div className="mzl_popover_title">{title}</div>
-          <div className="mzl_popover_inner_content">{content}</div>
+        >
+          <div
+            className={classNames(
+              'mzl_popover_arrow',
+              `mzl_popover_arrow_${placement}`
+            )}
+            style={arrowStyle}
+          />
+          <div className="mzl_popover_inner">
+            <div className="mzl_popover_title">{title}</div>
+            <div className="mzl_popover_inner_content">{content}</div>
+          </div>
         </div>
       </div>
-    </div>
+    </CSSTransition>
   );
 }
-
+PopoverItem.defaultProps = {
+  placement: 'left',
+};
 export default React.memo(PopoverItem);
