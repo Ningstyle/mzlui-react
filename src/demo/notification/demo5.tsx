@@ -18,8 +18,9 @@ function Demo() {
           <Button
             type="link"
             size="small"
-            onClick={() => {
-              console.log('destroy');
+            onClick={(e) => {
+              e.stopPropagation();
+              console.log('destroy all');
             }}
           >
             Destroy All
@@ -28,7 +29,7 @@ function Demo() {
             type="primary"
             size="small"
             onClick={() => {
-              console.log('destroy');
+              console.log('Confirm');
             }}
           >
             Confirm
