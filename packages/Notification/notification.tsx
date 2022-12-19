@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import './style.scss';
 
 interface Config {
@@ -69,6 +70,7 @@ function NotificationItem(props: NotificationItemProps): JSX.Element {
     onClose,
     isGlobal = false,
   } = props;
+  const [isOpen, setIsOpen] = useState(false);
   let timer: number | null = null;
 
   const icons = {
@@ -90,6 +92,7 @@ function NotificationItem(props: NotificationItemProps): JSX.Element {
   };
 
   useEffect(() => {
+    setIsOpen(true);
     if (isGlobal) {
       globalParams = { bottom, closeIcon, duration, placement, top };
     }
@@ -102,6 +105,7 @@ function NotificationItem(props: NotificationItemProps): JSX.Element {
         //   document.querySelector('.mzl_notification_wrapper')?.removeChild(ele);
         // }
         document.body.removeChild(el);
+        setIsOpen(false);
       }, time * 1000);
     }
   }, []);
@@ -110,6 +114,7 @@ function NotificationItem(props: NotificationItemProps): JSX.Element {
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     document.body.removeChild(el);
+    setIsOpen(false);
     // const ele = document.querySelector('.mzl_demo_notification');
     // if (ele) {
     //   document.querySelector('.mzl_notification_wrapper')?.removeChild(ele);
@@ -142,43 +147,50 @@ function NotificationItem(props: NotificationItemProps): JSX.Element {
     <>
       {isGlobal && null}
       {!isGlobal && (
-        <div
-          className={classNames(
-            'mzl_demo_notification',
-            `mzl_demo_notification_${getPlacement()}`,
-            `${className}`
-          )}
-          style={{
-            top: getPosition('top'),
-            bottom: getPosition('bottom'),
-            ...style,
-          }}
+        <CSSTransition
+          in={isOpen}
+          timeout={300}
+          classNames={`notification-${getPlacement()}`}
+          unmountOnExit
         >
-          {icon && <span className="mzl_notification_icon">{icon}</span>}
-          {!icon && type && (
-            <span className="mzl_notification_icon">
-              <i className={classNames(`${icons[type]}`)} />
-            </span>
-          )}
           <div
-            className="mzl_notification_content"
-            onClick={onClickNotification}
+            className={classNames(
+              'mzl_demo_notification',
+              `mzl_demo_notification_${getPlacement()}`,
+              `${className}`
+            )}
+            style={{
+              top: getPosition('top'),
+              bottom: getPosition('bottom'),
+              ...style,
+            }}
           >
-            <div className="mzl_notification_title_wrapper">
-              <span className="mzl_notification_title">{message}</span>
-              <span
-                onClick={(e) => onCloseNotification(e)}
-                className="mzl_notification_close"
-              >
-                {closeIcon || globalParams.closeIcon || (
-                  <i className="m-icon-close" />
-                )}
+            {icon && <span className="mzl_notification_icon">{icon}</span>}
+            {!icon && type && (
+              <span className="mzl_notification_icon">
+                <i className={classNames(`${icons[type]}`)} />
               </span>
+            )}
+            <div
+              className="mzl_notification_content"
+              onClick={onClickNotification}
+            >
+              <div className="mzl_notification_title_wrapper">
+                <span className="mzl_notification_title">{message}</span>
+                <span
+                  onClick={(e) => onCloseNotification(e)}
+                  className="mzl_notification_close"
+                >
+                  {closeIcon || globalParams.closeIcon || (
+                    <i className="m-icon-close" />
+                  )}
+                </span>
+              </div>
+              <div className="mzl_notification_description">{description}</div>
+              {btn && <div className="mzl_notification_operation">{btn}</div>}
             </div>
-            <div className="mzl_notification_description">{description}</div>
-            {btn && <div className="mzl_notification_operation">{btn}</div>}
           </div>
-        </div>
+        </CSSTransition>
       )}
     </>
   );

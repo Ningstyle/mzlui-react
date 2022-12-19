@@ -99,3 +99,46 @@
     right: 24px;
   }
 }
+
+.notification-topLeft-enter,
+.notification-bottomLeft-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.notification-topRight-enter,
+.notification-bottomRight-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.notification-topLeft-enter-active,
+.notification-bottomLeft-enter-active,
+.notification-topRight-enter-active,
+.notification-bottomRight-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 200ms ease-in-out;
+}
+
+.notification-topLeft-exit,
+.notification-bottomLeft-exit,
+.notification-topRight-exit,
+.notification-bottomRight-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notification-topLeft-exit-active,
+.notification-bottomLeft-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 300ms ease-in-out;
+}
+
+.notification-topRight-exit-active,
+.notification-bottomRight-exit-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 300ms ease-in-out;
+}
