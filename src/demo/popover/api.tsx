@@ -76,7 +76,9 @@ function Api() {
       description: '触发行为',
       type: <span style={{ color: '#c41d7f' }}>string</span>,
       optional: (
-        <span style={{ color: '#1890ff' }}>'hover' | 'focus' | 'click'</span>
+        <span style={{ color: '#1890ff' }}>
+          &apos;hover&apos; | &apos;focus&apos; | &apos;click&apos;
+        </span>
       ),
       default: 'hover',
     },

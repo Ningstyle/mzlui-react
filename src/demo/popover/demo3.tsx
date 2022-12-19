@@ -6,7 +6,21 @@ function Demo() {
   const hide = () => {
     setVisible(false);
   };
-  const content = <a onClick={hide}>Close</a>;
+  const content = (
+    <button
+      type="button"
+      onClick={hide}
+      style={{
+        border: 'none',
+        background: '#ffffff',
+        color: '#1890ff',
+        cursor: 'pointer',
+        padding: '0',
+      }}
+    >
+      Close
+    </button>
+  );
   const onOpenChange = (e) => {
     setVisible(e);
   };

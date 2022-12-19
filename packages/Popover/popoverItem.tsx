@@ -2,7 +2,7 @@ import React, { ReactNode, useRef, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import './style.scss';
 
-interface popOffsetProps {
+interface PopOffsetProps {
   left: number;
   top: number;
   clientHeight: number;
@@ -12,10 +12,10 @@ export interface PopoverProps {
   content: string | ReactNode;
   title: string;
   visible: boolean | undefined;
-  popOffset: popOffsetProps;
+  popOffset: PopOffsetProps;
   isHidden: boolean;
   placement?: string;
-  color?: string;
+  // color?: string;
   changeHidden: (e: boolean) => void;
   trigger: 'hover' | 'focus' | 'click';
   containerDom: HTMLElement;
@@ -116,7 +116,7 @@ function PopoverItem(props: PopoverProps): JSX.Element {
             `mzl_popover_arrow_${placement}`
           )}
           style={arrowStyle}
-        ></div>
+        />
         <div className="mzl_popover_inner">
           <div className="mzl_popover_title">{title}</div>
           <div className="mzl_popover_inner_content">{content}</div>
