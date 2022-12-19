@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import './style.scss';
 
+type TypeProps = 'info' | 'success' | 'warning' | 'error';
 interface Config {
   message: string | React.ReactNode;
   description: string | React.ReactNode;
@@ -18,7 +19,7 @@ interface Config {
   closeIcon?: React.ReactNode; // 自定义关闭图标
   btn?: React.ReactNode; // 自定义关闭按钮
   icon?: React.ReactNode; // 自定义图标
-  type?: 'info' | 'success' | 'warning' | 'error';
+  type?: TypeProps;
   isGlobal?: boolean;
 }
 export type NotificationItemProps = Config;
@@ -45,8 +46,8 @@ interface NotificationProps extends ApiProps {
 
 const el = document.createElement('div');
 const wrapper = document.createElement('div');
-el.className = 'mzl_notification';
-// document.body.appendChild(el);
+el.className = 'mzl_notification_container';
+document.body.appendChild(el);
 wrapper.className = 'mzl_notification_wrapper';
 el.appendChild(wrapper);
 
@@ -96,15 +97,15 @@ function NotificationItem(props: NotificationItemProps): JSX.Element {
     if (isGlobal) {
       globalParams = { bottom, closeIcon, duration, placement, top };
     }
+
     const time = getTime();
     if (time) {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       timer = setTimeout(() => {
-        // const ele = document.querySelector('.mzl_demo_notification');
-        // if (ele) {
-        //   document.querySelector('.mzl_notification_wrapper')?.removeChild(ele);
-        // }
-        document.body.removeChild(el);
+        const ele = document.querySelector('.mzl_notification');
+        if (ele) {
+          document.querySelector('.mzl_notification_wrapper')?.removeChild(ele);
+        }
         setIsOpen(false);
       }, time * 1000);
     }
@@ -113,12 +114,11 @@ function NotificationItem(props: NotificationItemProps): JSX.Element {
   const onCloseNotification = (
     e: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
-    document.body.removeChild(el);
     setIsOpen(false);
-    // const ele = document.querySelector('.mzl_demo_notification');
-    // if (ele) {
-    //   document.querySelector('.mzl_notification_wrapper')?.removeChild(ele);
-    // }
+    const ele = document.querySelector('.mzl_notification');
+    if (ele) {
+      document.querySelector('.mzl_notification_wrapper')?.removeChild(ele);
+    }
     if (timer) {
       clearTimeout(timer);
     }
@@ -200,24 +200,34 @@ NotificationItem.defaultProps = {
   onClick: () => {},
   onClose: () => {},
   className: '',
-  duration: 4.5,
+  duration: undefined,
   style: {},
-  placement: 'topLeft',
-  bottom: 24,
-  top: 24,
+  placement: '',
+  bottom: 0,
+  top: 0,
   closeIcon: null,
   btn: null,
   icon: null,
-  type: 'info',
+  type: '',
   isGlobal: false,
 };
+
+function popNotification(config: NotificationItemProps, type: TypeProps) {
+  const root = document.createElement('div');
+  root.className = 'mzl_notification';
+  ReactDOM.createRoot(root).render(
+    <NotificationItem {...config} type={type} />
+  );
+  const wrapperEl = document.querySelector('.mzl_notification_wrapper');
+  if (wrapperEl) {
+    wrapper.appendChild(root);
+  }
+}
 const Notification: NotificationProps = {
   config: (config: GlobalProps) => {
-    if (document.querySelector('.mzl_notification')) return;
-    document.body.appendChild(el);
-    const root = document.querySelector('.mzl_notification_wrapper');
-    // eslint-disable-next-line consistent-return
-    return ReactDOM.createRoot(root as HTMLElement).render(
+    const root = document.createElement('div');
+    root.className = 'mzl_notification';
+    ReactDOM.createRoot(root).render(
       <NotificationItem {...config} isGlobal message="" description="" />
     );
   },
@@ -239,49 +249,19 @@ const Notification: NotificationProps = {
     return [api, contextHolder];
   },
   open: (config: NotificationItemProps) => {
-    if (document.querySelector('.mzl_notification')) return;
-    document.body.appendChild(el);
-    const root = document.querySelector('.mzl_notification_wrapper');
-    // eslint-disable-next-line consistent-return
-    return ReactDOM.createRoot(root as HTMLElement).render(
-      <NotificationItem {...config} />
-    );
+    popNotification(config, 'info');
   },
   success: (config: NotificationItemProps) => {
-    if (document.querySelector('.mzl_notification')) return;
-    document.body.appendChild(el);
-    const root = document.querySelector('.mzl_notification_wrapper');
-    // eslint-disable-next-line consistent-return
-    return ReactDOM.createRoot(root as HTMLElement).render(
-      <NotificationItem {...config} type="success" />
-    );
+    popNotification(config, 'success');
   },
   info: (config: NotificationItemProps) => {
-    if (document.querySelector('.mzl_notification')) return;
-    document.body.appendChild(el);
-    const root = document.querySelector('.mzl_notification_wrapper');
-    // eslint-disable-next-line consistent-return
-    return ReactDOM.createRoot(root as HTMLElement).render(
-      <NotificationItem {...config} type="info" />
-    );
+    popNotification(config, 'info');
   },
   warning: (config: NotificationItemProps) => {
-    if (document.querySelector('.mzl_notification')) return;
-    document.body.appendChild(el);
-    const root = document.querySelector('.mzl_notification_wrapper');
-    // eslint-disable-next-line consistent-return
-    return ReactDOM.createRoot(root as HTMLElement).render(
-      <NotificationItem {...config} type="warning" />
-    );
+    popNotification(config, 'warning');
   },
   error: (config: NotificationItemProps) => {
-    if (document.querySelector('.mzl_notification')) return;
-    document.body.appendChild(el);
-    const root = document.querySelector('.mzl_notification_wrapper');
-    // eslint-disable-next-line consistent-return
-    return ReactDOM.createRoot(root as HTMLElement).render(
-      <NotificationItem {...config} type="error" />
-    );
+    popNotification(config, 'error');
   },
 };
 
