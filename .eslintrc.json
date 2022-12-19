@@ -15,7 +15,7 @@
     "project": "./tsconfigRules.json"
   },
   "rules": {
-    "comma-dangle": "warn",
+    // "comma-dangle": "warn",
     "object-curly-newline": 0, // 大括号之后有换行符
     "react/prop-types": 0, // 未在props中声明该变量
     "react-hooks/rules-of-hooks": "warn",
