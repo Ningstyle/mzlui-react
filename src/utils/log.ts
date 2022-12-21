@@ -216,4 +216,21 @@ export const updateLog = [
       },
     ],
   },
+  {
+    version: '0.1.7',
+    time: '2022-12-21',
+    log: [
+      {
+        title: '新增',
+        content: [
+          '新增 Notification 通知提醒框组件',
+          '新增 Popover 气泡卡片组件',
+        ],
+      },
+      {
+        title: '优化',
+        content: ['优化 Input 输入框组件'],
+      },
+    ],
+  },
 ];
