@@ -18,11 +18,7 @@ class Modal extends Component<ModalProps, ModalState> {
     };
   }
 
-  componentDidUpdate(
-    prevProps: Readonly<ModalProps>,
-    prevState: Readonly<ModalState>,
-    snapshot?: any
-  ): void {
+  componentDidUpdate(): void {
     const { popupContainer, showModal } = this.props;
     const { modalRoot } = this.state;
     if (!showModal) {

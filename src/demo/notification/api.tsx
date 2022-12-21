@@ -194,7 +194,12 @@ function Api() {
         </li>
       </ul>
       <pre style={{ marginBottom: '20px' }}>
-        <code className="language-javascript">{code}</code>
+        <code
+          className="language-javascript"
+          style={{ backgroundColor: 'rgb(250,250,250)' }}
+        >
+          {code}
+        </code>
       </pre>
       <Table
         columns={columns}
