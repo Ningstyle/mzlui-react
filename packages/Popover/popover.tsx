@@ -49,12 +49,8 @@ function Popover(props: PopoverProps): JSX.Element {
   const getPos = () => {
     const popoverComponentOffset =
       popoverComponentRef.current?.getBoundingClientRect();
-    componentLeft =
-      (popoverComponentOffset?.left as number) +
-      document.documentElement.scrollLeft;
-    componentTop =
-      (popoverComponentOffset?.top as number) +
-      document.documentElement.scrollTop;
+    componentLeft = popoverComponentOffset?.left || 0;
+    componentTop = popoverComponentOffset?.top || 0;
     componentHeight = popoverComponentRef.current?.clientHeight || 0;
     componentWidth = popoverComponentRef.current?.clientWidth || 0;
   };
