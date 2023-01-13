@@ -28,7 +28,7 @@ export default function Preview(props: PreviewProps): JSX.Element {
         scale: 1,
         rotate: 0,
       })
-    }, 210)
+    }, 250)
   };
   // console.log('previewList', previewList)
   // 左旋转
@@ -117,7 +117,9 @@ export default function Preview(props: PreviewProps): JSX.Element {
     setIndex((index as number) + 1)
   }
   React.useEffect(() => {
-    setIndex(locateIndex)
+    if (show) {
+      setIndex(locateIndex)
+    }
   }, [show])
   return (
     <Mask visible={show as boolean} maskClick={handlerClose}>

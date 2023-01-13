@@ -1,6 +1,6 @@
 /*
   @name:"Image 图片"
-  @group:"通用"
+  @group:"数据"
 */
 import React from 'react';
 import Title from '../../components/title';

@@ -73,6 +73,10 @@
     i {
       font-size: 18px;
     }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
   }
 
   .previous {
@@ -89,6 +93,10 @@
 
     i {
       color: rgba(255, 255, 255, .6);
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0);
     }
   }
 
