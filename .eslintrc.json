@@ -81,7 +81,8 @@
     "jsx-a11y/mouse-events-have-key-events": 0,
     "no-unused-expressions": "off",
     "@typescript-eslint/no-unused-expressions": "warn",
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "jsx-a11y/alt-text": "off"
   },
   "settings": {
     "import/ignore": ["node_modules"]

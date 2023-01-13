@@ -1,63 +1,105 @@
-:root {
-  --mzl_border-color: rgb(220, 223, 230);
-  --mzl_border-margin: 24px;
-  --mzl_border-padding: 20px;
-  --mzl_border-hasChildren-margin: 10px;
-  --mzl_border-vertical-margin: 0.8rem;
+.mzl_image {
+  transition: transform .3s cubic-bezier(.215, .61, .355, 1) 0s;
+  max-width: 100%;
 }
-.mzl_divider {
-  border-top: 1px solid var(--mzl_border-color);
 
-  height: 1px;
-  padding: 0 var(--mzl_border-padding);
-  margin: var(--mzl_border-margin) 0;
-
-  display: flex;
-  align-items: center;
+.previewImgBox {
+  width: 100%;
+  height: 100%;
   position: relative;
-  box-sizing: border-box;
-  &_hasChildren {
-    &_left {
-      justify-content: start;
-    }
-    &_center {
+
+  .equinox {
+    width: 100%;
+    height: 46px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    color: #fff;
+    font-size: 15px;
+  }
+
+  .preview_head {
+    width: 100%;
+    height: 46px;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    color: #fff;
+    justify-content: end;
+    gap: 15px;
+    position: absolute;
+    z-index: 1000;
+    user-select: none;
+
+    li {
+      width: 42px;
+      height: 46px;
+      display: flex;
+      align-items: center;
       justify-content: center;
-    }
-    &_right {
-      justify-content: end;
-    }
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+      user-select: none;
 
-    & .mzl_divider_children {
-      border-left: var(--mzl_border-hasChildren-margin) solid #fff;
-      border-right: var(--mzl_border-hasChildren-margin) solid #fff;
-      background-color: #fff;
-    }
-  }
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+      }
 
-  &_solid {
-    border-top: 1px solid var(--mzl_border-color);
-  }
-  &_dotted {
-    border-top: 1px dotted var(--mzl_border-color);
-  }
-  &_dashed {
-    border-top: 1px dashed var(--mzl_border-color);
-  }
-  &_groove {
-    border-top: 1px groove var(--mzl_border-color);
+      i {
+        font-size: 19px;
+      }
+    }
   }
 
-  &_vertical {
-    border-left: 1px solid var(--mzl_border-color);
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 0;
-    display: inline-block;
-    height: 1rem;
-    margin: 0 var(--mzl_border-vertical-margin);
-    padding: 0;
-    position: relative;
-    top: 0.2rem;
-    width: 0;
+  .switch {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    z-index: 1000;
+
+    i {
+      font-size: 18px;
+    }
+  }
+
+  .previous {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  .noCursor {
+    cursor: not-allowed;
+    background: none;
+
+    i {
+      color: rgba(255, 255, 255, .6);
+    }
+  }
+
+  .preview_inner_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 46px);
+
+    div {
+      max-width: 1200px;
+    }
   }
 }
