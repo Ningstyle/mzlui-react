@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, notification } from '../../../packages';
+import { Button, Notification } from '../../../packages';
 
 function Demo() {
   const openNotification = () => {
-    notification.open({
+    Notification.open({
       message: 'Notification Title',
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
@@ -13,7 +13,7 @@ function Demo() {
       onClose: () => {
         console.log('Notification Closed!');
       },
-      icon: <i className="m-icon-cry" style={{ color: '#108ee9' }}></i>,
+      icon: <i className="m-icon-cry" style={{ color: '#108ee9' }} />,
     });
   };
   return (

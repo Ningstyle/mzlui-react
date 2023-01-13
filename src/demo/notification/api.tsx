@@ -122,34 +122,91 @@ function Api() {
       default: '-',
     },
   ];
+
+  const globalDataSource: any = [
+    {
+      arguments: 'placement',
+      description: '弹出位置',
+      type: <span style={{ color: '#c41d7f' }}>string</span>,
+      optional: (
+        <span style={{ color: '#1890ff' }}>
+          topLeft | topRight | bottomLeft | bottomRight
+        </span>
+      ),
+      default: 'topLeft',
+    },
+    {
+      arguments: 'duration',
+      description: '默认 4.5 秒后自动关闭，配置为 0 或 null 则不自动关闭',
+      type: <span style={{ color: '#c41d7f' }}>number | null</span>,
+      optional: '-',
+      default: '4.5',
+    },
+    {
+      arguments: 'bottom',
+      description: '消息从底部弹出时，距离底部的位置，单位像素',
+      type: <span style={{ color: '#c41d7f' }}>number</span>,
+      optional: '-',
+      default: '24',
+    },
+    {
+      arguments: 'top',
+      description: '消息从顶部弹出时，距离顶部的位置，单位像素',
+      type: <span style={{ color: '#c41d7f' }}>number</span>,
+      optional: '-',
+      default: '24',
+    },
+    {
+      arguments: 'closeIcon',
+      description: '自定义关闭图标',
+      type: <span style={{ color: '#c41d7f' }}>ReactNode</span>,
+      optional: '-',
+      default: '-',
+    },
+  ];
   const typeList = ['success', 'error', 'info', 'warning', 'open'];
+  const liStyle = { listStyle: 'circle', margin: '12px 0' };
+  const codeStyle = {
+    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+    border: '1px solid rgba(5, 5, 5, 0.06)',
+    borderRadius: '3px',
+    padding: '0.2em 0.4em',
+    fontSize: '10px',
+  };
+  const code =
+    "notification.config({\n placement: 'bottomRight',\n bottom: 50,\n duration: 3,\n})";
   return (
     <div style={{ width: '80%' }}>
       <p className="packagesSubTitle">API 说明</p>
       <ul>
         {typeList.map((item) => (
-          <li
-            style={{
-              listStyle: 'circle',
-              margin: '12px 0',
-            }}
-          >
-            <code
-              style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                border: '1px solid rgba(5, 5, 5, 0.06)',
-                borderRadius: '3px',
-                padding: '0.2em 0.4em',
-                fontSize: '10px',
-              }}
-            >
-              notification.{item}(config)
-            </code>
+          <li style={{ ...liStyle }} key={item}>
+            <code style={{ ...codeStyle }}>notification.{item}(config)</code>
           </li>
         ))}
       </ul>
       <p>config 参数如下：</p>
       <Table columns={columns} dataSource={dataSource} size="middle" border />
+      <p>还提供了一个全局配置方法，在调用前提前配置，全局一次生效。</p>
+      <ul>
+        <li style={{ ...liStyle }}>
+          <code style={{ ...codeStyle }}>notification.config(options)</code>
+        </li>
+      </ul>
+      <pre style={{ marginBottom: '20px' }}>
+        <code
+          className="language-javascript"
+          style={{ backgroundColor: 'rgb(250,250,250)' }}
+        >
+          {code}
+        </code>
+      </pre>
+      <Table
+        columns={columns}
+        dataSource={globalDataSource}
+        size="middle"
+        border
+      />
     </div>
   );
 }

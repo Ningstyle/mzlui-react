@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, notification, Space } from '../../../packages';
+import { Button, Notification, Space } from '../../../packages';
 
 function Demo() {
   const openNotification = () => {
-    notification.open({
+    Notification.open({
       message: 'Notification Title',
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
@@ -18,8 +18,9 @@ function Demo() {
           <Button
             type="link"
             size="small"
-            onClick={() => {
-              console.log('destroy');
+            onClick={(e) => {
+              e.stopPropagation();
+              console.log('destroy all');
             }}
           >
             Destroy All
@@ -28,7 +29,7 @@ function Demo() {
             type="primary"
             size="small"
             onClick={() => {
-              console.log('destroy');
+              console.log('Confirm');
             }}
           >
             Confirm

@@ -2,8 +2,9 @@ import React from 'react';
 import { Button, Notification } from '../../../packages';
 
 function Demo() {
+  const [api, contextHolder] = Notification.useNotification();
   const openNotification = () => {
-    Notification.open({
+    api.info({
       message: 'Notification Title',
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
@@ -16,9 +17,12 @@ function Demo() {
     });
   };
   return (
-    <Button type="primary" onClick={openNotification}>
-      Open the notification box
-    </Button>
+    <>
+      <div>{contextHolder}</div>
+      <Button type="primary" onClick={openNotification}>
+        Open the notification box
+      </Button>
+    </>
   );
 }
 

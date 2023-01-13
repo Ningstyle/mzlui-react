@@ -5,13 +5,15 @@
 import React from 'react';
 import Title from '../../components/title';
 import InstanceView from '../../layout/instanceView';
+import Demo0 from '../../demo/notification/demo0';
 import Demo1 from '../../demo/notification/demo1';
 import Demo2 from '../../demo/notification/demo2';
 import Demo3 from '../../demo/notification/demo3';
 import Demo4 from '../../demo/notification/demo4';
 import Demo5 from '../../demo/notification/demo5';
 import Demo6 from '../../demo/notification/demo6';
-import Demo7 from '../../demo/notification/Demo7';
+import Demo7 from '../../demo/notification/demo7';
+// import Demo8 from '../../demo/notification/demo8'; 打开可开启全局配置，为不影响其他demo，故隐藏
 import Api from '../../demo/notification/api';
 
 export default function NotificationPage() {
@@ -21,6 +23,13 @@ export default function NotificationPage() {
         title="Notification"
         notes="通知提醒框"
         desc="全局展示通知提醒信息。"
+      />
+      <InstanceView
+        subtitle="Hooks调用"
+        subnotes=""
+        demo={<Demo0 />}
+        subdesc=""
+        path="notification/demo0"
       />
       <InstanceView
         subtitle="基本使用"
@@ -71,6 +80,13 @@ export default function NotificationPage() {
         subdesc="使用 style 和 className 来定义样式。"
         path="notification/demo7"
       />
+      {/* <InstanceView
+        subtitle="全局配置"
+        subnotes=""
+        demo={<Demo8 />}
+        subdesc="在调用前提前配置，全局一次生效"
+        path="notification/demo8"
+      /> */}
       <Api />
     </>
   );

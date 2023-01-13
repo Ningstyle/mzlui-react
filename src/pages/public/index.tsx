@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import RouterPages from '../../router/pages/page';
 import Menu from '../../components/menu';
-import '../../styles/custom.scss'
-import { Backtop } from '../../../packages';
+import '../../styles/custom.scss';
+import { Backtop, Notification } from '../../../packages';
 
 // 二级路由
 export default function Index() {
@@ -16,7 +16,7 @@ export default function Index() {
   const [menuIndex, setMenuIndex] = useState<any>(
     sessionStorage.getItem('menuIndex')
       ? sessionStorage.getItem('menuIndex')
-      : '0-0' || '0-0',
+      : '0-0' || '0-0'
   );
   useEffect(() => {
     // 遍历menuList排除group===undefined的其他group相同的数据分组，放在同一个数组
@@ -35,8 +35,8 @@ export default function Index() {
       });
       setTimeout(() => {
         setMenuData(arr);
-      }, 150)
-    }, 250)
+      }, 150);
+    }, 250);
   }, [menuList]);
   const handlerClick = (item: object, v: any, index: any) => {
     setMenuIndex(index);
@@ -44,9 +44,24 @@ export default function Index() {
     sessionStorage.setItem('menuIndex', index);
   };
   useEffect(() => {
-    setMenuIndex(sessionStorage.getItem('menuIndex') ? sessionStorage.getItem('menuIndex') : '0-0');
+    setMenuIndex(
+      sessionStorage.getItem('menuIndex')
+        ? sessionStorage.getItem('menuIndex')
+        : '0-0'
+    );
     (contentRef.current as HTMLDivElement).scrollTop = 0;
-  }, [location.pathname])
+  }, [location.pathname]);
+
+  useEffect(() => {
+    // 全局配置notification
+    // Notification.config({
+    //   bottom: 100,
+    //   top: 300,
+    //   duration: 4.5,
+    //   placement: 'topRight',
+    //   closeIcon: <i className="m-icon-success-filling" />,
+    // });
+  }, []);
   return (
     <div className="layoutBox">
       <div className="menuBox">
@@ -56,29 +71,33 @@ export default function Index() {
         <div className="leftMenuBox">
           {menuData && menuData.length
             ? menuData.map((item: any, index: number) => (
-              <div key={index} className="groupItemBox">
-                <p>{item.group}</p>
-                <div className="menuItem">
-                  {item.children.length
-                    ? item.children.map((v: any, i: number) => (
-                      <li
-                        key={i}
-                        className={menuIndex === `${index}-${i}` ? 'active' : ''}
-                        onClick={() => handlerClick(item, v, `${index}-${i}`)}
-                      >
-                        {v.name}
-                      </li>
-                    ))
-                    : null}
+                <div key={index} className="groupItemBox">
+                  <p>{item.group}</p>
+                  <div className="menuItem">
+                    {item.children.length
+                      ? item.children.map((v: any, i: number) => (
+                          <li
+                            key={i}
+                            className={
+                              menuIndex === `${index}-${i}` ? 'active' : ''
+                            }
+                            onClick={() =>
+                              handlerClick(item, v, `${index}-${i}`)
+                            }
+                          >
+                            {v.name}
+                          </li>
+                        ))
+                      : null}
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
             : null}
         </div>
         <div className="contentBox" ref={contentRef}>
-          {
-            location.pathname !== '/docs/react/backtop' ? <Backtop target=".contentBox" /> : null
-          }
+          {location.pathname !== '/docs/react/backtop' ? (
+            <Backtop target=".contentBox" />
+          ) : null}
 
           <Routes>
             {routerPage.map((item: any, index: number) => (

@@ -43,3 +43,21 @@ export const getRouter = () => {
   })
   return router
 }
+// 获取body偏移量
+export const getElOffSet = (curEle) => {
+  let totalLeft = null;
+  let totalTop = null;
+  let par = curEle.offsetParent;
+  totalLeft += curEle.offsetLeft;
+  totalTop += curEle.offsetTop;
+  while (par) {
+    if (navigator.userAgent.indexOf("MSIE 8.0") === -1) {
+      totalTop += par.clientTop;
+      totalLeft += par.clientLeft;
+    }
+    totalTop += par.offsetTop;
+    totalLeft += par.offsetLeft;
+    par = par.offsetParent;
+  }
+  return { left: totalLeft, top: totalTop };
+}
