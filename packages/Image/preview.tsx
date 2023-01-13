@@ -72,7 +72,7 @@ export default function Preview(props: PreviewProps): JSX.Element {
     })
   };
   // 监测鼠标滚轮事件进行放大缩小
-  const handlerWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+  const handlerWheel = (e: any) => {
     if (e.deltaY > 0) {
       scalesmall()
     } else {
