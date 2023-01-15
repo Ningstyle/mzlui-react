@@ -8,6 +8,7 @@ import InstanceView from '../../layout/instanceView';
 import Demo1 from '../../demo/image/demo1';
 import Demo2 from '../../demo/image/demo2';
 import Demo3 from '../../demo/image/demo3';
+import Api from '../../demo/image/api';
 
 export default function DemoPage() {
   return (
@@ -34,6 +35,7 @@ export default function DemoPage() {
         subdesc="设置previewList数组即可实现多图预览"
         path="image/demo3"
       />
+      <Api />
     </div>
   );
 }
