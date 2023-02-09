@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import './style.scss';
 
 export interface SwiperProps {
@@ -29,8 +29,6 @@ const Swiper: React.FC<SwiperProps> = (props) => {
   } = props;
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-  const [timer, setTimer] = useState<number>();
 
   const childrenLength = React.Children.count(children);
   function swiperItemRender() {
@@ -78,14 +76,6 @@ const Swiper: React.FC<SwiperProps> = (props) => {
     );
   }
 
-  function next() {
-    if (currentIndex > childrenLength - 2) {
-      setCurrentIndex(0);
-    } else {
-      setCurrentIndex(currentIndex + 1);
-    }
-  }
-
   function prev() {
     if (currentIndex <= 0) {
       setCurrentIndex(childrenLength - 1);
@@ -94,30 +84,30 @@ const Swiper: React.FC<SwiperProps> = (props) => {
     }
   }
 
-  // TODO autoplay
-  function autoPlay() {
-    if (autoplay) {
-      Array(React.Children.count(children))
-        .fill(0)
-        .forEach(() => {
-          return new Promise((resolve) => {
-            const timerId = setTimeout(() => {
-              next();
-            }, duration);
-            setTimer(timerId);
-            resolve(true);
-          });
-        });
+  const next = useCallback(() => {
+    if (currentIndex > childrenLength - 2) {
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex(currentIndex + 1);
     }
-  }
+  }, [currentIndex, childrenLength]);
 
-  useEffect(() => {
-    // autoPlay();  // error
+  const autoPlay = useCallback(() => {
+    const timer = setTimeout(() => {
+      next();
+      autoPlay();
+    }, duration);
 
     return () => {
       if (autoplay) clearTimeout(timer);
     };
-  }, [timer, currentIndex, autoplay]);
+  }, [duration, next, autoplay]);
+
+  useEffect(() => {
+    if (autoplay) {
+      autoPlay();
+    }
+  }, [autoplay, autoPlay]);
 
   return (
     <div className="mzl_swiper" style={{ height }}>

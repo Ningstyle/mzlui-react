@@ -13,7 +13,7 @@ export default function Demo() {
   return (
     <Space>
       <p>自动轮播</p>
-      <Swiper dotType="dot" autoplay duration={1000}>
+      <Swiper dotType="dot" autoplay duration={3000}>
         <div style={style}>1</div>
         <div style={style}>2</div>
         <div style={style}>3</div>
