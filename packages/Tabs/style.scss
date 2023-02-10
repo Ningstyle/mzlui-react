@@ -1,0 +1,62 @@
+.mzl_tabs_nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    //下划线 1px solid #dee2e6;
+    border-bottom: $tabs-border-width solid $tabs-border-color;
+}
+
+.mzl_tabs_nav_item {
+    display: block;
+    padding: $tabs-link-padding-y $tabs-link-padding-x;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        color: $tabs-link-hover-color;
+    }
+
+    &.disabled {
+        color: $tabs-link-disabled-color;
+        background-color: transparent;
+        border-color: transparent;
+        cursor: default;
+        // pointer-events: none;
+    }
+
+    &.disabled:hover {
+        cursor: not-allowed;
+    }
+
+    &.is_active {
+        color: $tabs-link-active-color;
+    }
+}
+
+.nav_line {
+    .mzl_tabs_nav_item {
+        &.is_active {
+            border-bottom: $tabs-border-width * 2 solid $tabs-link-active-color;
+        }
+    }
+}
+
+.nav_card {
+    .mzl_tabs_nav_item {
+        margin-bottom: -$tabs-border-width;
+        border: $tabs-border-width solid transparent;
+
+        &.is_active {
+            border-top-left-radius: $tabs-border-radius;
+            border-top-right-radius: $tabs-border-radius;
+            background-color: $tabs-link-active-bg;
+            border-color: $tabs-link-active-border-color;
+        }
+    }
+}
+
+.mzl_tabs_content {
+    margin-top: $tabs-content-margin;
+}
