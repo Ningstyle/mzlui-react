@@ -233,4 +233,14 @@ export const updateLog = [
       },
     ],
   },
+  {
+    version: '0.1.8',
+    time: '2023-01-13',
+    log: [
+      {
+        title: '新增',
+        content: ['新增 Image 图片组件', '新增 Mask 遮罩组件'],
+      },
+    ],
+  },
 ];

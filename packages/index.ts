@@ -19,4 +19,6 @@ export { default as Empty } from './Empty';
 export { default as Tag } from './Tag';
 export { default as Popover } from './Popover';
 export { default as Notification } from './Notification';
+export { default as Mask } from './Mask';
+export { default as Tabs } from './Tabs';
 export { default as Swiper } from './Swiper';
