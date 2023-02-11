@@ -1,7 +1,7 @@
 import React, { FC, FunctionComponentElement, MouseEvent, useState } from 'react';
 import classNames from 'classnames';
-import TabsItem from './TabsItem';
-import { TabsItemProps } from './TabsItem';
+import TabsItem, { TabsItemProps } from './tabsItem';
+
 import './style.scss';
 
 /** 卡片和线 */
