@@ -14,7 +14,7 @@ export interface TextAreaProps {
 
 
 }
-export default function TextArea(props: TextAreaProps) {
+ function TextArea(props: TextAreaProps) {
     const [value, setValue] = useState('')
 
     const { cols, rows = 10, style, resize, placeholder, autoFocus, position, onTextAreaInput } = props
@@ -65,3 +65,5 @@ TextArea.defaultProps = {
     position: 'middle',
     onTextAreaInput: () => { }
 }
+
+export default React.memo(TextArea)

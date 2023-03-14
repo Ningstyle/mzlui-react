@@ -1,7 +1,4 @@
-import React from 'react';
+import TextArea from "./TextArea"
 
-export default function Appname(){
- return (
- <div>content</div>
-   )
-}
+export type {TextAreaProps} from './TextArea'
+export default TextArea
