@@ -12,7 +12,7 @@ import Demo4 from '../../demo/textarea/demo4';
 import Api from '../../demo/textarea/api';
 
 
-export default function TextareaPage() {
+export default function TextAreaPage() {
   return (
     <div>
        <Title title="TextArea" notes="多行文本" desc="可容纳多行文本的输入框" />

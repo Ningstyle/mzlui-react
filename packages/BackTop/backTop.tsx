@@ -13,12 +13,13 @@ export type BackTopProps = {
 export default function Backtop(props: BackTopProps): JSX.Element {
   const { style, className, target, visibilityHeight, children } = props;
   const [showBackTop, setShowBackTop] = useState(false);
-  console.log(style)
   const backTopClass = classNames({
     'mzl_back_top': true,
     [className || '']: !!className,
   });
- 
+  const backTopStyle = {
+    ...style,
+  }
   let interValTimer: any = null
   // 监测target元素的滚动条位置
   const handleScroll = () => {
@@ -76,16 +77,15 @@ export default function Backtop(props: BackTopProps): JSX.Element {
       classNames="backtop"
       unmountOnExit
     >
-      <div className={backTopClass} style={style } onClick={() => handleBackTop()}>
+      <div className={backTopClass} style={style || backTopStyle} onClick={() => handleBackTop()}>
         {children}
-      </div>
-      
+      </div>      
     </CSSTransition>
 
   );
 }
 Backtop.defaultProps = {
-  style: {},
+  style: '',
   className: '',
   visibilityHeight: 240,
   children: <i className="m-icon-top-filling" />,
