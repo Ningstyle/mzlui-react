@@ -79,7 +79,7 @@ export default function Backtop(props: BackTopProps): JSX.Element {
     >
       <div className={backTopClass} style={style || backTopStyle} onClick={() => handleBackTop()}>
         {children}
-      </div>
+      </div>      
     </CSSTransition>
 
   );

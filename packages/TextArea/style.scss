@@ -1,0 +1,6 @@
+.mzl_textarea {
+    outline: none;
+    &:focus{
+        border:1px solid $border-color-hover ;
+    }
+}
