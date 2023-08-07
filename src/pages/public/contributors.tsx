@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+import { Octokit } from "https://esm.sh/@octokit/core";
 import Title from '../../components/title';
 import SubTitle from '../../components/subtitle';
 import Wechart from '../../assets/WeChat.jpg';
